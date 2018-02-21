@@ -11,18 +11,15 @@ public class Screen extends JFrame {
 
     public Screen() {
         super("LIFE");
-        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
-        paint = new Paint(image);
-        image = paint.drawField(10,5,33);
-
-        jLabel = new JLabel(new ImageIcon(image));
-        add(jLabel);
-
-        CustomListener listeners = new CustomListener();
-        jLabel.addMouseListener(listeners);
-        jLabel.addMouseMotionListener(listeners);
-
+        setLayout(new BorderLayout());
+        getContentPane().setBackground(Color.WHITE);
         setJMenuBar(addMenu());
+        add(addToolBar(), BorderLayout.NORTH);
+
+        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
+        jLabel = new JLabel(new ImageIcon(image));
+        add(jLabel, BorderLayout.CENTER);
+
         pack();
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -76,8 +73,8 @@ public class Screen extends JFrame {
         dialog.setLocationRelativeTo(this);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,2));
-        JPanel panelOne = new JPanel(new GridLayout(4,1));
-        JPanel panelTwo = new JPanel(new GridLayout(4,1));
+        JPanel panelOne = new JPanel(new GridLayout(5,1));
+        JPanel panelTwo = new JPanel(new GridLayout(5,1));
         /*-------------------------------------------------------------*/
         JLabel labelOne = new JLabel("Ширина", SwingConstants.CENTER);
         JTextField widthField = new JTextField();
@@ -94,6 +91,11 @@ public class Screen extends JFrame {
         panelOne.add(labelThree);
         panelTwo.add(radiusField);
         /*-------------------------------------------------------------*/
+        JLabel labelFour = new JLabel("Толщина",SwingConstants.CENTER);
+        JTextField fatField = new JTextField();
+        panelOne.add(labelFour);
+        panelTwo.add(fatField);
+        /*-------------------------------------------------------------*/
         JButton button = new JButton("Accept");
         panelOne.add(button);
 
@@ -106,16 +108,17 @@ public class Screen extends JFrame {
             int height = Integer.parseInt(heightField.getText());
             int width = Integer.parseInt(widthField.getText());
             int radius = Integer.parseInt(radiusField.getText());
+            int fat = Integer.parseInt(fatField.getText());
 
             remove(jLabel);
             repaint();
 
             image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
             paint = new Paint(image);
-            image = paint.drawField(width,height,radius);
+            image = paint.drawField(width,height,radius,fat);
 
             jLabel = new JLabel(new ImageIcon(image));
-            add(jLabel);
+            add(jLabel,BorderLayout.CENTER);
 
             CustomListener listeners = new CustomListener();
             jLabel.addMouseListener(listeners);
@@ -156,14 +159,48 @@ public class Screen extends JFrame {
         dialog.setVisible(true);
     }
 
+    private JToolBar addToolBar(){
+        JToolBar jToolBar = new JToolBar();
+        jToolBar.setFloatable(false);
+        /*-------------------------------------------------------------*/
+        JButton jButtonNew = new JButton();
+        jButtonNew.setIcon(new ImageIcon("src/Icons/new32.png"));
+        jButtonNew.setToolTipText("New");
+        /*-------------------------------------------------------------*/
+        JButton jButtonStart = new JButton();
+        jButtonStart.setIcon(new ImageIcon("src/Icons/start32.png"));
+        jButtonStart.setToolTipText("Start");
+        /*-------------------------------------------------------------*/
+        JButton jButtonNext = new JButton();
+        jButtonNext.setIcon(new ImageIcon("src/Icons/next32.png"));
+        jButtonNext.setToolTipText("Next");
+        /*-------------------------------------------------------------*/
+        JButton jButtonExit = new JButton();
+        jButtonExit.setIcon(new ImageIcon("src/Icons/exit32.png"));
+        jButtonExit.setToolTipText("Exit");
+        /*-------------------------------------------------------------*/
+        jToolBar.add(jButtonNew);
+        jToolBar.add(jButtonStart);
+        jToolBar.add(jButtonNext);
+        jToolBar.add(jButtonExit);
+        /*-------------------------------------------------------------*/
+        jButtonExit.addActionListener(e -> System.exit(0));
+        jButtonNew.addActionListener(e -> newDialog());
+
+        return jToolBar;
+    }
+
     public class CustomListener extends MouseAdapter{
         @Override
         public void mouseClicked(MouseEvent e) {
             int x = e.getX();
             int y = e.getY();
-            Color color = Color.RED;
-            image =  paint.fillHexagon(x,y,color);
-            repaint();
+            Color color = image.getRGB(x,y) == Color.RED.getRGB() ? Color.WHITE : Color.RED;
+
+            try{
+                image =  paint.fillHexagon(x,y,color);
+                repaint();
+            }catch (ArrayIndexOutOfBoundsException exception){}
         }
 
         @Override
@@ -171,8 +208,11 @@ public class Screen extends JFrame {
             int x = e.getX();
             int y = e.getY();
             Color color = Color.RED;
-            image = paint.fillHexagon(x,y,color);
-            repaint();
+
+            try{
+                image =  paint.fillHexagon(x,y,color);
+                repaint();
+            }catch (ArrayIndexOutOfBoundsException exception){}
         }
     }
 

@@ -16,30 +16,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
+            <state relative-caret-position="220">
+              <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Screen#0;class#Screen#0" expanded="false" />
                 <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-                <element signature="e#4003#4715#0" expanded="false" />
+                <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+                <element signature="e#4194#4990#0" expanded="false" />
+                <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+                <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
                 <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Paint.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Paint.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Paint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+                <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawField#0;class#Paint#0" expanded="false" />
                 <element signature="class#Span#0;class#Paint#0" expanded="false" />
                 <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -446,8 +451,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17547569" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -457,8 +462,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -472,7 +477,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -489,307 +494,10 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding>
-            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
-            <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
-            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding>
-            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
-            <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
-            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding>
-            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
-            <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
-            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding>
-            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
-            <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
-            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
-          <folding>
-            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
-            <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
-            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
-          <folding>
-            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
-            <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
-            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -843,13 +551,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Paint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -860,14 +587,456 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Screen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="e#4003#4715#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Life.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/event/MouseEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3182">
+          <caret line="787" column="15" lean-forward="false" selection-start-line="787" selection-start-column="15" selection-end-line="787" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37686">
+          <caret line="312" column="13" lean-forward="false" selection-start-line="312" selection-start-column="13" selection-end-line="312" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g15203/gusev/InitMainWindow.java" />
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g15203/gusev/FileUtils.java" />
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g15203/gusev/ExtensionFileFilter.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Graphics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="394" column="25" lean-forward="false" selection-start-line="394" selection-start-column="25" selection-end-line="394" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="2225" column="21" lean-forward="false" selection-start-line="2225" selection-start-column="21" selection-end-line="2225" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g15203/gusev/MainFrame.java" />
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g15203/gusev/InitView.java" />
+    <entry file="file://$PROJECT_DIR$/src/Frame.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
+            <element signature="method#drawField#0;class#Paint#0" expanded="false" />
+            <element signature="class#Span#0;class#Paint#0" expanded="false" />
+            <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,9 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Stack;
 
-public class Paint extends JPanel{
+public class Paint{
     private BufferedImage image;
 
     public Paint(BufferedImage img){
@@ -81,31 +80,45 @@ public class Paint extends JPanel{
         drawBresenhamLine(xArr[0], yArr[0], xArr[5], yArr[5]);
     }
 
-    public BufferedImage drawField(int m, int n, int r){
-        int mc = m;
-//        int centrX = (int)Math.round(Math.sqrt(3)/2*r)+10;
-//        int centrY = r;
-//
-//        int deltaX = (int)Math.round(Math.sqrt(3)*r);
-//        int deltaX2 = (int)Math.round(Math.sqrt(3)/2*r);
-//        int deltaY = (int)Math.round(3*r/2);
+    public void drawHexagon2(int x, int y, int r, int t) {
+        int xArr[] = new int[6];
+        int yArr[] = new int[6];
 
-        int centrX = (int)Math.ceil(Math.sqrt(3)/2*r)+10;
-        int centrY = r;
+        xArr[0] = x;
+        xArr[1] = x + r;
+        xArr[2] = x + r;
+        xArr[3] = x;
+        xArr[4] = x - r;
+        xArr[5] = x - r;
+
+        yArr[0] = y - r;
+        yArr[1] = y - r/2;
+        yArr[2] = y + r/2;
+        yArr[3] = y + r;
+        yArr[4] = y + r/2;
+        yArr[5] = y - r/2;
+
+        Graphics2D g = image.createGraphics();
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(t));
+        g.drawPolygon(xArr,yArr,6);
+        g.dispose();
+    }
+
+    public BufferedImage drawField(int m, int n, int r, int t){
+        int mc = m;
+        int centrX = (int)Math.ceil(Math.sqrt(3)/2*r) + t + 5;
+        int centrY = r + t;
 
         int deltaX = 2*r;
         int deltaX2 = r;
         int deltaY = Math.round(3*r/2);
 
         for (int i=0;i<n;i++){
-            if(i%2 == 0){
-                mc = m;
-            } else {
-                mc = m-1;
-            }
+            mc = i%2 == 0 ? m : m-1;
 
             for(int j=0;j<mc;j++){
-                drawHexagon(centrX,centrY,r);
+                drawHexagon2(centrX,centrY,r,t);
                 if(i%2 == 0 && j != mc -1){
                     centrX += deltaX;
                 }
@@ -156,6 +169,26 @@ public class Paint extends JPanel{
     }
 
     public BufferedImage fillHexagon(int x, int y, Color c){
+        Boolean correctDown = false;
+        Boolean correctUp = false;
+        int tmp = y;
+        while (tmp != image.getHeight()){
+            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
+                correctDown = true;
+                break;
+            }
+            tmp++;
+        }
+        tmp = y;
+        while (tmp != 0){
+            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
+                correctUp = true;
+                break;
+            }
+            tmp--;
+        }
+        if(!correctDown || !correctUp){return image;}
+
         Boolean lockUp;
         Boolean lockDown;
         Stack<Span> stack = new Stack<>();
