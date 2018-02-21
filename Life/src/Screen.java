@@ -7,10 +7,10 @@ public class Screen extends JFrame {
     private BufferedImage image;
     private Paint paint;
     private JLabel jLabel;
-    private int width;
-    private int height;
-    private int radius;
-    private int fat;
+    private Integer width = null;
+    private Integer height = null;
+    private Integer radius = null;
+    private Integer fat = null;
 
     public Screen() {
         super("LIFE");
@@ -112,21 +112,7 @@ public class Screen extends JFrame {
             width = Integer.parseInt(widthField.getText());
             radius = Integer.parseInt(radiusField.getText());
             fat = Integer.parseInt(fatField.getText());
-
-            remove(jLabel);
-            repaint();
-
-            image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
-            paint = new Paint(image);
-            image = paint.drawField(width,height,radius,fat);
-
-            jLabel = new JLabel(new ImageIcon(image));
-            add(jLabel,BorderLayout.CENTER);
-
-            CustomListener listeners = new CustomListener();
-            jLabel.addMouseListener(listeners);
-            jLabel.addMouseMotionListener(listeners);
-            revalidate();
+            updateImage();
         });
     }
 
@@ -200,22 +186,7 @@ public class Screen extends JFrame {
         jButtonExit.addActionListener(e -> System.exit(0));
         jButtonNew.addActionListener(e -> newDialog());
         jButtonSettings.addActionListener(e -> settingsDialog());
-        jButtonClear.addActionListener(e -> {
-            remove(jLabel);
-            repaint();
-
-            image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
-            paint = new Paint(image);
-            image = paint.drawField(width,height,radius,fat);
-
-            jLabel = new JLabel(new ImageIcon(image));
-            add(jLabel,BorderLayout.CENTER);
-
-            CustomListener listeners = new CustomListener();
-            jLabel.addMouseListener(listeners);
-            jLabel.addMouseMotionListener(listeners);
-            revalidate();
-        });
+        jButtonClear.addActionListener(e -> updateImage());
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -235,6 +206,10 @@ public class Screen extends JFrame {
         JLabel labelOne = new JLabel("Ширина", SwingConstants.CENTER);
         JTextField widthField = new JTextField();
         JSlider jSliderWidth = new JSlider(JSlider.HORIZONTAL,1,20,1);
+        if(width != null){
+            widthField.setText(width.toString());
+            jSliderWidth.setValue(width);
+        }
         panelOne.add(labelOne);
         panelTwo.add(jSliderWidth);
         panelThree.add(widthField);
@@ -242,6 +217,10 @@ public class Screen extends JFrame {
         JLabel labelTwo = new JLabel("Высота", SwingConstants.CENTER);
         JTextField heightField = new JTextField();
         JSlider jSliderHeight = new JSlider(JSlider.HORIZONTAL,1,20,1);
+        if(height != null){
+            heightField.setText(height.toString());
+            jSliderHeight.setValue(height);
+        }
         panelOne.add(labelTwo);
         panelTwo.add(jSliderHeight);
         panelThree.add(heightField);
@@ -249,6 +228,10 @@ public class Screen extends JFrame {
         JLabel labelThree = new JLabel("Радиус", SwingConstants.CENTER);
         JTextField radiusField = new JTextField();
         JSlider jSliderRadius = new JSlider(JSlider.HORIZONTAL,1,40,10);
+        if(radius != null){
+            radiusField.setText(radius.toString());
+            jSliderRadius.setValue(radius);
+        }
         panelOne.add(labelThree);
         panelTwo.add(jSliderRadius);
         panelThree.add(radiusField);
@@ -256,6 +239,10 @@ public class Screen extends JFrame {
         JLabel labelFour = new JLabel("Толщина", SwingConstants.CENTER);
         JTextField fatField = new JTextField();
         JSlider jSliderFat = new JSlider(JSlider.HORIZONTAL,1,10,1);
+        if(fat != null){
+            fatField.setText(fat.toString());
+            jSliderFat.setValue(fat);
+        }
         panelOne.add(labelFour);
         panelTwo.add(jSliderFat);
         panelThree.add(fatField);
@@ -265,10 +252,34 @@ public class Screen extends JFrame {
         mainPanel.add(panelThree);
         dialog.add(mainPanel);
         /*-------------------------------------------------------------*/
-        jSliderWidth.addChangeListener(e -> widthField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
-        jSliderHeight.addChangeListener(e -> heightField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
-        jSliderRadius.addChangeListener(e -> radiusField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
-        jSliderFat.addChangeListener(e -> fatField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
+        jSliderWidth.addChangeListener(e -> {
+            if(width != null && height != null && radius != null && fat != null){
+                widthField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+                width = Integer.parseInt(widthField.getText());
+                updateImage();
+            }
+        });
+        jSliderHeight.addChangeListener(e -> {
+            if(width != null && height != null && radius != null && fat != null){
+                heightField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+                height = Integer.parseInt(heightField.getText());
+                updateImage();
+            }
+        });
+        jSliderRadius.addChangeListener(e -> {
+            if(width != null && height != null && radius != null && fat != null){
+                radiusField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+                radius = Integer.parseInt(radiusField.getText());
+                updateImage();
+            }
+        });
+        jSliderFat.addChangeListener(e -> {
+            if(width != null && height != null && radius != null && fat != null){
+                fatField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+                fat = Integer.parseInt(fatField.getText());
+                updateImage();
+            }
+        });
         /*-------------------------------------------------------------*/
         widthField.addKeyListener(new KeyAdapter() {
             @Override
@@ -299,6 +310,23 @@ public class Screen extends JFrame {
         });
         /*-------------------------------------------------------------*/
         dialog.setVisible(true);
+    }
+
+    private void updateImage(){
+        remove(jLabel);
+        repaint();
+
+        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
+        paint = new Paint(image);
+        image = paint.drawField(width,height,radius,fat);
+
+        jLabel = new JLabel(new ImageIcon(image));
+        add(jLabel,BorderLayout.CENTER);
+
+        CustomListener listeners = new CustomListener();
+        jLabel.addMouseListener(listeners);
+        jLabel.addMouseMotionListener(listeners);
+        revalidate();
     }
 
     public class CustomListener extends MouseAdapter{
