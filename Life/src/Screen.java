@@ -1,13 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 public class Screen extends JFrame {
     private BufferedImage image;
     private Paint paint;
     private JLabel jLabel;
+    private int width;
+    private int height;
+    private int radius;
+    private int fat;
 
     public Screen() {
         super("LIFE");
@@ -105,10 +108,10 @@ public class Screen extends JFrame {
         dialog.setVisible(true);
 
         button.addActionListener(e -> {
-            int height = Integer.parseInt(heightField.getText());
-            int width = Integer.parseInt(widthField.getText());
-            int radius = Integer.parseInt(radiusField.getText());
-            int fat = Integer.parseInt(fatField.getText());
+            height = Integer.parseInt(heightField.getText());
+            width = Integer.parseInt(widthField.getText());
+            radius = Integer.parseInt(radiusField.getText());
+            fat = Integer.parseInt(fatField.getText());
 
             remove(jLabel);
             repaint();
@@ -167,6 +170,14 @@ public class Screen extends JFrame {
         jButtonNew.setIcon(new ImageIcon("src/Icons/new32.png"));
         jButtonNew.setToolTipText("New");
         /*-------------------------------------------------------------*/
+        JButton jButtonClear = new JButton();
+        jButtonClear.setIcon(new ImageIcon("src/Icons/clear32.png"));
+        jButtonClear.setToolTipText("Clear");
+         /*-------------------------------------------------------------*/
+        JButton jButtonSettings = new JButton();
+        jButtonSettings.setIcon(new ImageIcon("src/Icons/settings32.png"));
+        jButtonSettings.setToolTipText("Settings");
+        /*-------------------------------------------------------------*/
         JButton jButtonStart = new JButton();
         jButtonStart.setIcon(new ImageIcon("src/Icons/start32.png"));
         jButtonStart.setToolTipText("Start");
@@ -180,14 +191,114 @@ public class Screen extends JFrame {
         jButtonExit.setToolTipText("Exit");
         /*-------------------------------------------------------------*/
         jToolBar.add(jButtonNew);
+        jToolBar.add(jButtonClear);
         jToolBar.add(jButtonStart);
         jToolBar.add(jButtonNext);
+        jToolBar.add(jButtonSettings);
         jToolBar.add(jButtonExit);
         /*-------------------------------------------------------------*/
         jButtonExit.addActionListener(e -> System.exit(0));
         jButtonNew.addActionListener(e -> newDialog());
+        jButtonSettings.addActionListener(e -> settingsDialog());
+        jButtonClear.addActionListener(e -> {
+            remove(jLabel);
+            repaint();
 
+            image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
+            paint = new Paint(image);
+            image = paint.drawField(width,height,radius,fat);
+
+            jLabel = new JLabel(new ImageIcon(image));
+            add(jLabel,BorderLayout.CENTER);
+
+            CustomListener listeners = new CustomListener();
+            jLabel.addMouseListener(listeners);
+            jLabel.addMouseMotionListener(listeners);
+            revalidate();
+        });
+        /*-------------------------------------------------------------*/
         return jToolBar;
+    }
+
+    private void settingsDialog(){
+        JFrame dialog = new JFrame("Settings");
+        dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog.setSize(300,200);
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(this);
+        /*-------------------------------------------------------------*/
+        JPanel mainPanel = new JPanel(new GridLayout(1,3));
+        JPanel panelOne = new JPanel(new GridLayout(4,1));
+        JPanel panelTwo = new JPanel(new GridLayout(4,1));
+        JPanel panelThree = new JPanel(new GridLayout(4,1));
+        /*-------------------------------------------------------------*/
+        JLabel labelOne = new JLabel("Ширина", SwingConstants.CENTER);
+        JTextField widthField = new JTextField();
+        JSlider jSliderWidth = new JSlider(JSlider.HORIZONTAL,1,20,1);
+        panelOne.add(labelOne);
+        panelTwo.add(jSliderWidth);
+        panelThree.add(widthField);
+        /*-------------------------------------------------------------*/
+        JLabel labelTwo = new JLabel("Высота", SwingConstants.CENTER);
+        JTextField heightField = new JTextField();
+        JSlider jSliderHeight = new JSlider(JSlider.HORIZONTAL,1,20,1);
+        panelOne.add(labelTwo);
+        panelTwo.add(jSliderHeight);
+        panelThree.add(heightField);
+        /*-------------------------------------------------------------*/
+        JLabel labelThree = new JLabel("Радиус", SwingConstants.CENTER);
+        JTextField radiusField = new JTextField();
+        JSlider jSliderRadius = new JSlider(JSlider.HORIZONTAL,1,40,10);
+        panelOne.add(labelThree);
+        panelTwo.add(jSliderRadius);
+        panelThree.add(radiusField);
+        /*-------------------------------------------------------------*/
+        JLabel labelFour = new JLabel("Толщина", SwingConstants.CENTER);
+        JTextField fatField = new JTextField();
+        JSlider jSliderFat = new JSlider(JSlider.HORIZONTAL,1,10,1);
+        panelOne.add(labelFour);
+        panelTwo.add(jSliderFat);
+        panelThree.add(fatField);
+        /*-------------------------------------------------------------*/
+        mainPanel.add(panelOne);
+        mainPanel.add(panelTwo);
+        mainPanel.add(panelThree);
+        dialog.add(mainPanel);
+        /*-------------------------------------------------------------*/
+        jSliderWidth.addChangeListener(e -> widthField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
+        jSliderHeight.addChangeListener(e -> heightField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
+        jSliderRadius.addChangeListener(e -> radiusField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
+        jSliderFat.addChangeListener(e -> fatField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString()));
+        /*-------------------------------------------------------------*/
+        widthField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jSliderWidth.setValue(Integer.parseInt(widthField.getText()));
+            }
+        });
+
+        heightField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jSliderHeight.setValue(Integer.parseInt(heightField.getText()));
+            }
+        });
+
+        radiusField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jSliderRadius.setValue(Integer.parseInt(radiusField.getText()));
+            }
+        });
+
+        fatField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jSliderFat.setValue(Integer.parseInt(fatField.getText()));
+            }
+        });
+        /*-------------------------------------------------------------*/
+        dialog.setVisible(true);
     }
 
     public class CustomListener extends MouseAdapter{

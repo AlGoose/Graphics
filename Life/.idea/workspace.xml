@@ -16,35 +16,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="612">
+              <caret line="164" column="33" lean-forward="false" selection-start-line="164" selection-start-column="33" selection-end-line="164" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Screen#0;class#Screen#0" expanded="false" />
                 <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-                <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-                <element signature="e#4194#4990#0" expanded="false" />
+                <element signature="e#4241#5021#0" expanded="false" />
                 <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
                 <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+                <element signature="e#8506#9045#0" expanded="false" />
+                <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+                <element signature="e#12094#12287#0" expanded="true" />
+                <element signature="e#12286#12287#0" expanded="true" />
+                <element signature="e#12326#12521#0" expanded="true" />
+                <element signature="e#12520#12521#0" expanded="true" />
+                <element signature="e#12560#12755#0" expanded="true" />
+                <element signature="e#12754#12755#0" expanded="true" />
+                <element signature="e#12791#12980#0" expanded="true" />
+                <element signature="e#12979#12980#0" expanded="true" />
                 <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Paint.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Paint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Paint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
+            <state relative-caret-position="499">
+              <caret line="98" column="26" lean-forward="true" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-                <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawField#0;class#Paint#0" expanded="false" />
                 <element signature="class#Span#0;class#Paint#0" expanded="false" />
                 <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -439,8 +447,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -451,7 +458,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17547569" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17547569" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -477,7 +484,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -486,23 +493,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
-            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
-            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Life.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -559,10 +549,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -576,7 +575,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -593,10 +591,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -610,7 +617,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -627,10 +633,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -644,7 +659,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -661,10 +675,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -678,7 +701,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -695,10 +717,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -712,7 +743,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -729,10 +759,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -746,7 +785,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -763,10 +801,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -780,7 +827,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
@@ -797,10 +843,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -814,10 +869,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -831,10 +895,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -848,10 +921,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -865,10 +947,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -882,10 +973,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -899,10 +999,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -916,10 +1025,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -933,10 +1051,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -950,10 +1077,19 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
@@ -1007,36 +1143,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/event/ChangeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4194#4990#0" expanded="false" />
-            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
-            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="360">
+          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Paint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
+        <state relative-caret-position="499">
+          <caret line="98" column="26" lean-forward="true" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
-            <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
             <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="164" column="33" lean-forward="false" selection-start-line="164" selection-start-column="33" selection-end-line="164" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="e#4241#5021#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#8506#9045#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#12094#12287#0" expanded="true" />
+            <element signature="e#12286#12287#0" expanded="true" />
+            <element signature="e#12326#12521#0" expanded="true" />
+            <element signature="e#12520#12521#0" expanded="true" />
+            <element signature="e#12560#12755#0" expanded="true" />
+            <element signature="e#12754#12755#0" expanded="true" />
+            <element signature="e#12791#12980#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
+            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
