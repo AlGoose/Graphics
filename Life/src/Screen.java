@@ -4,29 +4,47 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 public class Screen extends JFrame {
+    private Logic logic;
     private BufferedImage image;
     private Paint paint;
     private JLabel jLabel;
+    private JPanel jPanel;
     private Integer width = null;
     private Integer height = null;
     private Integer radius = null;
     private Integer fat = null;
+    private Boolean xorMode = false;
+    private Point currentPixel = new Point(-5,-5);
 
     public Screen() {
         super("LIFE");
         setLayout(new BorderLayout());
-        getContentPane().setBackground(Color.WHITE);
+        setMinimumSize(new Dimension(800,600));
         setJMenuBar(addMenu());
         add(addToolBar(), BorderLayout.NORTH);
 
-        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
-        jLabel = new JLabel(new ImageIcon(image));
-        add(jLabel, BorderLayout.CENTER);
+        jPanel = new JPanel();
+        jPanel.setBackground(Color.WHITE);
 
+        image = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
+        colorBackground(Color.WHITE);
+        jLabel = new JLabel(new ImageIcon(image));
+        jPanel.add(jLabel);
+
+        JScrollPane scrollPane = new JScrollPane(jPanel);
+        add(scrollPane, BorderLayout.CENTER);
         pack();
-        setResizable(false);
+        setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    public void colorBackground(Color c){
+        for(int i=0;i<image.getHeight();i++){
+            for(int j=0;j<image.getWidth();j++){
+                image.setRGB(j,i,c.getRGB());
+            }
+        }
     }
 
     private JMenuBar addMenu(){
@@ -64,7 +82,7 @@ public class Screen extends JFrame {
         exitItem.addActionListener(e -> System.exit(0));
         newItem.addActionListener(e -> newDialog());
         authorItem.addActionListener(e -> authorDialog());
-
+        settingsItem.addActionListener(e -> settingsDialog());
         return menuBar;
     }
 
@@ -113,6 +131,9 @@ public class Screen extends JFrame {
             radius = Integer.parseInt(radiusField.getText());
             fat = Integer.parseInt(fatField.getText());
             updateImage();
+            if(logic == null){
+                logic = new Logic(width,height,radius,fat);
+            }
         });
     }
 
@@ -154,11 +175,11 @@ public class Screen extends JFrame {
         /*-------------------------------------------------------------*/
         JButton jButtonNew = new JButton();
         jButtonNew.setIcon(new ImageIcon("src/Icons/new32.png"));
-        jButtonNew.setToolTipText("New");
+        jButtonNew.setToolTipText("New Field");
         /*-------------------------------------------------------------*/
         JButton jButtonClear = new JButton();
         jButtonClear.setIcon(new ImageIcon("src/Icons/clear32.png"));
-        jButtonClear.setToolTipText("Clear");
+        jButtonClear.setToolTipText("Clear Field");
          /*-------------------------------------------------------------*/
         JButton jButtonSettings = new JButton();
         jButtonSettings.setIcon(new ImageIcon("src/Icons/settings32.png"));
@@ -166,27 +187,64 @@ public class Screen extends JFrame {
         /*-------------------------------------------------------------*/
         JButton jButtonStart = new JButton();
         jButtonStart.setIcon(new ImageIcon("src/Icons/start32.png"));
-        jButtonStart.setToolTipText("Start");
+        jButtonStart.setToolTipText("Start/Pause Game");
+        jButtonStart.setActionCommand("PLAY");
         /*-------------------------------------------------------------*/
         JButton jButtonNext = new JButton();
         jButtonNext.setIcon(new ImageIcon("src/Icons/next32.png"));
-        jButtonNext.setToolTipText("Next");
+        jButtonNext.setToolTipText("Next Step");
         /*-------------------------------------------------------------*/
         JButton jButtonExit = new JButton();
         jButtonExit.setIcon(new ImageIcon("src/Icons/exit32.png"));
         jButtonExit.setToolTipText("Exit");
         /*-------------------------------------------------------------*/
+        JButton jButtonAuthor = new JButton();
+        jButtonAuthor.setIcon(new ImageIcon("src/Icons/author32.png"));
+        jButtonAuthor.setToolTipText("Author");
+        /*-------------------------------------------------------------*/
+        JButton jButtonSwitch = new JButton();
+        jButtonSwitch.setIcon(new ImageIcon("src/Icons/switchoff32.png"));
+        jButtonSwitch.setToolTipText("Change XOR/Replace Mode");
+        /*-------------------------------------------------------------*/
+        JButton jButtonImpact = new JButton();
+        jButtonImpact.setIcon(new ImageIcon("src/Icons/impact32.png"));
+        jButtonImpact.setToolTipText("On/Off Impact");
+        /*-------------------------------------------------------------*/
         jToolBar.add(jButtonNew);
         jToolBar.add(jButtonClear);
         jToolBar.add(jButtonStart);
         jToolBar.add(jButtonNext);
+        jToolBar.add(jButtonSwitch);
+        jToolBar.add(jButtonImpact);
         jToolBar.add(jButtonSettings);
+        jToolBar.add(jButtonAuthor);
         jToolBar.add(jButtonExit);
         /*-------------------------------------------------------------*/
         jButtonExit.addActionListener(e -> System.exit(0));
         jButtonNew.addActionListener(e -> newDialog());
         jButtonSettings.addActionListener(e -> settingsDialog());
         jButtonClear.addActionListener(e -> updateImage());
+        jButtonAuthor.addActionListener(e -> authorDialog());
+        jButtonSwitch.addActionListener(e -> {
+            if(!xorMode){
+                xorMode = true;
+                jButtonSwitch.setIcon(new ImageIcon("src/Icons/switchon32.png"));
+            } else {
+                xorMode = false;
+                jButtonSwitch.setIcon(new ImageIcon("src/Icons/switchoff32.png"));
+            }
+        });
+        jButtonStart.addActionListener(e -> {
+           if(jButtonStart.getActionCommand().equals("PLAY")){
+               jButtonStart.setIcon(new ImageIcon("src/Icons/stop32.png"));
+               jButtonStart.setActionCommand("STOP");
+               jButtonNext.setEnabled(false);
+           } else {
+               jButtonStart.setIcon(new ImageIcon("src/Icons/start32.png"));
+               jButtonStart.setActionCommand("PLAY");
+               jButtonNext.setEnabled(true);
+           }
+        });
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -199,9 +257,9 @@ public class Screen extends JFrame {
         dialog.setLocationRelativeTo(this);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,3));
-        JPanel panelOne = new JPanel(new GridLayout(4,1));
-        JPanel panelTwo = new JPanel(new GridLayout(4,1));
-        JPanel panelThree = new JPanel(new GridLayout(4,1));
+        JPanel panelOne = new JPanel(new GridLayout(5,1));
+        JPanel panelTwo = new JPanel(new GridLayout(5,1));
+        JPanel panelThree = new JPanel(new GridLayout(5,1));
         /*-------------------------------------------------------------*/
         JLabel labelOne = new JLabel("Ширина", SwingConstants.CENTER);
         JTextField widthField = new JTextField();
@@ -246,6 +304,21 @@ public class Screen extends JFrame {
         panelOne.add(labelFour);
         panelTwo.add(jSliderFat);
         panelThree.add(fatField);
+        /*-------------------------------------------------------------*/
+        JRadioButton xorButton = new JRadioButton("XOR");
+        JRadioButton replaceButton = new JRadioButton("Replace");
+        if(!xorMode){
+            xorButton.setSelected(false);
+            replaceButton.setSelected(true);
+        } else {
+            xorButton.setSelected(true);
+            replaceButton.setSelected(false);
+        }
+        JLabel modeLabel = new JLabel("Replace Mode", SwingConstants.CENTER);
+
+        panelOne.add(xorButton);
+        panelTwo.add(modeLabel);
+        panelThree.add(replaceButton);
         /*-------------------------------------------------------------*/
         mainPanel.add(panelOne);
         mainPanel.add(panelTwo);
@@ -309,19 +382,38 @@ public class Screen extends JFrame {
             }
         });
         /*-------------------------------------------------------------*/
+        xorButton.addActionListener(e -> {
+            xorButton.setSelected(true); ;
+            replaceButton.setSelected(false);
+            modeLabel.setText("XOR Mode");
+            xorMode = true;
+        });
+        replaceButton.addActionListener(e -> {
+            replaceButton.setSelected(true);
+            xorButton.setSelected(false);
+            modeLabel.setText("Replace Mode");
+            xorMode = false;
+        });
+        /*-------------------------------------------------------------*/
         dialog.setVisible(true);
     }
 
     private void updateImage(){
-        remove(jLabel);
+        jPanel.removeAll();
+        jPanel.revalidate();
         repaint();
 
-        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
+        Point point = getDelta(radius,fat);
+        int pixelWidth = width * point.x + point.x/2 + 5;
+        int pixelHeight = (height+1)*point.y;
+
+        image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_ARGB);
+        colorBackground(Color.WHITE);
         paint = new Paint(image);
         image = paint.drawField(width,height,radius,fat);
 
         jLabel = new JLabel(new ImageIcon(image));
-        add(jLabel,BorderLayout.CENTER);
+        jPanel.add(jLabel);
 
         CustomListener listeners = new CustomListener();
         jLabel.addMouseListener(listeners);
@@ -329,25 +421,63 @@ public class Screen extends JFrame {
         revalidate();
     }
 
+    public Point getDelta(int radius, int fat){
+        radius+=fat/2;
+        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+        int deltaX2 = deltaX / 2;
+
+        while(deltaX != deltaX2*2){
+            radius++;
+            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+            deltaX2 = deltaX/2;
+        }
+
+        int deltaY = (int)Math.ceil(3*radius/2);
+        return new Point(deltaX,deltaY);
+    }
+
     public class CustomListener extends MouseAdapter{
         @Override
         public void mouseClicked(MouseEvent e) {
             int x = e.getX();
             int y = e.getY();
-            Color color = image.getRGB(x,y) == Color.RED.getRGB() ? Color.WHITE : Color.RED;
+            Color color;
+            if(xorMode){
+                color = image.getRGB(x,y) == Color.RED.getRGB() ? Color.WHITE : Color.RED;
+            } else {
+                color = Color.RED;
+            }
 
             try{
                 image =  paint.fillHexagon(x,y,color);
                 repaint();
             }catch (ArrayIndexOutOfBoundsException exception){}
+            Point point = logic.whatHex(x,y);
+            System.out.println(point.x + " : " + point.y);
         }
 
         @Override
         public void mouseDragged(MouseEvent e){
             int x = e.getX();
             int y = e.getY();
-            Color color = Color.RED;
-
+            Color color;
+            Point point;
+            if(xorMode){
+                Color tmp = new Color(image.getRGB(x,y));
+                if(tmp.getRGB() == Color.RED.getRGB() || tmp.getRGB() == Color.WHITE.getRGB()){
+                    point = logic.whatHex(x,y);
+                    if(currentPixel.x == point.x && currentPixel.y == point.y) {
+                        color = new Color(image.getRGB(x,y));
+                    } else {
+                        color = image.getRGB(x,y) == Color.RED.getRGB() ? Color.WHITE : Color.RED;
+                    }
+                    currentPixel = point;
+                } else {
+                    color = Color.BLACK;
+                }
+            } else {
+                color = Color.RED;
+            }
             try{
                 image =  paint.fillHexagon(x,y,color);
                 repaint();

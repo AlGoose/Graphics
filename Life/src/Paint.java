@@ -80,59 +80,69 @@ public class Paint{
         drawBresenhamLine(xArr[0], yArr[0], xArr[5], yArr[5]);
     }
 
-    public void drawHexagon2(int x, int y, int r, int t) {
+    public void drawHexagon2(int x, int y, int radius, int fat) {
         int xArr[] = new int[6];
         int yArr[] = new int[6];
 
         xArr[0] = x;
-        xArr[1] = x + r;
-        xArr[2] = x + r;
+        xArr[1] = x + (int) Math.round(Math.sqrt(3) * radius / 2);
+        xArr[2] = x + (int) Math.round(Math.sqrt(3) * radius / 2);
         xArr[3] = x;
-        xArr[4] = x - r;
-        xArr[5] = x - r;
+        xArr[4] = x - (int) Math.round(Math.sqrt(3) * radius / 2);
+        xArr[5] = x - (int) Math.round(Math.sqrt(3) * radius / 2);
 
-        yArr[0] = y - r;
-        yArr[1] = y - r/2;
-        yArr[2] = y + r/2;
-        yArr[3] = y + r;
-        yArr[4] = y + r/2;
-        yArr[5] = y - r/2;
+        yArr[0] = y - radius;
+        yArr[1] = y - radius/2;
+        yArr[2] = y + radius/2;
+        yArr[3] = y + radius;
+        yArr[4] = y + radius/2;
+        yArr[5] = y - radius/2;
 
         Graphics2D g = image.createGraphics();
         g.setColor(Color.BLACK);
-        g.setStroke(new BasicStroke(t));
+        g.setStroke(new BasicStroke(fat));
         g.drawPolygon(xArr,yArr,6);
         g.dispose();
     }
 
-    public BufferedImage drawField(int m, int n, int r, int t){
-        int mc = m;
-        int centrX = (int)Math.ceil(Math.sqrt(3)/2*r) + t + 5;
-        int centrY = r + t;
+    public BufferedImage drawField(int width, int height, int radius, int fat){
+        radius+=fat/2;
+        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+        int deltaX2 = deltaX / 2;
 
-        int deltaX = 2*r;
-        int deltaX2 = r;
-        int deltaY = Math.round(3*r/2);
+        while(deltaX != deltaX2*2){
+            radius++;
+            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+            deltaX2 = deltaX/2;
+        }
 
-        for (int i=0;i<n;i++){
-            mc = i%2 == 0 ? m : m-1;
+        int centrX = radius + fat + 5;
+        int centrXX = centrX;
+        int centrY = radius + fat + 5;
+        int centrYY = centrY;
+        int deltaY = (int)Math.ceil(3*radius/2);
+
+        for (int i=0;i<height;i++){
+            int mc = i%2 == 0 ? width : width-1;
 
             for(int j=0;j<mc;j++){
-                drawHexagon2(centrX,centrY,r,t);
-                if(i%2 == 0 && j != mc -1){
-                    centrX += deltaX;
-                }
-                if(i%2 == 1 && j != mc-1){
-                    centrX -= deltaX;
-                }
+                drawHexagon2(centrX,centrY,radius,fat);
+                centrX += deltaX;
             }
-            centrY += deltaY;
-            centrX -= deltaX2;
+            centrY = centrYY + deltaY;
+            centrYY = centrY;
+            if(i%2 == 0){
+                centrX = centrXX + deltaX2;
+                centrXX = centrX;
+            } else {
+                centrX = centrXX - deltaX2;
+                centrXX = centrX;
+            }
         }
         return image;
     }
 
-    public class Span{
+    private class Span{
         private Point p1;
         private Point p2;
 
