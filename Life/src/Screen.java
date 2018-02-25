@@ -131,9 +131,6 @@ public class Screen extends JFrame {
             radius = Integer.parseInt(radiusField.getText());
             fat = Integer.parseInt(fatField.getText());
             updateImage();
-            if(logic == null){
-                logic = new Logic(width,height,radius,fat);
-            }
         });
     }
 
@@ -244,6 +241,10 @@ public class Screen extends JFrame {
                jButtonStart.setActionCommand("PLAY");
                jButtonNext.setEnabled(true);
            }
+        });
+        jButtonNext.addActionListener(e -> {
+            image = logic.nextStep(image);
+            repaint();
         });
         /*-------------------------------------------------------------*/
         return jToolBar;
@@ -409,6 +410,14 @@ public class Screen extends JFrame {
 
         image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_ARGB);
         colorBackground(Color.WHITE);
+
+        if(logic == null){
+            logic = new Logic(width,height,radius,fat);
+            logic.setOptions(2.0,2.3,2.9,3.3,1.0,0.3);
+        } else {
+            logic.newLogic(width,height,radius,fat);
+        }
+
         paint = new Paint(image);
         image = paint.drawField(width,height,radius,fat);
 
@@ -452,7 +461,13 @@ public class Screen extends JFrame {
                 image =  paint.fillHexagon(x,y,color);
                 repaint();
             }catch (ArrayIndexOutOfBoundsException exception){}
+
             Point point = logic.whatHex(x,y);
+            if(color == Color.RED){
+                logic.setAlive(point.x, point.y, true);
+            } else {
+                logic.setAlive(point.x, point.y, false);
+            }
             System.out.println(point.x + " : " + point.y);
         }
 
@@ -482,6 +497,14 @@ public class Screen extends JFrame {
                 image =  paint.fillHexagon(x,y,color);
                 repaint();
             }catch (ArrayIndexOutOfBoundsException exception){}
+
+            point = logic.whatHex(x,y);
+            if(color == Color.RED){
+                logic.setAlive(point.x, point.y, true);
+            } else if (color == Color.WHITE){
+                logic.setAlive(point.x, point.y, false);
+            }
+//            System.out.println(logic.getAlive(3,3));
         }
     }
 

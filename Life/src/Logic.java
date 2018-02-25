@@ -1,16 +1,31 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Logic {
     private Integer width;
     private Integer height;
     private Integer radius;
     private Integer fat;
+    private Double LIVE_BEGIN;
+    private Double BIRTH_BEGIN;
+    private Double BIRTH_END;
+    private Double LIVE_END;
+    private Double FST_IMPACT;
+    private Double SND_IMPACT;
     private Hex[][] field;
+
+    private double[][] impactTable;
+    private double[][] prevImpactTable;
+    private boolean parity;
+    private int fst_count;
+    private int snd_count;
+    private int mc;
 
     public class Hex{
         private Integer centrX;
         private Integer centrY;
-        private Double impact;
+//        private Double impact;
+        private Boolean alive = false;
 
         private Hex(int x, int y){
             centrX = x;
@@ -25,12 +40,20 @@ public class Logic {
             return centrY;
         }
 
-        private void setImpact(double imp){
-            impact = imp;
+//        private void setImpact(double imp){
+//            impact = imp;
+//        }
+
+//        private double getImpact(){
+//            return impact;
+//        }
+
+        private void setAlive(Boolean status){
+            alive = status;
         }
 
-        private double getImpact(){
-            return impact;
+        private Boolean getAlive(){
+            return alive;
         }
     }
 
@@ -39,11 +62,21 @@ public class Logic {
         this.height = height;
         this.radius = radius;
         this.fat = fat;
-        field = new Hex[width][height];
-        createField();
+        field = new Hex[height][width];
+        impactTable = new double[height][width];
+        field = createField(field);
     }
 
-    private void createField(){
+    public void setOptions(double LIVE_BEGIN, double BIRTH_BEGIN, double BIRTH_END, double LIVE_END, double FST_IMPACT, double SND_IMPACT){
+        this.LIVE_BEGIN = LIVE_BEGIN;
+        this.BIRTH_BEGIN = BIRTH_BEGIN;
+        this.BIRTH_END = BIRTH_END;
+        this.LIVE_END = LIVE_END;
+        this.FST_IMPACT = FST_IMPACT;
+        this.SND_IMPACT = SND_IMPACT;
+    }
+
+    private Hex[][] createField(Hex[][] hex){
         radius+=fat/2;
         int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
         int deltaX2 = deltaX / 2;
@@ -64,7 +97,8 @@ public class Logic {
             int mc = i%2 == 0 ? width : width-1;
 
             for(int j=0;j<mc;j++){
-                field[i][j] = new Hex(centrX,centrY);
+                hex[i][j] = new Hex(centrX,centrY);
+                impactTable[i][j] = 0d;
                 centrX += deltaX;
             }
             centrY = centrYY + deltaY;
@@ -77,14 +111,15 @@ public class Logic {
                 centrXX = centrX;
             }
         }
+        return hex;
     }
 
     public double getImpact(int i, int j){
-        return field[i][j].getImpact();
+        return impactTable[i][j];
     }
 
     public void setImpact(int i, int j, double imp){
-        field[i][j].setImpact(imp);
+        impactTable[i][j] = imp;
     }
 
     public Point whatHex(int click_X,int click_Y){
@@ -100,7 +135,7 @@ public class Logic {
         return new Point(-1,-1);
     }
 
-    public boolean check_attachment(Hex hex, int click_X, int click_Y) {  //возвращает true, если точка лежит слева от каждой прямой
+    private boolean check_attachment(Hex hex, int click_X, int click_Y) {  //возвращает true, если точка лежит слева от каждой прямой
         int x = hex.centrX;
         int y = hex.centrY;
         int xArr[] = new int[6];
@@ -131,5 +166,211 @@ public class Logic {
     private boolean vector_mult(Point A, Point B, int click_X, int click_Y) {
         if(((B.getX()-A.getX())*(click_Y - A.getY()) - (B.getY()-A.getY())*(click_X - A.getX())) >= 0) return true;
         else return false;
+    }
+
+    public void newLogic(int width, int height, int radius, int fat){
+        this.width = width;
+        this.height = height;
+        this.radius = radius;
+        this.fat = fat;
+        Hex[][] tmp = new Hex[height][width];
+        tmp = createField(tmp);
+        field = tmp;
+    }
+
+    public void setAlive(int i, int j, boolean status){
+        field[i][j].setAlive(status);
+        if(status){
+            impactTable[i][j] = 1d;
+        } else {
+            impactTable[i][j] = 0d;
+        }
+    }
+
+    public Boolean getAlive(int i, int j){
+        return field[i][j].getAlive();
+    }
+
+    public BufferedImage nextStep(BufferedImage image){
+        Paint paint = new Paint(image);
+
+        countImpacts();
+
+        for (int i = 0; i < height; i++) {
+            if (i % 2 == 0) {
+                mc = width;
+                parity = true;
+            } else {
+                mc = width -1;
+                parity = false;
+            }
+
+            for (int j = 0; j < mc; j++) {
+                if (!field[i][j].getAlive() && goingToBorn(i,j))
+                    field[i][j].setAlive(true);
+
+                if (field[i][j].getAlive() && isAlive(i,j))
+                    field[i][j].setAlive(true);
+                else
+                    field[i][j].setAlive(false);
+            }
+        }
+        countImpacts();
+
+        for(int i=0; i<height; i++){
+            for(int j=0; j<width; j++){
+                if(field[i][j] != null){
+                    if(field[i][j].getAlive()){
+                        image = paint.fillHexagon(field[i][j].centrX, field[i][j].centrY, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(field[i][j].centrX, field[i][j].centrY, Color.WHITE);
+                    }
+                }
+            }
+        }
+        return image;
+    }
+
+    public void countImpacts(){
+        prevImpactTable = impactTable;
+        double[][] tmp = prevImpactTable;
+        mc = width;
+
+        for(int i=0; i<height; i++){
+            if(i%2 == 0){
+                mc = width;
+                parity = true;
+            } else {
+                mc = width-1;
+                parity = false;
+            }
+
+            for(int j=0; j<mc; j++){
+                fst_count = 0;
+                snd_count = 0;
+
+                countFirstImpact(i,j);
+                countSecondImpact(i,j);
+
+                tmp[i][j] = fst_count*FST_IMPACT + snd_count* SND_IMPACT;
+            }
+        }
+        impactTable = tmp;
+    }
+
+    private void countFirstImpact(int i, int j){
+        boolean top = i > 0;
+        boolean down = i < impactTable.length - 1;
+        boolean left = j > 0;
+        boolean right = j < mc - 1;
+
+        if(right && field[i][j + 1].getAlive()){
+            fst_count++;
+        }
+        if(left && field[i][j - 1].getAlive()){
+            fst_count++;
+        }
+
+        if(top){
+            if(parity){
+                if(left && field[i - 1][j - 1].getAlive()){
+                    fst_count++;
+                }
+                if(right && field[i - 1][j].getAlive()){
+                    fst_count++;
+                }
+            } else {
+                if(field[i - 1][j + 1].getAlive()){
+                    fst_count++;
+                }
+                if(field[i - 1][j].getAlive()){
+                    fst_count++;
+                }
+            }
+        }
+
+        if(down){
+            if(parity){
+                if(left && field[i + 1][j - 1].getAlive()){
+                    fst_count++;
+                }
+                if(right && field[i + 1][j].getAlive()){
+                    fst_count++;
+                }
+            } else {
+                if(field[i+1][j].getAlive()){
+                    fst_count++;
+                }
+                if(field[i+1][j+1].getAlive()){
+                    fst_count++;
+                }
+            }
+        }
+    }
+
+    private void countSecondImpact(int i, int j){
+        boolean top = i > 1;
+        boolean down = i < impactTable.length - 2;
+        boolean lineUp = i > 0;
+        boolean lineDown = i < impactTable.length - 1;
+
+        if (parity) {
+            boolean left = j > 1;
+            boolean right = j < mc - 2;
+
+            if (lineUp) {
+                if (left && field[i-1][j-2].getAlive()) {
+                    snd_count++;
+                }
+                if (right && field[i-1][j+1].getAlive()) {
+                    snd_count++;
+                }
+            }
+
+            if (lineDown) {
+                if (left && field[i+1][j-2].getAlive()) {
+                    snd_count++;
+                }
+                if (right && field[i+1][j+1].getAlive()) {
+                    snd_count++;
+                }
+            }
+        } else {
+            boolean left = j > 0;
+            boolean right = j < mc - 1;
+
+            if (lineUp) {
+                if (left && field[i-1][j-1].getAlive()) {
+                    snd_count++;
+                }
+                if (right && field[i-1][j+2].getAlive()) {
+                    snd_count++;
+                }
+            }
+
+            if (lineDown) {
+                if (left && field[i+1][j-1].getAlive()) {
+                    snd_count++;
+                }
+                if (right && field[i+1][j+2].getAlive()) {
+                    snd_count++;
+                }
+            }
+        }
+
+        if (down && field[i+2][j].getAlive()) {
+            snd_count++;
+        }
+        if (top && field[i-2][j].getAlive()) {
+            snd_count++;
+        }
+    }
+
+    public boolean isAlive(int x, int y){
+        return prevImpactTable[x][y] >= LIVE_BEGIN && prevImpactTable[x][y] <= LIVE_END;
+    }
+
+    public boolean goingToBorn(int x, int y){
+        return prevImpactTable[x][y] >= BIRTH_BEGIN && prevImpactTable[x][y] <= BIRTH_END;
     }
 }
