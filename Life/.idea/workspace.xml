@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Life$Screen.coverage" NAME="Screen Coverage Results" MODIFIED="1519657411014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Life" />
@@ -19,10 +22,11 @@
       <file leaf-file-name="Paint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Paint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="82" column="64" lean-forward="false" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
+            <state relative-caret-position="180">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#170#171#0" expanded="true" />
                 <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -35,47 +39,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="447" column="52" lean-forward="false" selection-start-line="447" selection-start-column="52" selection-end-line="447" selection-end-column="52" />
+            <state relative-caret-position="202">
+              <caret line="537" column="0" lean-forward="false" selection-start-line="537" selection-start-column="0" selection-end-line="537" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Screen#0;class#Screen#0" expanded="false" />
                 <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
                 <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-                <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-                <element signature="e#4896#5179#0" expanded="false" />
                 <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
                 <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-                <element signature="e#9723#10030#0" expanded="false" />
-                <element signature="e#10072#10536#0" expanded="false" />
-                <element signature="e#10577#10659#0" expanded="false" />
+                <element signature="e#10438#10745#0" expanded="false" />
+                <element signature="e#10787#11358#0" expanded="false" />
+                <element signature="e#11399#11481#0" expanded="false" />
                 <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-                <element signature="e#14609#14914#0" expanded="false" />
-                <element signature="e#14957#15262#0" expanded="false" />
-                <element signature="e#15302#15598#0" expanded="false" />
-                <element signature="e#16708#16884#0" expanded="false" />
-                <element signature="e#16927#17106#0" expanded="false" />
-                <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+                <element signature="e#15515#15820#0" expanded="false" />
+                <element signature="e#15863#16168#0" expanded="false" />
+                <element signature="e#16208#16504#0" expanded="false" />
+                <element signature="e#17614#17790#0" expanded="false" />
+                <element signature="e#17833#18012#0" expanded="false" />
+                <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+                <element signature="e#21345#22534#0" expanded="false" />
                 <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-                <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-                <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+                <element signature="method#play#0;class#Screen#0" expanded="false" />
+                <element signature="method#stop#0;class#Screen#0" expanded="false" />
+                <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Logic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="959">
-              <caret line="230" column="21" lean-forward="false" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+            <state relative-caret-position="300">
+              <caret line="109" column="5" lean-forward="false" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="class#Hex#0;class#Logic#0" expanded="false" />
-                <element signature="method#Hex#0;class#Hex#0;class#Logic#0" expanded="false" />
+                <element signature="e#1049#1050#0" expanded="true" />
+                <element signature="e#1085#1086#0" expanded="true" />
+                <element signature="method#Logic#0;class#Logic#0" expanded="false" />
                 <element signature="method#setOptions#0;class#Logic#0" expanded="false" />
                 <element signature="method#createField#0;class#Logic#0" expanded="false" />
                 <element signature="method#whatHex#0;class#Logic#0" expanded="false" />
@@ -83,11 +87,16 @@
                 <element signature="method#vector_mult#0;class#Logic#0" expanded="false" />
                 <element signature="method#newLogic#0;class#Logic#0" expanded="false" />
                 <element signature="method#setAlive#0;class#Logic#0" expanded="false" />
+                <element signature="method#nextStep#0;class#Logic#0" expanded="false" />
                 <element signature="method#countImpacts#0;class#Logic#0" expanded="false" />
                 <element signature="method#countFirstImpact#0;class#Logic#0" expanded="false" />
                 <element signature="method#countSecondImpact#0;class#Logic#0" expanded="false" />
                 <element signature="method#isAlive#0;class#Logic#0" expanded="false" />
                 <element signature="method#goingToBorn#0;class#Logic#0" expanded="false" />
+                <element signature="method#isLive#0;class#Logic#0" expanded="false" />
+                <element signature="method#resurrectImpacts#0;class#Logic#0" expanded="false" />
+                <element signature="method#resurrectHex#0;class#Logic#0" expanded="false" />
+                <element signature="method#resurrectImage#0;class#Logic#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,18 +123,19 @@
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g15203/gusev/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/Frame.java" />
         <option value="$PROJECT_DIR$/src/Paint.java" />
-        <option value="$PROJECT_DIR$/src/Logic.java" />
         <option value="$PROJECT_DIR$/src/Screen.java" />
+        <option value="$PROJECT_DIR$/src/Logic.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -138,39 +148,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Life" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Life" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Life" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Life" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
@@ -478,7 +456,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -490,8 +468,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17547569" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17502668" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17336152" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -546,7 +525,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -555,13 +534,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/event/MouseEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3182">
-          <caret line="787" column="15" lean-forward="false" selection-start-line="787" selection-start-column="15" selection-end-line="787" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JOptionPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-37686">
@@ -602,26 +574,25 @@
           <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -632,6 +603,7 @@
           <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -649,26 +621,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -679,6 +650,7 @@
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -696,26 +668,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -726,6 +697,7 @@
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -743,26 +715,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,6 +744,7 @@
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -790,26 +762,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -820,6 +791,7 @@
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -837,26 +809,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,6 +838,7 @@
           <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -884,26 +856,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -914,6 +885,7 @@
           <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -931,26 +903,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -961,26 +932,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -991,26 +961,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1021,26 +990,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1051,26 +1019,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,26 +1048,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1111,26 +1077,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1141,26 +1106,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1171,26 +1135,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1201,26 +1164,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
             <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1280,12 +1242,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="82" column="64" lean-forward="false" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
+        <state relative-caret-position="292">
+          <caret line="259" column="20" lean-forward="true" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="537" column="0" lean-forward="false" selection-start-line="537" selection-start-column="0" selection-end-line="537" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
+            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
+            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
+            <element signature="e#10438#10745#0" expanded="false" />
+            <element signature="e#10787#11358#0" expanded="false" />
+            <element signature="e#11399#11481#0" expanded="false" />
+            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#15515#15820#0" expanded="false" />
+            <element signature="e#15863#16168#0" expanded="false" />
+            <element signature="e#16208#16504#0" expanded="false" />
+            <element signature="e#17614#17790#0" expanded="false" />
+            <element signature="e#17833#18012#0" expanded="false" />
+            <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
+            <element signature="e#21345#22534#0" expanded="false" />
+            <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
+            <element signature="method#play#0;class#Screen#0" expanded="false" />
+            <element signature="method#stop#0;class#Screen#0" expanded="false" />
+            <element signature="class#scheduler#0;class#Screen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Paint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
@@ -1299,12 +1299,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Logic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="959">
-          <caret line="230" column="21" lean-forward="false" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+        <state relative-caret-position="300">
+          <caret line="109" column="5" lean-forward="false" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#Hex#0;class#Logic#0" expanded="false" />
-            <element signature="method#Hex#0;class#Hex#0;class#Logic#0" expanded="false" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="method#Logic#0;class#Logic#0" expanded="false" />
             <element signature="method#setOptions#0;class#Logic#0" expanded="false" />
             <element signature="method#createField#0;class#Logic#0" expanded="false" />
             <element signature="method#whatHex#0;class#Logic#0" expanded="false" />
@@ -1312,41 +1313,16 @@
             <element signature="method#vector_mult#0;class#Logic#0" expanded="false" />
             <element signature="method#newLogic#0;class#Logic#0" expanded="false" />
             <element signature="method#setAlive#0;class#Logic#0" expanded="false" />
+            <element signature="method#nextStep#0;class#Logic#0" expanded="false" />
             <element signature="method#countImpacts#0;class#Logic#0" expanded="false" />
             <element signature="method#countFirstImpact#0;class#Logic#0" expanded="false" />
             <element signature="method#countSecondImpact#0;class#Logic#0" expanded="false" />
             <element signature="method#isAlive#0;class#Logic#0" expanded="false" />
             <element signature="method#goingToBorn#0;class#Logic#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="447" column="52" lean-forward="false" selection-start-line="447" selection-start-column="52" selection-end-line="447" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Screen#0;class#Screen#0" expanded="false" />
-            <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
-            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
-            <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#4896#5179#0" expanded="false" />
-            <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
-            <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#9723#10030#0" expanded="false" />
-            <element signature="e#10072#10536#0" expanded="false" />
-            <element signature="e#10577#10659#0" expanded="false" />
-            <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#14609#14914#0" expanded="false" />
-            <element signature="e#14957#15262#0" expanded="false" />
-            <element signature="e#15302#15598#0" expanded="false" />
-            <element signature="e#16708#16884#0" expanded="false" />
-            <element signature="e#16927#17106#0" expanded="false" />
-            <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
-            <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
-            <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
-            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#isLive#0;class#Logic#0" expanded="false" />
+            <element signature="method#resurrectImpacts#0;class#Logic#0" expanded="false" />
+            <element signature="method#resurrectHex#0;class#Logic#0" expanded="false" />
+            <element signature="method#resurrectImage#0;class#Logic#0" expanded="false" />
           </folding>
         </state>
       </provider>

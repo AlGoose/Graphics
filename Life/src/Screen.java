@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.util.TimerTask;
 
 public class Screen extends JFrame {
     private Logic logic;
@@ -15,6 +16,16 @@ public class Screen extends JFrame {
     private Integer fat = null;
     private Boolean xorMode = false;
     private Point currentPixel = new Point(-5,-5);
+    private boolean isPlay;
+    java.util.Timer timer = new java.util.Timer();
+    scheduler timerTask = new scheduler();
+
+    private Double LIVE_BEGIN = 2.0;
+    private Double BIRTH_BEGIN = 2.3;
+    private Double BIRTH_END = 2.9;
+    private Double LIVE_END = 3.3;
+    private Double FST_IMPACT = 1.0;
+    private Double SND_IMPACT = 0.3;
 
     public Screen() {
         super("LIFE");
@@ -131,11 +142,12 @@ public class Screen extends JFrame {
             radius = Integer.parseInt(radiusField.getText());
             fat = Integer.parseInt(fatField.getText());
             updateImage();
+            dialog.dispose();
         });
     }
 
     private void authorDialog(){
-        JFrame dialog = new JFrame("Author");
+        JDialog dialog = new JDialog(this,"Author",true);
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.setSize(300,200);
         dialog.setResizable(false);
@@ -207,6 +219,10 @@ public class Screen extends JFrame {
         jButtonImpact.setIcon(new ImageIcon("src/Icons/impact32.png"));
         jButtonImpact.setToolTipText("On/Off Impact");
         /*-------------------------------------------------------------*/
+        JButton jButtonLifeSetting = new JButton();
+        jButtonLifeSetting.setIcon(new ImageIcon("src/Icons/life32.png"));
+        jButtonLifeSetting.setToolTipText("Life Setting");
+        /*-------------------------------------------------------------*/
         jToolBar.add(jButtonNew);
         jToolBar.add(jButtonClear);
         jToolBar.add(jButtonStart);
@@ -214,6 +230,7 @@ public class Screen extends JFrame {
         jToolBar.add(jButtonSwitch);
         jToolBar.add(jButtonImpact);
         jToolBar.add(jButtonSettings);
+        jToolBar.add(jButtonLifeSetting);
         jToolBar.add(jButtonAuthor);
         jToolBar.add(jButtonExit);
         /*-------------------------------------------------------------*/
@@ -236,22 +253,27 @@ public class Screen extends JFrame {
                jButtonStart.setIcon(new ImageIcon("src/Icons/stop32.png"));
                jButtonStart.setActionCommand("STOP");
                jButtonNext.setEnabled(false);
+               isPlay = false;
+               play();
            } else {
                jButtonStart.setIcon(new ImageIcon("src/Icons/start32.png"));
                jButtonStart.setActionCommand("PLAY");
                jButtonNext.setEnabled(true);
+               isPlay = true;
+               play();
            }
         });
         jButtonNext.addActionListener(e -> {
             image = logic.nextStep(image);
             repaint();
         });
+        jButtonLifeSetting.addActionListener(e -> liveSettingDialog());
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
 
     private void settingsDialog(){
-        JFrame dialog = new JFrame("Settings");
+        JDialog dialog = new JDialog(this,"Settings",true);
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.setSize(300,200);
         dialog.setResizable(false);
@@ -399,6 +421,99 @@ public class Screen extends JFrame {
         dialog.setVisible(true);
     }
 
+    private void liveSettingDialog(){
+        JDialog dialog = new JDialog(this,"Live Settings",true);
+        dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog.setSize(250,200);
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(this);
+        /*-------------------------------------------------------------*/
+        JPanel mainPanel = new JPanel(new GridLayout(1,2));
+        JPanel panelOne = new JPanel(new GridLayout(7,1));
+        JPanel panelTwo = new JPanel(new GridLayout(7,1));
+        /*-------------------------------------------------------------*/
+        JLabel labelOne = new JLabel("LIVE_BEGIN", SwingConstants.CENTER);
+        JTextField liveBeginField = new JTextField();
+        if(LIVE_BEGIN != null){
+            liveBeginField.setText(LIVE_BEGIN.toString());
+        }
+        panelOne.add(labelOne);
+        panelTwo.add(liveBeginField);
+        /*-------------------------------------------------------------*/
+        JLabel labelTwo = new JLabel("BIRTH_BEGIN", SwingConstants.CENTER);
+        JTextField birthBeginField = new JTextField();
+        if(BIRTH_BEGIN != null){
+            birthBeginField.setText(BIRTH_BEGIN.toString());
+        }
+        panelOne.add(labelTwo);
+        panelTwo.add(birthBeginField);
+        /*-------------------------------------------------------------*/
+        JLabel labelThree = new JLabel("BIRTH_END", SwingConstants.CENTER);
+        JTextField birthEndField = new JTextField();
+        if(LIVE_END != null){
+            birthEndField.setText(BIRTH_END.toString());
+        }
+        panelOne.add(labelThree);
+        panelTwo.add(birthEndField);
+        /*-------------------------------------------------------------*/
+        JLabel labelFour = new JLabel("LIVE_END", SwingConstants.CENTER);
+        JTextField liveEndField = new JTextField();
+        if(LIVE_END != null){
+            liveEndField.setText(LIVE_END.toString());
+        }
+        panelOne.add(labelFour);
+        panelTwo.add(liveEndField);
+        /*-------------------------------------------------------------*/
+        JLabel labelFive = new JLabel("FIRST_IMPACT", SwingConstants.CENTER);
+        JTextField firstImpactField = new JTextField();
+        if(FST_IMPACT != null){
+            firstImpactField.setText(FST_IMPACT.toString());
+        }
+        panelOne.add(labelFive);
+        panelTwo.add(firstImpactField);
+        /*-------------------------------------------------------------*/
+        JLabel labelSix = new JLabel("SECOND_IMPACT", SwingConstants.CENTER);
+        JTextField secondImpactField = new JTextField();
+        if(SND_IMPACT != null){
+            secondImpactField.setText(SND_IMPACT.toString());
+        }
+        panelOne.add(labelSix);
+        panelTwo.add(secondImpactField);
+        /*-------------------------------------------------------------*/
+        JButton accept = new JButton("Accept");
+        panelOne.add(accept);
+        /*-------------------------------------------------------------*/
+        mainPanel.add(panelOne);
+        mainPanel.add(panelTwo);
+        dialog.add(mainPanel);
+        /*-------------------------------------------------------------*/
+        accept.addActionListener(e -> {
+            Double live_begin = Double.parseDouble(liveBeginField.getText());
+            Double live_end = Double.parseDouble(liveEndField.getText());
+            Double birth_begin = Double.parseDouble(birthBeginField.getText());
+            Double birth_end = Double.parseDouble(birthEndField.getText());
+            Double fst_impact = Double.parseDouble(firstImpactField.getText());
+            Double snd_impact = Double.parseDouble(secondImpactField.getText());
+
+            if(live_begin <= birth_begin && birth_begin <= birth_end && birth_end <= live_end){
+                LIVE_BEGIN = live_begin;
+                LIVE_END = live_end;
+                BIRTH_BEGIN = birth_begin;
+                BIRTH_END = birth_end;
+                FST_IMPACT = fst_impact;
+                SND_IMPACT = snd_impact;
+                logic.setOptions(LIVE_BEGIN,BIRTH_BEGIN,BIRTH_END,LIVE_END,FST_IMPACT,SND_IMPACT);
+                dialog.dispose();
+            } else {
+                JOptionPane.showMessageDialog(dialog,"Wrong options!\n" +
+                        "Look at this:\n" +
+                        "LIVE_BEGIN <= BIRTH_BEGIN <= BIRTH_END <= LIVE_END");
+            }
+        });
+        /*-------------------------------------------------------------*/
+        dialog.setVisible(true);
+    }
+
     private void updateImage(){
         jPanel.removeAll();
         jPanel.revalidate();
@@ -420,6 +535,7 @@ public class Screen extends JFrame {
 
         paint = new Paint(image);
         image = paint.drawField(width,height,radius,fat);
+        image = logic.resurrectImage(image);
 
         jLabel = new JLabel(new ImageIcon(image));
         jPanel.add(jLabel);
@@ -505,6 +621,41 @@ public class Screen extends JFrame {
                 logic.setAlive(point.x, point.y, false);
             }
 //            System.out.println(logic.getAlive(3,3));
+        }
+    }
+
+    public void play(){
+        if (isPlay){
+            stop();
+        } else {
+            if (logic.isLive()){
+                isPlay = true;
+                timer.schedule(timerTask, 0, 300);
+            }
+        }
+    }
+
+    public void stop(){
+        if(isPlay) {
+            timer.cancel();
+            timer.purge();
+
+            timer = new java.util.Timer();
+            timerTask = new scheduler();
+
+            isPlay = false;
+        }
+    }
+
+    private class scheduler extends TimerTask{
+        @Override
+        public void run() {
+            if(logic.isLive()) {
+                image = logic.nextStep(image);
+                repaint();
+            } else {
+                stop();
+            }
         }
     }
 

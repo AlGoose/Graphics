@@ -24,7 +24,6 @@ public class Logic {
     public class Hex{
         private Integer centrX;
         private Integer centrY;
-//        private Double impact;
         private Boolean alive = false;
 
         private Hex(int x, int y){
@@ -39,14 +38,6 @@ public class Logic {
         private int getY(){
             return centrY;
         }
-
-//        private void setImpact(double imp){
-//            impact = imp;
-//        }
-
-//        private double getImpact(){
-//            return impact;
-//        }
 
         private void setAlive(Boolean status){
             alive = status;
@@ -118,10 +109,6 @@ public class Logic {
         return impactTable[i][j];
     }
 
-    public void setImpact(int i, int j, double imp){
-        impactTable[i][j] = imp;
-    }
-
     public Point whatHex(int click_X,int click_Y){
         for(int i=0; i<height;i++){
             for(int j=0; j<width; j++){
@@ -169,26 +156,47 @@ public class Logic {
     }
 
     public void newLogic(int width, int height, int radius, int fat){
+        int t1 = this.width;
+        int t2 = this.height;
+        int t3 = this.radius;
+        int t4 = this.fat;
+
+        prevImpactTable = impactTable;
+        Hex[][] tmp = new Hex[height][width];
+        double[][] tmp2 = new double[height][width];
+        impactTable = tmp2;
+
         this.width = width;
         this.height = height;
         this.radius = radius;
         this.fat = fat;
-        Hex[][] tmp = new Hex[height][width];
+
         tmp = createField(tmp);
+
+        this.width = t1;
+        this.height = t2;
+        this.radius = t3;
+        this.fat = t4;
+
+        tmp2 = resurrectImpacts(tmp2,width,height);
+        impactTable = tmp2;
+
+        tmp = resurrectHex(tmp,width,height);
         field = tmp;
+
+        this.width = width;
+        this.height = height;
+        this.radius = radius;
+        this.fat = fat;
     }
 
     public void setAlive(int i, int j, boolean status){
         field[i][j].setAlive(status);
-        if(status){
-            impactTable[i][j] = 1d;
-        } else {
-            impactTable[i][j] = 0d;
-        }
-    }
-
-    public Boolean getAlive(int i, int j){
-        return field[i][j].getAlive();
+//        if(status){
+//            impactTable[i][j] = 1d;
+//        } else {
+//            impactTable[i][j] = 0d;
+//        }
     }
 
     public BufferedImage nextStep(BufferedImage image){
@@ -231,7 +239,7 @@ public class Logic {
         return image;
     }
 
-    public void countImpacts(){
+    private void countImpacts(){
         prevImpactTable = impactTable;
         double[][] tmp = prevImpactTable;
         mc = width;
@@ -366,11 +374,111 @@ public class Logic {
         }
     }
 
-    public boolean isAlive(int x, int y){
+    private boolean isAlive(int x, int y){
         return prevImpactTable[x][y] >= LIVE_BEGIN && prevImpactTable[x][y] <= LIVE_END;
     }
 
-    public boolean goingToBorn(int x, int y){
+    private boolean goingToBorn(int x, int y){
         return prevImpactTable[x][y] >= BIRTH_BEGIN && prevImpactTable[x][y] <= BIRTH_END;
+    }
+
+    public boolean isLive(){
+        int length = width - 1;
+
+        for (int i = 0; i < height; i++) {
+            if (i % 2 == 0) {
+                length++;
+            } else {
+                length--;
+            }
+            for (int j = 0; j < length; j++) {
+                if(field[i][j].getAlive())
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private double[][] resurrectImpacts(double[][] tmp, int width, int height){
+        if(width < this.width){
+            if(height < this.height){
+                for(int i=0; i<height; i++){
+                    for(int j=0; j<width; j++){
+                        tmp[i][j] = prevImpactTable[i][j];
+                    }
+                }
+            } else {
+                for(int i=0; i<this.height; i++){
+                    for(int j=0; j<width; j++){
+                        tmp[i][j] = prevImpactTable[i][j];
+                    }
+                }
+            }
+        } else {
+            if(height < this.height){
+                for(int i=0; i<height; i++){
+                    for(int j=0; j<this.width; j++){
+                        tmp[i][j] = prevImpactTable[i][j];
+                    }
+                }
+            } else {
+                for(int i=0; i<this.height; i++){
+                    for(int j=0; j<this.width; j++){
+                        tmp[i][j] = prevImpactTable[i][j];
+                    }
+                }
+            }
+        }
+        return tmp;
+    }
+
+    private Hex[][] resurrectHex(Hex[][] tmp, int width, int height){
+        if(width < this.width){
+            if(height < this.height){
+                for(int i=0; i<height; i++){
+                    for(int j=0; j<width; j++){
+                        tmp[i][j] = field[i][j];
+                    }
+                }
+            } else {
+                for(int i=0; i<this.height; i++){
+                    for(int j=0; j<width; j++){
+                        tmp[i][j] = field[i][j];
+                    }
+                }
+            }
+        } else {
+            if(height < this.height){
+                for(int i=0; i<height; i++){
+                    for(int j=0; j<this.width; j++){
+                        tmp[i][j] = field[i][j];
+                    }
+                }
+            } else {
+                for(int i=0; i<this.height; i++){
+                    for(int j=0; j<this.width; j++){
+                        if(field[i][j]!=null){
+                            tmp[i][j] = field[i][j];
+                        }
+                    }
+                }
+            }
+        }
+        return tmp;
+    }
+
+    public BufferedImage resurrectImage(BufferedImage image){
+        Paint paint = new Paint(image);
+        int tmp = width;
+
+        for(int i=0; i<height; i++){
+            tmp = i%2==0 ? width : width-1;
+            for(int j=0; j<tmp; j++){
+                if(field[i][j].getAlive()){
+                    paint.fillHexagon(field[i][j].centrX, field[i][j].centrY, Color.RED);
+                }
+            }
+        }
+        return image;
     }
 }
