@@ -81,7 +81,7 @@ public class Logic {
 
             for(int j=0;j<mc;j++){
                 hex[i][j] = new Hex(centrX,centrY);
-                impactTable[i][j] = 0d;
+//                impactTable[i][j] = 0d;
                 centrX += deltaX;
             }
             centrY = centrYY + deltaY;
@@ -428,13 +428,17 @@ public class Logic {
             if(height < this.height){
                 for(int i=0; i<height; i++){
                     for(int j=0; j<width; j++){
-                        tmp[i][j] = field[i][j];
+                        if(field[i][j]!=null && tmp[i][j]!=null){
+                            tmp[i][j].setAlive(field[i][j].alive);
+                        }
                     }
                 }
             } else {
                 for(int i=0; i<this.height; i++){
                     for(int j=0; j<width; j++){
-                        tmp[i][j] = field[i][j];
+                        if(field[i][j]!=null && tmp[i][j]!=null){
+                            tmp[i][j].setAlive(field[i][j].alive);
+                        }
                     }
                 }
             }
@@ -442,14 +446,16 @@ public class Logic {
             if(height < this.height){
                 for(int i=0; i<height; i++){
                     for(int j=0; j<this.width; j++){
-                        tmp[i][j] = field[i][j];
+                        if(field[i][j]!=null && tmp[i][j]!=null){
+                            tmp[i][j].setAlive(field[i][j].alive);
+                        }
                     }
                 }
             } else {
                 for(int i=0; i<this.height; i++){
                     for(int j=0; j<this.width; j++){
-                        if(field[i][j]!=null){
-                            tmp[i][j] = field[i][j];
+                        if(field[i][j]!=null && tmp[i][j]!=null){
+                            tmp[i][j].setAlive(field[i][j].alive);
                         }
                     }
                 }
@@ -461,7 +467,6 @@ public class Logic {
     public BufferedImage resurrectImage(BufferedImage image){
         Paint paint = new Paint(image);
         int tmp = width;
-
         for(int i=0; i<height; i++){
             tmp = i%2==0 ? width : width-1;
             for(int j=0; j<tmp; j++){

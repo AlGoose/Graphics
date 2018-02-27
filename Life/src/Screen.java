@@ -15,6 +15,7 @@ public class Screen extends JFrame {
     private Integer radius = null;
     private Integer fat = null;
     private Boolean xorMode = false;
+    private Boolean impactMode = false;
     private Point currentPixel = new Point(-5,-5);
     private boolean isPlay;
     java.util.Timer timer = new java.util.Timer();
@@ -26,6 +27,7 @@ public class Screen extends JFrame {
     private Double LIVE_END = 3.3;
     private Double FST_IMPACT = 1.0;
     private Double SND_IMPACT = 0.3;
+    private Integer SPEED = 500;
 
     public Screen() {
         super("LIFE");
@@ -219,7 +221,6 @@ public class Screen extends JFrame {
         JButton jButtonImpact = new JButton();
         jButtonImpact.setIcon(new ImageIcon("src/Icons/impact32.png"));
         jButtonImpact.setToolTipText("On/Off Impact");
-        jButtonImpact.setActionCommand("FALSE");
         /*-------------------------------------------------------------*/
         JButton jButtonLifeSetting = new JButton();
         jButtonLifeSetting.setIcon(new ImageIcon("src/Icons/life32.png"));
@@ -271,11 +272,11 @@ public class Screen extends JFrame {
         });
         jButtonLifeSetting.addActionListener(e -> liveSettingDialog());
         jButtonImpact.addActionListener(e -> {
-            if(jButtonImpact.getActionCommand().equals("FALSE")){
-                jButtonImpact.setActionCommand("TRUE");
+            if(!impactMode){
+                impactMode = true;
                 showImpacts();
             } else {
-                jButtonImpact.setActionCommand("FALSE");
+                impactMode = false;
                 closeImpacts();
             }
         });
@@ -291,9 +292,9 @@ public class Screen extends JFrame {
         dialog.setLocationRelativeTo(this);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,3));
-        JPanel panelOne = new JPanel(new GridLayout(5,1));
-        JPanel panelTwo = new JPanel(new GridLayout(5,1));
-        JPanel panelThree = new JPanel(new GridLayout(5,1));
+        JPanel panelOne = new JPanel(new GridLayout(6,1));
+        JPanel panelTwo = new JPanel(new GridLayout(6,1));
+        JPanel panelThree = new JPanel(new GridLayout(6,1));
         /*-------------------------------------------------------------*/
         JLabel labelOne = new JLabel("Ширина", SwingConstants.CENTER);
         JTextField widthField = new JTextField();
@@ -338,6 +339,17 @@ public class Screen extends JFrame {
         panelOne.add(labelFour);
         panelTwo.add(jSliderFat);
         panelThree.add(fatField);
+        /*-------------------------------------------------------------*/
+        JLabel labelFive = new JLabel("Скорость", SwingConstants.CENTER);
+        JTextField speedField = new JTextField();
+        JSlider jSliderSpeed = new JSlider(JSlider.HORIZONTAL,100,1000,100);
+        if(SPEED != null){
+            speedField.setText(SPEED.toString());
+            jSliderSpeed.setValue(SPEED);
+        }
+        panelOne.add(labelFive);
+        panelTwo.add(jSliderSpeed);
+        panelThree.add(speedField);
         /*-------------------------------------------------------------*/
         JRadioButton xorButton = new JRadioButton("XOR");
         JRadioButton replaceButton = new JRadioButton("Replace");
@@ -387,6 +399,10 @@ public class Screen extends JFrame {
                 updateImage();
             }
         });
+        jSliderSpeed.addChangeListener(e -> {
+            speedField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+            SPEED = Integer.parseInt(speedField.getText());
+        });
         /*-------------------------------------------------------------*/
         widthField.addKeyListener(new KeyAdapter() {
             @Override
@@ -413,6 +429,12 @@ public class Screen extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 jSliderFat.setValue(Integer.parseInt(fatField.getText()));
+            }
+        });
+        fatField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jSliderSpeed.setValue(Integer.parseInt(speedField.getText()));
             }
         });
         /*-------------------------------------------------------------*/
@@ -643,7 +665,7 @@ public class Screen extends JFrame {
         } else {
             if (logic.isLive()){
                 isPlay = true;
-                timer.schedule(timerTask, 0, 300);
+                timer.schedule(timerTask, 0, SPEED);
             }
         }
     }
@@ -664,8 +686,15 @@ public class Screen extends JFrame {
         @Override
         public void run() {
             if(logic.isLive()) {
-                image = logic.nextStep(image);
-                repaint();
+                if(!impactMode){
+                    image = logic.nextStep(image);
+                    repaint();
+                } else {
+                    closeImpacts();
+                    image = logic.nextStep(image);
+//                    repaint();
+                    showImpacts();
+                }
             } else {
                 stop();
             }
@@ -689,6 +718,7 @@ public class Screen extends JFrame {
     private void showImpacts(){
         Graphics2D g2 = image.createGraphics();
         g2.setColor(Color.BLACK);
+        g2.setFont(new Font("TimesRoman", Font.PLAIN, radius/2));
 
         for(int i=0; i<height; i++){
             int mc = i%2==0 ? width : width-1;
@@ -696,7 +726,7 @@ public class Screen extends JFrame {
                 double imp = logic.getImpact(i,j);
                 String formattedDouble = String.format("%.1f", imp);
                 Point p = logic.getCentre(i,j);
-                g2.drawString(formattedDouble, p.x, p.y);
+                g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/8);
             }
         }
         repaint();
