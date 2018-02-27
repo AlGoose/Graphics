@@ -31,14 +31,6 @@ public class Logic {
             centrY = y;
         }
 
-        private int getX(){
-            return centrX;
-        }
-
-        private int getY(){
-            return centrY;
-        }
-
         private void setAlive(Boolean status){
             alive = status;
         }
@@ -108,6 +100,10 @@ public class Logic {
     public double getImpact(int i, int j){
         return impactTable[i][j];
     }
+
+    public Point getCentre(int i, int j){ return new Point(field[i][j].centrX, field[i][j].centrY); }
+
+    public boolean getAlive(int i, int j) { return field[i][j].getAlive(); }
 
     public Point whatHex(int click_X,int click_Y){
         for(int i=0; i<height;i++){
@@ -192,11 +188,6 @@ public class Logic {
 
     public void setAlive(int i, int j, boolean status){
         field[i][j].setAlive(status);
-//        if(status){
-//            impactTable[i][j] = 1d;
-//        } else {
-//            impactTable[i][j] = 0d;
-//        }
     }
 
     public BufferedImage nextStep(BufferedImage image){
@@ -480,5 +471,17 @@ public class Logic {
             }
         }
         return image;
+    }
+
+    public void clearField(){
+        double[][] tmp = new double[height][width];
+        impactTable = tmp;
+
+        for(int i=0; i<height; i++){
+            int mc = i%2==0 ? width : width-1;
+            for(int j=0; j<mc; j++){
+                field[i][j].setAlive(false);
+            }
+        }
     }
 }

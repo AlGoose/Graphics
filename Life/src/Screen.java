@@ -18,7 +18,7 @@ public class Screen extends JFrame {
     private Point currentPixel = new Point(-5,-5);
     private boolean isPlay;
     java.util.Timer timer = new java.util.Timer();
-    scheduler timerTask = new scheduler();
+    Schedule timerTask = new Schedule();
 
     private Double LIVE_BEGIN = 2.0;
     private Double BIRTH_BEGIN = 2.3;
@@ -38,7 +38,7 @@ public class Screen extends JFrame {
         jPanel.setBackground(Color.WHITE);
 
         image = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
-        colorBackground(Color.WHITE);
+        image = colorBackground(Color.WHITE, image);
         jLabel = new JLabel(new ImageIcon(image));
         jPanel.add(jLabel);
 
@@ -50,12 +50,13 @@ public class Screen extends JFrame {
         setVisible(true);
     }
 
-    public void colorBackground(Color c){
+    public BufferedImage colorBackground(Color c, BufferedImage image){
         for(int i=0;i<image.getHeight();i++){
             for(int j=0;j<image.getWidth();j++){
                 image.setRGB(j,i,c.getRGB());
             }
         }
+        return image;
     }
 
     private JMenuBar addMenu(){
@@ -218,6 +219,7 @@ public class Screen extends JFrame {
         JButton jButtonImpact = new JButton();
         jButtonImpact.setIcon(new ImageIcon("src/Icons/impact32.png"));
         jButtonImpact.setToolTipText("On/Off Impact");
+        jButtonImpact.setActionCommand("FALSE");
         /*-------------------------------------------------------------*/
         JButton jButtonLifeSetting = new JButton();
         jButtonLifeSetting.setIcon(new ImageIcon("src/Icons/life32.png"));
@@ -237,7 +239,7 @@ public class Screen extends JFrame {
         jButtonExit.addActionListener(e -> System.exit(0));
         jButtonNew.addActionListener(e -> newDialog());
         jButtonSettings.addActionListener(e -> settingsDialog());
-        jButtonClear.addActionListener(e -> updateImage());
+        jButtonClear.addActionListener(e -> clearField());
         jButtonAuthor.addActionListener(e -> authorDialog());
         jButtonSwitch.addActionListener(e -> {
             if(!xorMode){
@@ -268,6 +270,15 @@ public class Screen extends JFrame {
             repaint();
         });
         jButtonLifeSetting.addActionListener(e -> liveSettingDialog());
+        jButtonImpact.addActionListener(e -> {
+            if(jButtonImpact.getActionCommand().equals("FALSE")){
+                jButtonImpact.setActionCommand("TRUE");
+                showImpacts();
+            } else {
+                jButtonImpact.setActionCommand("FALSE");
+                closeImpacts();
+            }
+        });
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -524,7 +535,7 @@ public class Screen extends JFrame {
         int pixelHeight = (height+1)*point.y;
 
         image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_ARGB);
-        colorBackground(Color.WHITE);
+        image = colorBackground(Color.WHITE, image);
 
         if(logic == null){
             logic = new Logic(width,height,radius,fat);
@@ -579,12 +590,13 @@ public class Screen extends JFrame {
             }catch (ArrayIndexOutOfBoundsException exception){}
 
             Point point = logic.whatHex(x,y);
-            if(color == Color.RED){
-                logic.setAlive(point.x, point.y, true);
-            } else {
-                logic.setAlive(point.x, point.y, false);
+            if(point.x != -1){
+                if(color == Color.RED){
+                    logic.setAlive(point.x, point.y, true);
+                } else {
+                    logic.setAlive(point.x, point.y, false);
+                }
             }
-            System.out.println(point.x + " : " + point.y);
         }
 
         @Override
@@ -615,12 +627,13 @@ public class Screen extends JFrame {
             }catch (ArrayIndexOutOfBoundsException exception){}
 
             point = logic.whatHex(x,y);
-            if(color == Color.RED){
-                logic.setAlive(point.x, point.y, true);
-            } else if (color == Color.WHITE){
-                logic.setAlive(point.x, point.y, false);
+            if(point.x != -1){
+                if(color == Color.RED){
+                    logic.setAlive(point.x, point.y, true);
+                } else if (color == Color.WHITE){
+                    logic.setAlive(point.x, point.y, false);
+                }
             }
-//            System.out.println(logic.getAlive(3,3));
         }
     }
 
@@ -641,13 +654,13 @@ public class Screen extends JFrame {
             timer.purge();
 
             timer = new java.util.Timer();
-            timerTask = new scheduler();
+            timerTask = new Schedule();
 
             isPlay = false;
         }
     }
 
-    private class scheduler extends TimerTask{
+    private class Schedule extends TimerTask{
         @Override
         public void run() {
             if(logic.isLive()) {
@@ -657,6 +670,40 @@ public class Screen extends JFrame {
                 stop();
             }
         }
+    }
+
+    private void clearField(){
+        Paint p = new Paint(image);
+
+        for(int i=0; i<height; i++){
+            int mc = i%2==0 ? width : width-1;
+            for(int j=0; j<mc; j++){
+                Point pt = logic.getCentre(i,j);
+                p.fillHexagon(pt.x, pt.y, Color.WHITE);
+            }
+        }
+        logic.clearField();
+        repaint();
+    }
+
+    private void showImpacts(){
+        Graphics2D g2 = image.createGraphics();
+        g2.setColor(Color.BLACK);
+
+        for(int i=0; i<height; i++){
+            int mc = i%2==0 ? width : width-1;
+            for(int j=0; j<mc; j++){
+                double imp = logic.getImpact(i,j);
+                String formattedDouble = String.format("%.1f", imp);
+                Point p = logic.getCentre(i,j);
+                g2.drawString(formattedDouble, p.x, p.y);
+            }
+        }
+        repaint();
+    }
+
+    private void closeImpacts(){
+        updateImage();
     }
 
     public static void main(String[] args) {
