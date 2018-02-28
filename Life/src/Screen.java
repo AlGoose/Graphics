@@ -74,11 +74,44 @@ public class Screen extends JFrame {
         settingsItem.setIcon(new ImageIcon("src/Icons/settings.png"));
         fileMenu.add(settingsItem);
 
+        JMenuItem lifeSettingsItem = new JMenuItem("Life Settings");
+        lifeSettingsItem.setIcon(new ImageIcon("src/Icons/settings.png"));
+        fileMenu.add(lifeSettingsItem);
+
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.setIcon(new ImageIcon("src/Icons/exit.png"));
         fileMenu.add(exitItem);
 
         menuBar.add(fileMenu);
+        /*-------------------------------------------------------------*/
+        JMenu gameMenu = new JMenu("Game");
+        gameMenu.setIcon(new ImageIcon("src/Icons/game10.png"));
+
+        JMenuItem playItem = new JMenuItem("Play");
+        playItem.setIcon(new ImageIcon("src/Icons/play10.png"));
+        gameMenu.add(playItem);
+
+        JMenuItem stopItem = new JMenuItem("Stop");
+        stopItem.setIcon(new ImageIcon("src/Icons/play10.png"));
+        gameMenu.add(stopItem);
+
+        JMenuItem nextItem = new JMenuItem("Next Step");
+        nextItem.setIcon(new ImageIcon("src/Icons/next10.png"));
+        gameMenu.add(nextItem);
+
+        JMenuItem clearItem = new JMenuItem("Clear");
+        clearItem.setIcon(new ImageIcon("src/Icons/clear10.png"));
+        gameMenu.add(clearItem);
+
+        JMenuItem impactItem = new JMenuItem("Show Impacts");
+        impactItem.setIcon(new ImageIcon("src/Icons/impacts10.png"));
+        gameMenu.add(impactItem);
+
+        JMenuItem xorItem = new JMenuItem("XOR Mode");
+        xorItem.setIcon(new ImageIcon("src/Icons/xor10.png"));
+        gameMenu.add(xorItem);
+
+        menuBar.add(gameMenu);
         /*-------------------------------------------------------------*/
         JMenu infoMenu = new JMenu("Info");
         infoMenu.setIcon(new ImageIcon("src/Icons/info.png"));
@@ -97,6 +130,47 @@ public class Screen extends JFrame {
         newItem.addActionListener(e -> newDialog());
         authorItem.addActionListener(e -> authorDialog());
         settingsItem.addActionListener(e -> settingsDialog());
+        lifeSettingsItem.addActionListener(e -> liveSettingDialog());
+        impactItem.addActionListener(e -> {
+            if(!impactMode){
+                impactMode = true;
+                showImpacts();
+            } else {
+                impactMode = false;
+                closeImpacts();
+            }
+        });
+        xorItem.addActionListener(e -> {
+            if(!xorMode){
+                xorMode = true;
+            } else {
+                xorMode = false;
+            }
+        });
+        nextItem.addActionListener(e -> {
+            if(!impactMode){
+                image = logic.nextStep(image);
+                repaint();
+            } else {
+                closeImpacts();
+                image = logic.nextStep(image);
+                showImpacts();
+            }
+        });
+        clearItem.addActionListener(e -> clearField());
+        playItem.addActionListener(e -> play());
+        stopItem.addActionListener(e -> play());
+        aboutItem.addActionListener(e -> JOptionPane.showMessageDialog(this, "New - новое поле\n" +
+                "Clear - очистить поле\n" +
+                "Play - начать/остановить игру\n" +
+                "Next Step - перейти на следующий шаг игры\n" +
+                "XOR Mode - включить/выключить XOR режим\n" +
+                "Show Impacts - включить/выключить отображение влияния\n" +
+                "Settings - настройки поля\n" +
+                "Life Settings - настройка игры\n" +
+                "Author - об авторе\n" +
+                "Exit - выход"));
+
         return menuBar;
     }
 
@@ -256,19 +330,23 @@ public class Screen extends JFrame {
                jButtonStart.setIcon(new ImageIcon("src/Icons/stop32.png"));
                jButtonStart.setActionCommand("STOP");
                jButtonNext.setEnabled(false);
-               isPlay = false;
                play();
            } else {
                jButtonStart.setIcon(new ImageIcon("src/Icons/start32.png"));
                jButtonStart.setActionCommand("PLAY");
                jButtonNext.setEnabled(true);
-               isPlay = true;
                play();
            }
         });
         jButtonNext.addActionListener(e -> {
-            image = logic.nextStep(image);
-            repaint();
+            if(!impactMode){
+                image = logic.nextStep(image);
+                repaint();
+            } else {
+                closeImpacts();
+                image = logic.nextStep(image);
+                showImpacts();
+            }
         });
         jButtonLifeSetting.addActionListener(e -> liveSettingDialog());
         jButtonImpact.addActionListener(e -> {
@@ -724,9 +802,16 @@ public class Screen extends JFrame {
             int mc = i%2==0 ? width : width-1;
             for(int j=0; j<mc; j++){
                 double imp = logic.getImpact(i,j);
-                String formattedDouble = String.format("%.1f", imp);
-                Point p = logic.getCentre(i,j);
-                g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/8);
+                String formattedDouble;
+                if(imp - (int)imp > 0){
+                    formattedDouble = String.format("%.1f", imp);
+                    Point p = logic.getCentre(i,j);
+                    g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/6);
+                } else {
+                    formattedDouble = String.format("%.0f", imp);
+                    Point p = logic.getCentre(i,j);
+                    g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/6);
+                }
             }
         }
         repaint();
