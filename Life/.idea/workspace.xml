@@ -22,21 +22,16 @@
       <file leaf-file-name="Paint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Paint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="180" column="59" lean-forward="false" selection-start-line="180" selection-start-column="59" selection-end-line="180" selection-end-column="59" />
               <folding>
-                <element signature="e#233#234#0" expanded="false" />
-                <element signature="e#286#287#0" expanded="false" />
                 <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
                 <element signature="method#drawField#0;class#Paint#0" expanded="false" />
                 <element signature="class#Span#0;class#Paint#0" expanded="false" />
-                <element signature="e#4027#4028#0" expanded="false" />
-                <element signature="e#4060#4061#0" expanded="false" />
-                <element signature="e#4095#4096#0" expanded="false" />
-                <element signature="e#4128#4129#0" expanded="false" />
                 <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+                <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -45,44 +40,47 @@
       <file leaf-file-name="Screen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="130" column="58" lean-forward="true" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
+            <state relative-caret-position="245">
+              <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Screen#0;class#Screen#0" expanded="false" />
                 <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+                <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
                 <element signature="e#4945#5159#0" expanded="false" />
                 <element signature="e#5196#5338#0" expanded="false" />
                 <element signature="e#5376#5640#0" expanded="false" />
                 <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
                 <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
                 <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-                <element signature="e#13436#13743#0" expanded="false" />
-                <element signature="e#13785#14295#0" expanded="false" />
-                <element signature="e#14336#14600#0" expanded="false" />
-                <element signature="e#14715#14929#0" expanded="false" />
+                <element signature="e#14447#14754#0" expanded="false" />
+                <element signature="e#14796#15306#0" expanded="false" />
+                <element signature="e#15347#15611#0" expanded="false" />
+                <element signature="e#15726#15940#0" expanded="false" />
                 <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-                <element signature="e#19055#19357#0" expanded="false" />
-                <element signature="e#19400#19705#0" expanded="false" />
-                <element signature="e#19748#20053#0" expanded="false" />
-                <element signature="e#20093#20389#0" expanded="false" />
-                <element signature="e#20798#20799#0" expanded="false" />
-                <element signature="e#20891#20892#0" expanded="false" />
-                <element signature="e#21030#21031#0" expanded="false" />
-                <element signature="e#21125#21126#0" expanded="false" />
-                <element signature="e#21264#21265#0" expanded="false" />
-                <element signature="e#21359#21360#0" expanded="false" />
-                <element signature="e#21495#21496#0" expanded="false" />
-                <element signature="e#21584#21585#0" expanded="false" />
-                <element signature="e#21719#21720#0" expanded="false" />
-                <element signature="e#21812#21813#0" expanded="false" />
-                <element signature="e#21936#22112#0" expanded="false" />
-                <element signature="e#22155#22334#0" expanded="false" />
+                <element signature="e#20066#20368#0" expanded="false" />
+                <element signature="e#20411#20716#0" expanded="false" />
+                <element signature="e#20759#21064#0" expanded="false" />
+                <element signature="e#21104#21400#0" expanded="false" />
+                <element signature="e#21809#21810#0" expanded="false" />
+                <element signature="e#21902#21903#0" expanded="false" />
+                <element signature="e#22041#22042#0" expanded="false" />
+                <element signature="e#22136#22137#0" expanded="false" />
+                <element signature="e#22275#22276#0" expanded="false" />
+                <element signature="e#22370#22371#0" expanded="false" />
+                <element signature="e#22506#22507#0" expanded="false" />
+                <element signature="e#22595#22596#0" expanded="false" />
+                <element signature="e#22730#22731#0" expanded="false" />
+                <element signature="e#22823#22824#0" expanded="false" />
+                <element signature="e#22947#23123#0" expanded="false" />
+                <element signature="e#23166#23345#0" expanded="false" />
                 <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-                <element signature="e#25667#26856#0" expanded="false" />
+                <element signature="e#26678#28288#0" expanded="false" />
                 <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
                 <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
                 <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+                <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+                <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
                 <element signature="method#play#0;class#Screen#0" expanded="false" />
                 <element signature="method#stop#0;class#Screen#0" expanded="false" />
                 <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -96,8 +94,8 @@
       <file leaf-file-name="Logic.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Logic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="830">
-              <caret line="466" column="60" lean-forward="false" selection-start-line="466" selection-start-column="60" selection-end-line="466" selection-end-column="60" />
+            <state relative-caret-position="208">
+              <caret line="232" column="10" lean-forward="false" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Hex#0;class#Logic#0" expanded="false" />
@@ -605,38 +603,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -651,18 +652,13 @@
         <state relative-caret-position="340">
           <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -675,38 +671,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -721,18 +720,13 @@
         <state relative-caret-position="120">
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -745,38 +739,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -791,18 +788,13 @@
         <state relative-caret-position="60">
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -815,38 +807,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -861,18 +856,13 @@
         <state relative-caret-position="120">
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -885,38 +875,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -931,18 +924,13 @@
         <state relative-caret-position="120">
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -955,38 +943,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1001,18 +992,13 @@
         <state relative-caret-position="420">
           <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1025,38 +1011,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1071,18 +1060,13 @@
         <state relative-caret-position="420">
           <caret line="192" column="5" lean-forward="false" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1095,38 +1079,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1144,38 +1131,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1193,38 +1183,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1242,38 +1235,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1291,38 +1287,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1340,38 +1339,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1389,38 +1391,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1438,38 +1443,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1487,38 +1495,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1536,38 +1547,41 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />
@@ -1642,29 +1656,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Paint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="180" column="59" lean-forward="false" selection-start-line="180" selection-start-column="59" selection-end-line="180" selection-end-column="59" />
           <folding>
-            <element signature="e#233#234#0" expanded="false" />
-            <element signature="e#286#287#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon#0;class#Paint#0" expanded="false" />
             <element signature="method#drawHexagon2#0;class#Paint#0" expanded="false" />
             <element signature="method#drawField#0;class#Paint#0" expanded="false" />
             <element signature="class#Span#0;class#Paint#0" expanded="false" />
-            <element signature="e#4027#4028#0" expanded="false" />
-            <element signature="e#4060#4061#0" expanded="false" />
-            <element signature="e#4095#4096#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
             <element signature="method#makeSpan#0;class#Paint#0" expanded="false" />
+            <element signature="method#fillHexagon#0;class#Paint#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Logic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="466" column="60" lean-forward="false" selection-start-line="466" selection-start-column="60" selection-end-line="466" selection-end-column="60" />
+        <state relative-caret-position="208">
+          <caret line="232" column="10" lean-forward="false" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#Hex#0;class#Logic#0" expanded="false" />
@@ -1693,44 +1702,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Screen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="130" column="58" lean-forward="true" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
+        <state relative-caret-position="245">
+          <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Screen#0;class#Screen#0" expanded="false" />
             <element signature="method#colorBackground#0;class#Screen#0" expanded="false" />
+            <element signature="method#addMenu#0;class#Screen#0" expanded="false" />
             <element signature="e#4945#5159#0" expanded="false" />
             <element signature="e#5196#5338#0" expanded="false" />
             <element signature="e#5376#5640#0" expanded="false" />
             <element signature="method#newDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#authorDialog#0;class#Screen#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Screen#0" expanded="false" />
-            <element signature="e#13436#13743#0" expanded="false" />
-            <element signature="e#13785#14295#0" expanded="false" />
-            <element signature="e#14336#14600#0" expanded="false" />
-            <element signature="e#14715#14929#0" expanded="false" />
+            <element signature="e#14447#14754#0" expanded="false" />
+            <element signature="e#14796#15306#0" expanded="false" />
+            <element signature="e#15347#15611#0" expanded="false" />
+            <element signature="e#15726#15940#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#19055#19357#0" expanded="false" />
-            <element signature="e#19400#19705#0" expanded="false" />
-            <element signature="e#19748#20053#0" expanded="false" />
-            <element signature="e#20093#20389#0" expanded="false" />
-            <element signature="e#20798#20799#0" expanded="false" />
-            <element signature="e#20891#20892#0" expanded="false" />
-            <element signature="e#21030#21031#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#21264#21265#0" expanded="false" />
-            <element signature="e#21359#21360#0" expanded="false" />
-            <element signature="e#21495#21496#0" expanded="false" />
-            <element signature="e#21584#21585#0" expanded="false" />
-            <element signature="e#21719#21720#0" expanded="false" />
-            <element signature="e#21812#21813#0" expanded="false" />
-            <element signature="e#21936#22112#0" expanded="false" />
-            <element signature="e#22155#22334#0" expanded="false" />
+            <element signature="e#20066#20368#0" expanded="false" />
+            <element signature="e#20411#20716#0" expanded="false" />
+            <element signature="e#20759#21064#0" expanded="false" />
+            <element signature="e#21104#21400#0" expanded="false" />
+            <element signature="e#21809#21810#0" expanded="false" />
+            <element signature="e#21902#21903#0" expanded="false" />
+            <element signature="e#22041#22042#0" expanded="false" />
+            <element signature="e#22136#22137#0" expanded="false" />
+            <element signature="e#22275#22276#0" expanded="false" />
+            <element signature="e#22370#22371#0" expanded="false" />
+            <element signature="e#22506#22507#0" expanded="false" />
+            <element signature="e#22595#22596#0" expanded="false" />
+            <element signature="e#22730#22731#0" expanded="false" />
+            <element signature="e#22823#22824#0" expanded="false" />
+            <element signature="e#22947#23123#0" expanded="false" />
+            <element signature="e#23166#23345#0" expanded="false" />
             <element signature="method#liveSettingDialog#0;class#Screen#0" expanded="false" />
-            <element signature="e#25667#26856#0" expanded="false" />
+            <element signature="e#26678#28288#0" expanded="false" />
             <element signature="method#updateImage#0;class#Screen#0" expanded="false" />
             <element signature="method#getDelta#0;class#Screen#0" expanded="false" />
             <element signature="class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#CustomListener#0;class#Screen#0" expanded="false" />
+            <element signature="method#mouseDragged#0;class#CustomListener#0;class#Screen#0" expanded="false" />
             <element signature="method#play#0;class#Screen#0" expanded="false" />
             <element signature="method#stop#0;class#Screen#0" expanded="false" />
             <element signature="class#Schedule#0;class#Screen#0" expanded="false" />

@@ -230,7 +230,7 @@ public class Logic {
         return image;
     }
 
-    private void countImpacts(){
+    public void countImpacts(){
         prevImpactTable = impactTable;
         double[][] tmp = prevImpactTable;
         mc = width;

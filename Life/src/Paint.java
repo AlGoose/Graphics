@@ -116,9 +116,9 @@ public class Paint{
             deltaX2 = deltaX/2;
         }
 
-        int centrX = radius + fat + 5;
+        int centrX = radius + fat + 15;
         int centrXX = centrX;
-        int centrY = radius + fat + 5;
+        int centrY = radius + fat + 20;
         int centrYY = centrY;
         int deltaY = (int)Math.ceil(3*radius/2);
 
@@ -179,25 +179,25 @@ public class Paint{
     }
 
     public BufferedImage fillHexagon(int x, int y, Color c){
-        Boolean correctDown = false;
-        Boolean correctUp = false;
-        int tmp = y;
-        while (tmp != image.getHeight()){
-            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
-                correctDown = true;
-                break;
-            }
-            tmp++;
-        }
-        tmp = y;
-        while (tmp != 0){
-            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
-                correctUp = true;
-                break;
-            }
-            tmp--;
-        }
-        if(!correctDown || !correctUp){return image;}
+//        Boolean correctDown = false;
+//        Boolean correctUp = false;
+//        int tmp = y;
+//        while (tmp != image.getHeight()){
+//            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
+//                correctDown = true;
+//                break;
+//            }
+//            tmp++;
+//        }
+//        tmp = y;
+//        while (tmp != 0){
+//            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
+//                correctUp = true;
+//                break;
+//            }
+//            tmp--;
+//        }
+//        if(!correctDown || !correctUp){return image;}
 
         Boolean lockUp;
         Boolean lockDown;

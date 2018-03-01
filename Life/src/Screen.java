@@ -214,12 +214,30 @@ public class Screen extends JFrame {
         dialog.setVisible(true);
 
         button.addActionListener(e -> {
-            height = Integer.parseInt(heightField.getText());
-            width = Integer.parseInt(widthField.getText());
-            radius = Integer.parseInt(radiusField.getText());
-            fat = Integer.parseInt(fatField.getText());
-            updateImage();
-            dialog.dispose();
+            try{
+                Integer a = Integer.parseInt(heightField.getText());
+                Integer b = Integer.parseInt(widthField.getText());
+                Integer c = Integer.parseInt(radiusField.getText());
+                Integer d = Integer.parseInt(fatField.getText());
+
+                if(a > 20 || b > 20 || c > 40 || d > 10){
+                    JOptionPane.showMessageDialog(dialog,"Wrong input data!\n" +
+                            "Height <= 20\n" +
+                            "Width <= 20\n" +
+                            "Radius <= 40\n" +
+                            "Fat <= 10");
+                } else {
+                    height = Integer.parseInt(heightField.getText());
+                    width = Integer.parseInt(widthField.getText());
+                    radius = Integer.parseInt(radiusField.getText());
+                    fat = Integer.parseInt(fatField.getText());
+                    updateImage();
+                    dialog.dispose();
+                }
+            } catch (NumberFormatException nfe){
+                JOptionPane.showMessageDialog(dialog,"Wrong input data!\n" +
+                        "Try again!");
+            }
         });
     }
 
@@ -314,7 +332,13 @@ public class Screen extends JFrame {
         jButtonExit.addActionListener(e -> System.exit(0));
         jButtonNew.addActionListener(e -> newDialog());
         jButtonSettings.addActionListener(e -> settingsDialog());
-        jButtonClear.addActionListener(e -> clearField());
+        jButtonClear.addActionListener(e -> {
+            clearField();
+            if(impactMode){
+                closeImpacts();
+                showImpacts();
+            }
+        });
         jButtonAuthor.addActionListener(e -> authorDialog());
         jButtonSwitch.addActionListener(e -> {
             if(!xorMode){
@@ -599,26 +623,33 @@ public class Screen extends JFrame {
         dialog.add(mainPanel);
         /*-------------------------------------------------------------*/
         accept.addActionListener(e -> {
-            Double live_begin = Double.parseDouble(liveBeginField.getText());
-            Double live_end = Double.parseDouble(liveEndField.getText());
-            Double birth_begin = Double.parseDouble(birthBeginField.getText());
-            Double birth_end = Double.parseDouble(birthEndField.getText());
-            Double fst_impact = Double.parseDouble(firstImpactField.getText());
-            Double snd_impact = Double.parseDouble(secondImpactField.getText());
+            try {
+                Double live_begin = Double.parseDouble(liveBeginField.getText());
+                Double live_end = Double.parseDouble(liveEndField.getText());
+                Double birth_begin = Double.parseDouble(birthBeginField.getText());
+                Double birth_end = Double.parseDouble(birthEndField.getText());
+                Double fst_impact = Double.parseDouble(firstImpactField.getText());
+                Double snd_impact = Double.parseDouble(secondImpactField.getText());
 
-            if(live_begin <= birth_begin && birth_begin <= birth_end && birth_end <= live_end){
-                LIVE_BEGIN = live_begin;
-                LIVE_END = live_end;
-                BIRTH_BEGIN = birth_begin;
-                BIRTH_END = birth_end;
-                FST_IMPACT = fst_impact;
-                SND_IMPACT = snd_impact;
-                logic.setOptions(LIVE_BEGIN,BIRTH_BEGIN,BIRTH_END,LIVE_END,FST_IMPACT,SND_IMPACT);
-                dialog.dispose();
-            } else {
-                JOptionPane.showMessageDialog(dialog,"Wrong options!\n" +
+                if (live_begin <= birth_begin && birth_begin <= birth_end && birth_end <= live_end) {
+                    LIVE_BEGIN = live_begin;
+                    LIVE_END = live_end;
+                    BIRTH_BEGIN = birth_begin;
+                    BIRTH_END = birth_end;
+                    FST_IMPACT = fst_impact;
+                    SND_IMPACT = snd_impact;
+                    logic.setOptions(LIVE_BEGIN, BIRTH_BEGIN, BIRTH_END, LIVE_END, FST_IMPACT, SND_IMPACT);
+                    dialog.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(dialog, "Wrong options!\n" +
+                            "Look at this:\n" +
+                            "LIVE_BEGIN <= BIRTH_BEGIN <= BIRTH_END <= LIVE_END");
+                }
+            } catch (NumberFormatException nfe){
+                JOptionPane.showMessageDialog(dialog, "Wrong options!\n" +
                         "Look at this:\n" +
-                        "LIVE_BEGIN <= BIRTH_BEGIN <= BIRTH_END <= LIVE_END");
+                        "LIVE_BEGIN <= BIRTH_BEGIN <= BIRTH_END <= LIVE_END\n" +
+                        "And it must be numbers!");
             }
         });
         /*-------------------------------------------------------------*/
@@ -685,18 +716,25 @@ public class Screen extends JFrame {
             }
 
             try{
-                image =  paint.fillHexagon(x,y,color);
-                repaint();
-            }catch (ArrayIndexOutOfBoundsException exception){}
-
-            Point point = logic.whatHex(x,y);
-            if(point.x != -1){
-                if(color == Color.RED){
-                    logic.setAlive(point.x, point.y, true);
-                } else {
-                    logic.setAlive(point.x, point.y, false);
+                Point point = logic.whatHex(x,y);
+                if(point.x != -1){
+                    if(color == Color.RED){
+                        logic.setAlive(point.x, point.y, true);
+                    } else {
+                        logic.setAlive(point.x, point.y, false);
+                    }
+                    if(impactMode){
+                        closeImpacts();
+                        image =  paint.fillHexagon(x,y,color);
+                        logic.countImpacts();
+                        showImpacts();
+                    } else {
+                        image =  paint.fillHexagon(x,y,color);
+                        logic.countImpacts();
+                        repaint();
+                    }
                 }
-            }
+            }catch (ArrayIndexOutOfBoundsException exception){}
         }
 
         @Override
@@ -721,6 +759,7 @@ public class Screen extends JFrame {
             } else {
                 color = Color.RED;
             }
+
             try{
                 image =  paint.fillHexagon(x,y,color);
                 repaint();
@@ -770,7 +809,6 @@ public class Screen extends JFrame {
                 } else {
                     closeImpacts();
                     image = logic.nextStep(image);
-//                    repaint();
                     showImpacts();
                 }
             } else {
@@ -806,11 +844,11 @@ public class Screen extends JFrame {
                 if(imp - (int)imp > 0){
                     formattedDouble = String.format("%.1f", imp);
                     Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/6);
+                    g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/2);
                 } else {
                     formattedDouble = String.format("%.0f", imp);
                     Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/6);
+                    g2.drawString(formattedDouble, p.x + radius/6, p.y + radius/2);
                 }
             }
         }
@@ -825,3 +863,5 @@ public class Screen extends JFrame {
         new Screen();
     }
 }
+
+
