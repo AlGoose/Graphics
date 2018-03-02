@@ -2,6 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimerTask;
 
 public class Screen extends JFrame {
@@ -318,7 +323,12 @@ public class Screen extends JFrame {
         jButtonLifeSetting.setIcon(new ImageIcon("src/Icons/life32.png"));
         jButtonLifeSetting.setToolTipText("Life Setting");
         /*-------------------------------------------------------------*/
+        JButton jButtonOpen = new JButton();
+        jButtonOpen.setIcon(new ImageIcon("src/Icons/newfile32.png"));
+        jButtonOpen.setToolTipText("Open File");
+        /*-------------------------------------------------------------*/
         jToolBar.add(jButtonNew);
+        jToolBar.add(jButtonOpen);
         jToolBar.add(jButtonClear);
         jToolBar.add(jButtonStart);
         jToolBar.add(jButtonNext);
@@ -380,6 +390,37 @@ public class Screen extends JFrame {
             } else {
                 impactMode = false;
                 closeImpacts();
+            }
+        });
+        jButtonOpen.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser("src");
+            int res = fileChooser.showDialog(null,"File Open");
+            if (res == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                try {
+                    Parser parser = new Parser(file);
+                    parser.readFile();
+
+                    height = parser.getHeight();
+                    width = parser.getWidth();
+                    radius = parser.getRadius();
+                    fat = parser.getFat();
+                    updateImage();
+
+                    HashMap<ArrayList<Integer>, ArrayList<Integer>> map = parser.getField();
+                    for (Map.Entry<ArrayList<Integer>, ArrayList<Integer>> entry : map.entrySet()){
+                        ArrayList<Integer> x = entry.getKey();
+                        ArrayList<Integer> y = entry.getValue();
+                        for(int i=0; i<x.size(); i++){
+                            Point point = logic.getCentre(x.get(i),y.get(i));
+                            paint.fillHexagon(point.x, point.y, Color.RED);
+                            logic.setAlive(x.get(i),y.get(i),true);
+                            logic.countImpacts();
+                        }
+                    }
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
         /*-------------------------------------------------------------*/

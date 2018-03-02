@@ -103,8 +103,6 @@ public class Logic {
 
     public Point getCentre(int i, int j){ return new Point(field[i][j].centrX, field[i][j].centrY); }
 
-    public boolean getAlive(int i, int j) { return field[i][j].getAlive(); }
-
     public Point whatHex(int click_X,int click_Y){
         for(int i=0; i<height;i++){
             for(int j=0; j<width; j++){
