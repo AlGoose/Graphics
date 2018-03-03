@@ -65,7 +65,7 @@ public class Screen extends JFrame {
 
     }
 
-    public BufferedImage colorBackground(Color c, BufferedImage image){
+    private BufferedImage colorBackground(Color c, BufferedImage image){
         for(int i=0;i<image.getHeight();i++){
             for(int j=0;j<image.getWidth();j++){
                 image.setRGB(j,i,c.getRGB());
@@ -147,7 +147,26 @@ public class Screen extends JFrame {
 
         menuBar.add(infoMenu);
         /*-------------------------------------------------------------*/
-        exitItem.addActionListener(e -> System.exit(0));
+        exitItem.addActionListener(e -> {
+            System.out.println("windowClosing()");
+            if(logic != null) {
+                int choice = JOptionPane.showOptionDialog(null,
+                        "Do you want to save?",
+                        "Quit?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, null, null);
+
+                if (choice == JOptionPane.YES_OPTION) {
+                    saveDialog();
+                    System.exit(0);
+                } else {
+                    System.exit(0);
+                }
+            } else {
+                System.exit(0);
+            }
+        });
         newItem.addActionListener(e -> newDialog());
         authorItem.addActionListener(e -> authorDialog());
         settingsItem.addActionListener(e -> settingsDialog());
@@ -255,13 +274,14 @@ public class Screen extends JFrame {
                             "Radius <= 40\n" +
                             "Fat <= 10");
                 } else {
+                    if(logic != null){
+                        clearField();
+                    }
                     height = Integer.parseInt(heightField.getText());
                     width = Integer.parseInt(widthField.getText());
                     radius = Integer.parseInt(radiusField.getText());
                     fat = Integer.parseInt(fatField.getText());
-                    if(logic != null){
-                        clearField();
-                    }
+
                     updateImage();
                     dialog.dispose();
                 }
@@ -306,9 +326,10 @@ public class Screen extends JFrame {
 
     private void saveDialog(){
         if(logic != null) {
-            JFileChooser fileChooser = new JFileChooser("src");
+            JFileChooser fileChooser = new JFileChooser("FIT_15203_Gusev_Alexandr_Life_Data");
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
             fileChooser.setFileFilter(filter);
+            setLocationRelativeTo(this);
             int res = fileChooser.showSaveDialog(null);
             if (res == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
@@ -446,8 +467,45 @@ public class Screen extends JFrame {
         jToolBar.add(jButtonAuthor);
         jToolBar.add(jButtonExit);
         /*-------------------------------------------------------------*/
-        jButtonExit.addActionListener(e -> System.exit(0));
-        jButtonNew.addActionListener(e -> newDialog());
+        jButtonExit.addActionListener(e -> {
+            System.out.println("windowClosing()");
+            if(logic != null) {
+                int choice = JOptionPane.showOptionDialog(null,
+                        "Do you want to save?",
+                        "Quit?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, null, null);
+
+                if (choice == JOptionPane.YES_OPTION) {
+                    saveDialog();
+                    System.exit(0);
+                } else {
+                    System.exit(0);
+                }
+            } else {
+                System.exit(0);
+            }
+        });
+        jButtonNew.addActionListener(e -> {
+            if(logic == null){
+                newDialog();
+            } else {
+                int choice = JOptionPane.showOptionDialog(null,
+                        "Do you want to save?",
+                        "Quit?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, null, null);
+
+                if (choice == JOptionPane.YES_OPTION) {
+                    saveDialog();
+                    newDialog();
+                } else {
+                    newDialog();
+                }
+            }
+        });
         jButtonSettings.addActionListener(e -> settingsDialog());
         jButtonClear.addActionListener(e -> {
             clearField();
@@ -500,7 +558,7 @@ public class Screen extends JFrame {
             }
         });
         jButtonOpen.addActionListener(e -> {
-            JFileChooser fileChooser = new JFileChooser("src");
+            JFileChooser fileChooser = new JFileChooser("FIT_15203_Gusev_Alexandr_Life_Data");
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
             fileChooser.setFileFilter(filter);
             int res = fileChooser.showDialog(null,"File Open");
@@ -826,7 +884,7 @@ public class Screen extends JFrame {
         revalidate();
     }
 
-    public Point getDelta(int radius, int fat){
+    private Point getDelta(int radius, int fat){
         radius+=fat/2;
         int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
         int deltaX2 = deltaX / 2;
@@ -921,19 +979,23 @@ public class Screen extends JFrame {
 
         public void windowClosing(WindowEvent e) {
             System.out.println("windowClosing()");
-            int choice = JOptionPane.showOptionDialog(null,
+            if(logic != null) {
+                int choice = JOptionPane.showOptionDialog(null,
                         "Do you want to save?",
                         "Quit?",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE,
                         null, null, null);
 
-                if(choice == JOptionPane.YES_OPTION){
+                if (choice == JOptionPane.YES_OPTION) {
                     saveDialog();
                     System.exit(0);
                 } else {
                     System.exit(0);
                 }
+            } else {
+                System.exit(0);
+            }
         }
 
         public void windowDeactivated(WindowEvent e) {}
@@ -945,7 +1007,7 @@ public class Screen extends JFrame {
         public void windowOpened(WindowEvent e) {}
     }
 
-    public void play(){
+    private void play(){
         if (isPlay){
             stop();
         } else {
@@ -956,7 +1018,7 @@ public class Screen extends JFrame {
         }
     }
 
-    public void stop(){
+    private void stop(){
         if(isPlay) {
             timer.cancel();
             timer.purge();
@@ -1032,5 +1094,3 @@ public class Screen extends JFrame {
         new Screen();
     }
 }
-
-

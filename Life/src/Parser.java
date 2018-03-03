@@ -35,6 +35,10 @@ public class Parser {
                     height = Integer.parseInt(number);
 //                    System.out.println(height);
                 } else {
+                    if(i == 1){
+                        number = str.substring(fromIndex, index);
+                        height = Integer.parseInt(number);
+                    }
                     number = str.substring(fromIndex, index);
                     width = Integer.parseInt(number);
 //                    System.out.println(width);
@@ -67,6 +71,12 @@ public class Parser {
                         yArr.add(y);
                         System.out.println(y);
                     } else {
+                        if(j == 1){
+                            number = str.substring(fromIndex, index);
+                            y = Integer.parseInt(number);
+                            yArr.add(y);
+                            System.out.println(y);
+                        }
                         number = str.substring(fromIndex, index);
                         x = Integer.parseInt(number);
                         xArr.add(x);
