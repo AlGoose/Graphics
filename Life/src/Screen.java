@@ -1,15 +1,19 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimerTask;
 
 public class Screen extends JFrame {
+    private File file = null;
     private Logic logic;
     private BufferedImage image;
     private Paint paint;
@@ -32,7 +36,7 @@ public class Screen extends JFrame {
     private Double LIVE_END = 3.3;
     private Double FST_IMPACT = 1.0;
     private Double SND_IMPACT = 0.3;
-    private Integer SPEED = 500;
+    private Integer SPEED = 1000;
 
     public Screen() {
         super("LIFE");
@@ -49,12 +53,16 @@ public class Screen extends JFrame {
         jLabel = new JLabel(new ImageIcon(image));
         jPanel.add(jLabel);
 
+        MyWindowListener mwl = new MyWindowListener();
+        addWindowListener(mwl);
+
         JScrollPane scrollPane = new JScrollPane(jPanel);
         add(scrollPane, BorderLayout.CENTER);
         pack();
         setResizable(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setVisible(true);
+
     }
 
     public BufferedImage colorBackground(Color c, BufferedImage image){
@@ -74,6 +82,14 @@ public class Screen extends JFrame {
         JMenuItem newItem = new JMenuItem("New");
         newItem.setIcon(new ImageIcon("src/Icons/new.png"));
         fileMenu.add(newItem);
+
+        JMenuItem saveItem = new JMenuItem("Save");
+        saveItem.setIcon(new ImageIcon("src/Icons/save10.png"));
+        fileMenu.add(saveItem);
+
+        JMenuItem saveAsItem = new JMenuItem("Save As");
+        saveAsItem.setIcon(new ImageIcon("src/Icons/saveas10.png"));
+        fileMenu.add(saveAsItem);
 
         JMenuItem settingsItem = new JMenuItem("Settings");
         settingsItem.setIcon(new ImageIcon("src/Icons/settings.png"));
@@ -175,7 +191,14 @@ public class Screen extends JFrame {
                 "Life Settings - настройка игры\n" +
                 "Author - об авторе\n" +
                 "Exit - выход"));
-
+        saveAsItem.addActionListener(e -> saveDialog());
+        saveItem.addActionListener(e ->{
+            if(file == null){
+                saveDialog();
+            } else {
+                justSave();
+            }
+        });
         return menuBar;
     }
 
@@ -225,7 +248,7 @@ public class Screen extends JFrame {
                 Integer c = Integer.parseInt(radiusField.getText());
                 Integer d = Integer.parseInt(fatField.getText());
 
-                if(a > 20 || b > 20 || c > 40 || d > 10){
+                if(a > 20 || b > 20 || c > 50 || d > 10){
                     JOptionPane.showMessageDialog(dialog,"Wrong input data!\n" +
                             "Height <= 20\n" +
                             "Width <= 20\n" +
@@ -236,6 +259,9 @@ public class Screen extends JFrame {
                     width = Integer.parseInt(widthField.getText());
                     radius = Integer.parseInt(radiusField.getText());
                     fat = Integer.parseInt(fatField.getText());
+                    if(logic != null){
+                        clearField();
+                    }
                     updateImage();
                     dialog.dispose();
                 }
@@ -276,6 +302,77 @@ public class Screen extends JFrame {
         /*-------------------------------------------------------------*/
         dialog.add(jPanelOne);
         dialog.setVisible(true);
+    }
+
+    private void saveDialog(){
+        if(logic != null) {
+            JFileChooser fileChooser = new JFileChooser("src");
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
+            fileChooser.setFileFilter(filter);
+            int res = fileChooser.showSaveDialog(null);
+            if (res == JFileChooser.APPROVE_OPTION) {
+                file = fileChooser.getSelectedFile();
+                System.out.println(file.toString());
+                String filePath;
+                if (file.toString().contains(".txt")) {
+                    filePath = file.toString();
+                } else {
+                    filePath = file.toString() + ".txt";
+                }
+
+                try (FileWriter writer = new FileWriter(filePath, false)) {
+                    writer.write(width.toString() + " " + height.toString() + "\r\n");
+                    writer.write(fat.toString() + "\r\n");
+                    writer.write(radius.toString() + "\r\n");
+
+                    Integer number = logic.liveNumber();
+                    System.out.println(number);
+                    writer.write(number.toString() + "\r\n");
+
+                    for (int i = 0; i < height; i++) {
+                        int tmp = i % 2 == 0 ? width : width - 1;
+                        for (int j = 0; j < tmp; j++) {
+                            if (logic.getAlive(i, j)) {
+                                writer.write(i + " " + j + "\r\n");
+                            }
+                        }
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void justSave(){
+        System.out.println(file.toString());
+        String filePath;
+        if (file.toString().contains(".txt")) {
+            filePath = file.toString();
+        } else {
+            filePath = file.toString() + ".txt";
+        }
+
+        try (FileWriter writer = new FileWriter(filePath, false)) {
+            writer.write(width.toString() + " " + height.toString() + "\r\n");
+            writer.write(fat.toString() + "\r\n");
+            writer.write(radius.toString() + "\r\n");
+
+            Integer number = logic.liveNumber();
+            System.out.println(number);
+            writer.write(number.toString() + "\r\n");
+
+            for (int i = 0; i < height; i++) {
+                int tmp = i % 2 == 0 ? width : width - 1;
+                for (int j = 0; j < tmp; j++) {
+                    if (logic.getAlive(i, j)) {
+                        writer.write(i + " " + j + "\r\n");
+                    }
+                }
+            }
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
 
     private JToolBar addToolBar(){
@@ -327,8 +424,18 @@ public class Screen extends JFrame {
         jButtonOpen.setIcon(new ImageIcon("src/Icons/newfile32.png"));
         jButtonOpen.setToolTipText("Open File");
         /*-------------------------------------------------------------*/
+        JButton jButtonSave = new JButton();
+        jButtonSave.setIcon(new ImageIcon("src/Icons/save32.png"));
+        jButtonSave.setToolTipText("Save");
+        /*-------------------------------------------------------------*/
+        JButton jButtonSaveAs = new JButton();
+        jButtonSaveAs.setIcon(new ImageIcon("src/Icons/saveas32.png"));
+        jButtonSaveAs.setToolTipText("Save As");
+        /*-------------------------------------------------------------*/
         jToolBar.add(jButtonNew);
         jToolBar.add(jButtonOpen);
+        jToolBar.add(jButtonSave);
+        jToolBar.add(jButtonSaveAs);
         jToolBar.add(jButtonClear);
         jToolBar.add(jButtonStart);
         jToolBar.add(jButtonNext);
@@ -384,7 +491,7 @@ public class Screen extends JFrame {
         });
         jButtonLifeSetting.addActionListener(e -> liveSettingDialog());
         jButtonImpact.addActionListener(e -> {
-            if(!impactMode){
+            if(!impactMode && radius >= 30){
                 impactMode = true;
                 showImpacts();
             } else {
@@ -394,9 +501,11 @@ public class Screen extends JFrame {
         });
         jButtonOpen.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser("src");
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
+            fileChooser.setFileFilter(filter);
             int res = fileChooser.showDialog(null,"File Open");
             if (res == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
+                file = fileChooser.getSelectedFile();
                 try {
                     Parser parser = new Parser(file);
                     parser.readFile();
@@ -406,6 +515,7 @@ public class Screen extends JFrame {
                     radius = parser.getRadius();
                     fat = parser.getFat();
                     updateImage();
+                    clearField();
 
                     HashMap<ArrayList<Integer>, ArrayList<Integer>> map = parser.getField();
                     for (Map.Entry<ArrayList<Integer>, ArrayList<Integer>> entry : map.entrySet()){
@@ -423,6 +533,14 @@ public class Screen extends JFrame {
                 }
             }
         });
+        jButtonSave.addActionListener(e -> {
+            if(file == null){
+                saveDialog();
+            } else {
+                justSave();
+            }
+        });
+        jButtonSaveAs.addActionListener(e -> saveDialog());
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -435,9 +553,9 @@ public class Screen extends JFrame {
         dialog.setLocationRelativeTo(this);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,3));
-        JPanel panelOne = new JPanel(new GridLayout(6,1));
-        JPanel panelTwo = new JPanel(new GridLayout(6,1));
-        JPanel panelThree = new JPanel(new GridLayout(6,1));
+        JPanel panelOne = new JPanel(new GridLayout(5,1));
+        JPanel panelTwo = new JPanel(new GridLayout(5,1));
+        JPanel panelThree = new JPanel(new GridLayout(5,1));
         /*-------------------------------------------------------------*/
         JLabel labelOne = new JLabel("Ширина", SwingConstants.CENTER);
         JTextField widthField = new JTextField();
@@ -463,7 +581,7 @@ public class Screen extends JFrame {
         /*-------------------------------------------------------------*/
         JLabel labelThree = new JLabel("Радиус", SwingConstants.CENTER);
         JTextField radiusField = new JTextField();
-        JSlider jSliderRadius = new JSlider(JSlider.HORIZONTAL,1,40,10);
+        JSlider jSliderRadius = new JSlider(JSlider.HORIZONTAL,1,50,10);
         if(radius != null){
             radiusField.setText(radius.toString());
             jSliderRadius.setValue(radius);
@@ -482,17 +600,6 @@ public class Screen extends JFrame {
         panelOne.add(labelFour);
         panelTwo.add(jSliderFat);
         panelThree.add(fatField);
-        /*-------------------------------------------------------------*/
-        JLabel labelFive = new JLabel("Скорость", SwingConstants.CENTER);
-        JTextField speedField = new JTextField();
-        JSlider jSliderSpeed = new JSlider(JSlider.HORIZONTAL,100,1000,100);
-        if(SPEED != null){
-            speedField.setText(SPEED.toString());
-            jSliderSpeed.setValue(SPEED);
-        }
-        panelOne.add(labelFive);
-        panelTwo.add(jSliderSpeed);
-        panelThree.add(speedField);
         /*-------------------------------------------------------------*/
         JRadioButton xorButton = new JRadioButton("XOR");
         JRadioButton replaceButton = new JRadioButton("Replace");
@@ -542,10 +649,6 @@ public class Screen extends JFrame {
                 updateImage();
             }
         });
-        jSliderSpeed.addChangeListener(e -> {
-            speedField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
-            SPEED = Integer.parseInt(speedField.getText());
-        });
         /*-------------------------------------------------------------*/
         widthField.addKeyListener(new KeyAdapter() {
             @Override
@@ -572,12 +675,6 @@ public class Screen extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 jSliderFat.setValue(Integer.parseInt(fatField.getText()));
-            }
-        });
-        fatField.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                jSliderSpeed.setValue(Integer.parseInt(speedField.getText()));
             }
         });
         /*-------------------------------------------------------------*/
@@ -815,6 +912,37 @@ public class Screen extends JFrame {
                 }
             }
         }
+    }
+
+    public class MyWindowListener implements WindowListener{
+        public void windowActivated(WindowEvent e) {}
+
+        public void windowClosed(WindowEvent e) {}
+
+        public void windowClosing(WindowEvent e) {
+            System.out.println("windowClosing()");
+            int choice = JOptionPane.showOptionDialog(null,
+                        "Do you want to save?",
+                        "Quit?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, null, null);
+
+                if(choice == JOptionPane.YES_OPTION){
+                    saveDialog();
+                    System.exit(0);
+                } else {
+                    System.exit(0);
+                }
+        }
+
+        public void windowDeactivated(WindowEvent e) {}
+
+        public void windowDeiconified(WindowEvent e) {}
+
+        public void windowIconified(WindowEvent e) {}
+
+        public void windowOpened(WindowEvent e) {}
     }
 
     public void play(){

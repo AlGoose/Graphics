@@ -101,6 +101,10 @@ public class Logic {
         return impactTable[i][j];
     }
 
+    public boolean getAlive(int i, int j){
+        return field[i][j].getAlive();
+    }
+
     public Point getCentre(int i, int j){ return new Point(field[i][j].centrX, field[i][j].centrY); }
 
     public Point whatHex(int click_X,int click_Y){
@@ -486,5 +490,15 @@ public class Logic {
                 field[i][j].setAlive(false);
             }
         }
+    }
+
+    public int liveNumber(){
+        int res = 0;
+        for(int i=0; i<height; i++){
+            for(int j=0; j<width; j++){
+                if(field[i][j]!=null && field[i][j].getAlive()) res++;
+            }
+        }
+        return res;
     }
 }

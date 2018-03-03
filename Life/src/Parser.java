@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -25,56 +26,59 @@ public class Parser {
         int fromIndex = 0;
         int index;
         String number;
-
-        String str = scanner.nextLine();
-        for(int i=0; i<2; i++) {
-            index = str.indexOf(" ", fromIndex);
-            if(index == -1){
-                number = str.substring(fromIndex);
-                height = Integer.parseInt(number);
-                System.out.println(height);
-            } else {
-                number = str.substring(fromIndex,index);
-                width = Integer.parseInt(number);
-                System.out.println(width);
-                fromIndex = index+1;
-            }
-        }
-
-        number = nextNumber();
-        fat = Integer.parseInt(number);
-        System.out.println(fat);
-
-        number = nextNumber();
-        radius = Integer.parseInt(number);
-        System.out.println(radius);
-
-        number = nextNumber();
-        int count = Integer.parseInt(number);
-        System.out.println(count);
-
-        for(int i=0; i<count; i++){
-            fromIndex = 0;
-            int x = 0, y = 0;
-            str = scanner.nextLine();
-            System.out.println(">>>"+str);
-            for(int j=0; j<2; j++) {
+        try {
+            String str = scanner.nextLine();
+            for (int i = 0; i < 2; i++) {
                 index = str.indexOf(" ", fromIndex);
-                if(index == -1){
+                if (index == -1) {
                     number = str.substring(fromIndex);
-                    y = Integer.parseInt(number);
-                    yArr.add(y);
-                    System.out.println(y);
+                    height = Integer.parseInt(number);
+//                    System.out.println(height);
                 } else {
-                    number = str.substring(fromIndex,index);
-                    x = Integer.parseInt(number);
-                    xArr.add(x);
-                    System.out.println(x);
-                    fromIndex = index+1;
+                    number = str.substring(fromIndex, index);
+                    width = Integer.parseInt(number);
+//                    System.out.println(width);
+                    fromIndex = index + 1;
                 }
             }
+
+            number = nextNumber();
+            fat = Integer.parseInt(number);
+//            System.out.println(fat);
+
+            number = nextNumber();
+            radius = Integer.parseInt(number);
+//            System.out.println(radius);
+
+            number = nextNumber();
+            int count = Integer.parseInt(number);
+//            System.out.println(count);
+
+            for (int i = 0; i < count; i++) {
+                fromIndex = 0;
+                int x, y;
+                str = scanner.nextLine();
+//                System.out.println(">>>" + str);
+                for (int j = 0; j < 2; j++) {
+                    index = str.indexOf(" ", fromIndex);
+                    if (index == -1) {
+                        number = str.substring(fromIndex);
+                        y = Integer.parseInt(number);
+                        yArr.add(y);
+                        System.out.println(y);
+                    } else {
+                        number = str.substring(fromIndex, index);
+                        x = Integer.parseInt(number);
+                        xArr.add(x);
+                        System.out.println(x);
+                        fromIndex = index + 1;
+                    }
+                }
+            }
+            map.put(xArr, yArr);
+        } catch (NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null, "Wrong file data!");
         }
-        map.put(xArr,yArr);
     }
 
     private String nextNumber(){
