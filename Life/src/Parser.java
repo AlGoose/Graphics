@@ -69,18 +69,18 @@ public class Parser {
                         number = str.substring(fromIndex);
                         y = Integer.parseInt(number);
                         yArr.add(y);
-                        System.out.println(y);
+//                        System.out.println(y);
                     } else {
                         if(j == 1){
                             number = str.substring(fromIndex, index);
                             y = Integer.parseInt(number);
                             yArr.add(y);
-                            System.out.println(y);
+//                            System.out.println(y);
                         }
                         number = str.substring(fromIndex, index);
                         x = Integer.parseInt(number);
                         xArr.add(x);
-                        System.out.println(x);
+//                        System.out.println(x);
                         fromIndex = index + 1;
                     }
                 }

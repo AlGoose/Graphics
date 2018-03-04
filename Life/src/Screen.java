@@ -1,3 +1,5 @@
+import oracle.jrockit.jfr.JFR;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -17,6 +19,7 @@ public class Screen extends JFrame {
     private Logic logic;
     private BufferedImage image;
     private Paint paint;
+    private JFrame jFrame;
     private JLabel jLabel;
     private JPanel jPanel;
     private Integer width = null;
@@ -39,11 +42,12 @@ public class Screen extends JFrame {
     private Integer SPEED = 1000;
 
     public Screen() {
-        super("LIFE");
-        setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(800,600));
-        setJMenuBar(addMenu());
-        add(addToolBar(), BorderLayout.NORTH);
+//        super("LIFE");
+        jFrame = new JFrame("LIFE");
+        jFrame.setLayout(new BorderLayout());
+        jFrame.setMinimumSize(new Dimension(800,600));
+        jFrame.setJMenuBar(addMenu());
+        jFrame.add(addToolBar(), BorderLayout.NORTH);
 
         jPanel = new JPanel();
         jPanel.setBackground(Color.WHITE);
@@ -54,15 +58,14 @@ public class Screen extends JFrame {
         jPanel.add(jLabel);
 
         MyWindowListener mwl = new MyWindowListener();
-        addWindowListener(mwl);
+        jFrame.addWindowListener(mwl);
 
         JScrollPane scrollPane = new JScrollPane(jPanel);
-        add(scrollPane, BorderLayout.CENTER);
-        pack();
-        setResizable(true);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        setVisible(true);
-
+        jFrame.add(scrollPane, BorderLayout.CENTER);
+        jFrame.pack();
+        jFrame.setResizable(true);
+        jFrame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        jFrame.setVisible(true);
     }
 
     private BufferedImage colorBackground(Color c, BufferedImage image){
@@ -150,7 +153,7 @@ public class Screen extends JFrame {
         exitItem.addActionListener(e -> {
             System.out.println("windowClosing()");
             if(logic != null) {
-                int choice = JOptionPane.showOptionDialog(null,
+                int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
                         "Quit?",
                         JOptionPane.YES_NO_OPTION,
@@ -200,7 +203,7 @@ public class Screen extends JFrame {
         clearItem.addActionListener(e -> clearField());
         playItem.addActionListener(e -> play());
         stopItem.addActionListener(e -> play());
-        aboutItem.addActionListener(e -> JOptionPane.showMessageDialog(this, "New - новое поле\n" +
+        aboutItem.addActionListener(e -> JOptionPane.showMessageDialog(jFrame, "New - новое поле\n" +
                 "Clear - очистить поле\n" +
                 "Play - начать/остановить игру\n" +
                 "Next Step - перейти на следующий шаг игры\n" +
@@ -226,7 +229,7 @@ public class Screen extends JFrame {
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.setSize(200,180);
         dialog.setResizable(false);
-        dialog.setLocationRelativeTo(this);
+        dialog.setLocationRelativeTo(jFrame);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,2));
         JPanel panelOne = new JPanel(new GridLayout(5,1));
@@ -297,7 +300,7 @@ public class Screen extends JFrame {
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.setSize(300,200);
         dialog.setResizable(false);
-        dialog.setLocationRelativeTo(this);
+        dialog.setLocationRelativeTo(jFrame);
         /*-------------------------------------------------------------*/
         JPanel jPanelOne = new JPanel(new GridLayout(1,2));
         JPanel jPanelTwo = new JPanel(new GridLayout(4,1));
@@ -329,8 +332,7 @@ public class Screen extends JFrame {
             JFileChooser fileChooser = new JFileChooser("FIT_15203_Gusev_Alexandr_Life_Data");
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
             fileChooser.setFileFilter(filter);
-            setLocationRelativeTo(this);
-            int res = fileChooser.showSaveDialog(null);
+            int res = fileChooser.showSaveDialog(jFrame);
             if (res == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
                 System.out.println(file.toString());
@@ -470,7 +472,7 @@ public class Screen extends JFrame {
         jButtonExit.addActionListener(e -> {
             System.out.println("windowClosing()");
             if(logic != null) {
-                int choice = JOptionPane.showOptionDialog(null,
+                int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
                         "Quit?",
                         JOptionPane.YES_NO_OPTION,
@@ -491,7 +493,7 @@ public class Screen extends JFrame {
             if(logic == null){
                 newDialog();
             } else {
-                int choice = JOptionPane.showOptionDialog(null,
+                int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
                         "Quit?",
                         JOptionPane.YES_NO_OPTION,
@@ -561,7 +563,7 @@ public class Screen extends JFrame {
             JFileChooser fileChooser = new JFileChooser("FIT_15203_Gusev_Alexandr_Life_Data");
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
             fileChooser.setFileFilter(filter);
-            int res = fileChooser.showDialog(null,"File Open");
+            int res = fileChooser.showDialog(jPanel,"File Open");
             if (res == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
                 try {
@@ -608,7 +610,7 @@ public class Screen extends JFrame {
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.setSize(300,200);
         dialog.setResizable(false);
-        dialog.setLocationRelativeTo(this);
+        dialog.setLocationRelativeTo(jFrame);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,3));
         JPanel panelOne = new JPanel(new GridLayout(5,1));
@@ -639,7 +641,7 @@ public class Screen extends JFrame {
         /*-------------------------------------------------------------*/
         JLabel labelThree = new JLabel("Радиус", SwingConstants.CENTER);
         JTextField radiusField = new JTextField();
-        JSlider jSliderRadius = new JSlider(JSlider.HORIZONTAL,1,50,10);
+        JSlider jSliderRadius = new JSlider(JSlider.HORIZONTAL,10,50,10);
         if(radius != null){
             radiusField.setText(radius.toString());
             jSliderRadius.setValue(radius);
@@ -684,6 +686,9 @@ public class Screen extends JFrame {
                 widthField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
                 width = Integer.parseInt(widthField.getText());
                 updateImage();
+                if(impactMode){
+                    showImpacts();
+                }
             }
         });
         jSliderHeight.addChangeListener(e -> {
@@ -691,6 +696,10 @@ public class Screen extends JFrame {
                 heightField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
                 height = Integer.parseInt(heightField.getText());
                 updateImage();
+                if(impactMode){
+                    showImpacts();
+                }
+
             }
         });
         jSliderRadius.addChangeListener(e -> {
@@ -698,6 +707,9 @@ public class Screen extends JFrame {
                 radiusField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
                 radius = Integer.parseInt(radiusField.getText());
                 updateImage();
+                if(impactMode){
+                    showImpacts();
+                }
             }
         });
         jSliderFat.addChangeListener(e -> {
@@ -705,6 +717,9 @@ public class Screen extends JFrame {
                 fatField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
                 fat = Integer.parseInt(fatField.getText());
                 updateImage();
+                if(impactMode){
+                    showImpacts();
+                }
             }
         });
         /*-------------------------------------------------------------*/
@@ -757,7 +772,7 @@ public class Screen extends JFrame {
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.setSize(250,200);
         dialog.setResizable(false);
-        dialog.setLocationRelativeTo(this);
+        dialog.setLocationRelativeTo(jFrame);
         /*-------------------------------------------------------------*/
         JPanel mainPanel = new JPanel(new GridLayout(1,2));
         JPanel panelOne = new JPanel(new GridLayout(7,1));
@@ -858,9 +873,8 @@ public class Screen extends JFrame {
         repaint();
 
         Point point = getDelta(radius,fat);
-        int pixelWidth = width * point.x + point.x/2 + 5;
-        int pixelHeight = (height+1)*point.y;
-
+        int pixelWidth = width * point.x + point.x/2 + fat + 15;
+        int pixelHeight = (height+1)*point.y + fat + 20;
         image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_ARGB);
         image = colorBackground(Color.WHITE, image);
 
@@ -939,26 +953,34 @@ public class Screen extends JFrame {
             int y = e.getY();
             Color color;
             Point point;
+            Boolean need = false;
+
             if(xorMode){
                 Color tmp = new Color(image.getRGB(x,y));
                 if(tmp.getRGB() == Color.RED.getRGB() || tmp.getRGB() == Color.WHITE.getRGB()){
                     point = logic.whatHex(x,y);
+                    System.out.println(point.toString());
                     if(currentPixel.x == point.x && currentPixel.y == point.y) {
                         color = new Color(image.getRGB(x,y));
                     } else {
                         color = image.getRGB(x,y) == Color.RED.getRGB() ? Color.WHITE : Color.RED;
+                        need = true;
                     }
                     currentPixel = point;
                 } else {
                     color = Color.BLACK;
                 }
             } else {
+                need = true;
                 color = Color.RED;
             }
 
             try{
-                image =  paint.fillHexagon(x,y,color);
-                repaint();
+                point = logic.whatHex(x,y);
+                if(need && point.x != -1) {
+                    image = paint.fillHexagon(x, y, color);
+                    repaint();
+                }
             }catch (ArrayIndexOutOfBoundsException exception){}
 
             point = logic.whatHex(x,y);
@@ -980,7 +1002,7 @@ public class Screen extends JFrame {
         public void windowClosing(WindowEvent e) {
             System.out.println("windowClosing()");
             if(logic != null) {
-                int choice = JOptionPane.showOptionDialog(null,
+                int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
                         "Quit?",
                         JOptionPane.YES_NO_OPTION,
@@ -1075,11 +1097,11 @@ public class Screen extends JFrame {
                 if(imp - (int)imp > 0){
                     formattedDouble = String.format("%.1f", imp);
                     Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/2);
+                    g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/6);
                 } else {
                     formattedDouble = String.format("%.0f", imp);
                     Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x + radius/6, p.y + radius/2);
+                    g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/6);
                 }
             }
         }

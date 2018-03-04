@@ -70,9 +70,9 @@ public class Logic {
             deltaX2 = deltaX/2;
         }
 
-        int centrX = radius + fat + 5;
+        int centrX = radius + fat + 15;
         int centrXX = centrX;
-        int centrY = radius + fat + 5;
+        int centrY = radius + fat + 20;
         int centrYY = centrY;
         int deltaY = (int)Math.ceil(3*radius/2);
 
@@ -81,7 +81,6 @@ public class Logic {
 
             for(int j=0;j<mc;j++){
                 hex[i][j] = new Hex(centrX,centrY);
-//                impactTable[i][j] = 0d;
                 centrX += deltaX;
             }
             centrY = centrYY + deltaY;
