@@ -1,5 +1,3 @@
-import oracle.jrockit.jfr.JFR;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -40,6 +38,9 @@ public class Screen extends JFrame {
     private Double FST_IMPACT = 1.0;
     private Double SND_IMPACT = 0.3;
     private Integer SPEED = 1000;
+
+    private boolean parity;
+    private int ttmp;
 
     public Screen() {
 //        super("LIFE");
@@ -193,7 +194,7 @@ public class Screen extends JFrame {
         nextItem.addActionListener(e -> {
             if(!impactMode){
                 image = logic.nextStep(image);
-                repaint();
+                jFrame.repaint();
             } else {
                 closeImpacts();
                 image = logic.nextStep(image);
@@ -284,7 +285,7 @@ public class Screen extends JFrame {
                     width = Integer.parseInt(widthField.getText());
                     radius = Integer.parseInt(radiusField.getText());
                     fat = Integer.parseInt(fatField.getText());
-
+                    impactMode = false;
                     updateImage();
                     dialog.dispose();
                 }
@@ -542,7 +543,7 @@ public class Screen extends JFrame {
         jButtonNext.addActionListener(e -> {
             if(!impactMode){
                 image = logic.nextStep(image);
-                repaint();
+                jFrame.repaint();
             } else {
                 closeImpacts();
                 image = logic.nextStep(image);
@@ -870,7 +871,7 @@ public class Screen extends JFrame {
     private void updateImage(){
         jPanel.removeAll();
         jPanel.revalidate();
-        repaint();
+        jFrame.repaint();
 
         Point point = getDelta(radius,fat);
         int pixelWidth = width * point.x + point.x/2 + fat + 15;
@@ -934,14 +935,18 @@ public class Screen extends JFrame {
                         logic.setAlive(point.x, point.y, false);
                     }
                     if(impactMode){
-                        closeImpacts();
+//                        closeImpacts();
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
-                        showImpacts();
+                        System.out.println("1");
+                        countImpacts();
+                        System.out.println("2");
+//                        drawImpacts(point.x, point.y);
+//                        showImpacts();
                     } else {
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
-                        repaint();
+                        jFrame.repaint();
                     }
                 }
             }catch (ArrayIndexOutOfBoundsException exception){}
@@ -978,8 +983,14 @@ public class Screen extends JFrame {
             try{
                 point = logic.whatHex(x,y);
                 if(need && point.x != -1) {
-                    image = paint.fillHexagon(x, y, color);
-                    repaint();
+                    if(impactMode){
+                        image =  paint.fillHexagon(x,y,color);
+                        logic.countImpacts();
+                        countImpacts();
+                    } else {
+                        image = paint.fillHexagon(x, y, color);
+                        jFrame.repaint();
+                    }
                 }
             }catch (ArrayIndexOutOfBoundsException exception){}
 
@@ -1058,7 +1069,7 @@ public class Screen extends JFrame {
             if(logic.isLive()) {
                 if(!impactMode){
                     image = logic.nextStep(image);
-                    repaint();
+                    jFrame.repaint();
                 } else {
                     closeImpacts();
                     image = logic.nextStep(image);
@@ -1081,12 +1092,12 @@ public class Screen extends JFrame {
             }
         }
         logic.clearField();
-        repaint();
+        jFrame.repaint();
     }
 
     private void showImpacts(){
         Graphics2D g2 = image.createGraphics();
-        g2.setColor(Color.BLACK);
+        g2.setColor(Color.GREEN);
         g2.setFont(new Font("TimesRoman", Font.PLAIN, radius/2));
 
         for(int i=0; i<height; i++){
@@ -1105,11 +1116,177 @@ public class Screen extends JFrame {
                 }
             }
         }
-        repaint();
+        jFrame.repaint();
+    }
+
+    private void drawImpacts(int i, int j){
+        Graphics2D g2 = image.createGraphics();
+        g2.setColor(Color.GREEN);
+        g2.setFont(new Font("TimesRoman", Font.PLAIN, radius/2));
+
+        double imp = logic.getImpact(i,j);
+        String formattedDouble;
+        if(imp - (int)imp > 0){
+            formattedDouble = String.format("%.1f", imp);
+            Point p = logic.getCentre(i,j);
+            g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/6);
+        } else {
+            formattedDouble = String.format("%.0f", imp);
+            Point p = logic.getCentre(i,j);
+            g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/6);
+        }
+        jFrame.repaint();
     }
 
     private void closeImpacts(){
-        updateImage();
+        Paint paint = new Paint(image);
+        for(int i=0; i<height; i++){
+            int mc = i%2==0 ? width : width-1;
+            for(int j=0; j<mc; j++){
+                Point point = logic.getCentre(i,j);
+                if(logic.getAlive(i,j)){
+                    image = paint.fillHexagon(point.x, point.y, Color.RED);
+                } else {
+                    image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                }
+            }
+        }
+        jFrame.repaint();
+    }
+
+    public void countImpacts(){
+        ttmp = width;
+
+        for(int i=0; i<height; i++){
+            if(i%2 == 0){
+                ttmp = width;
+                parity = true;
+            } else {
+                ttmp = width-1;
+                parity = false;
+            }
+
+            for(int j=0; j<ttmp; j++){
+                countFirstImpact(i,j);
+//                countSecondImpact(i,j);
+            }
+        }
+    }
+
+    private void countFirstImpact(int i, int j){
+        boolean top = i > 0;
+        boolean down = i < height - 1;
+        boolean left = j > 0;
+        boolean right = j < ttmp - 1;
+        Paint paint = new Paint(image);
+
+        if(right){
+            Point point = logic.getCentre(i,j+1);
+            if(logic.getAlive(i,j+1)){
+                image = paint.fillHexagon(point.x, point.y, Color.RED);
+            } else {
+                image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+            }
+            drawImpacts(i,j+1);
+        }
+        if(left){
+            Point point = logic.getCentre(i,j-1);
+            if(logic.getAlive(i,j-1)){
+                image = paint.fillHexagon(point.x, point.y, Color.RED);
+            } else {
+                image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+            }
+            drawImpacts(i,j-1);
+        }
+
+        if(top){
+            if(parity){
+                if(left){
+                    Point point = logic.getCentre(i-1,j-1);
+                    if(logic.getAlive(i-1,j-1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j-1);
+                }
+                if(right){
+                    Point point = logic.getCentre(i-1,j);
+                    if(logic.getAlive(i-1,j)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j);
+                }
+            } else {
+                {
+                    Point point = logic.getCentre(i-1,j+1);
+                    if(logic.getAlive(i-1,j+1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j+1);
+                }
+                {
+                    Point point = logic.getCentre(i-1,j);
+                    if(logic.getAlive(i-1,j)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j);
+                }
+            }
+        }
+
+        if(down){
+            if(parity){
+                if(left){
+                    Point point = logic.getCentre(i+1,j-1);
+                    if(logic.getAlive(i+1,j-1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j-1);
+
+                }
+                if(right){
+                    Point point = logic.getCentre(i+1,j);
+                    if(logic.getAlive(i+1,j)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j);
+
+                }
+            } else {
+                {
+                    Point point = logic.getCentre(i+1,j);
+                    if(logic.getAlive(i+1,j)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j);
+
+                }
+                {
+                    Point point = logic.getCentre(i+1,j+1);
+                    if(logic.getAlive(i+1,j+1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j+1);
+
+                }
+            }
+        }
+        jFrame.repaint();
     }
 
     public static void main(String[] args) {

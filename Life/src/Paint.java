@@ -179,26 +179,6 @@ public class Paint{
     }
 
     public BufferedImage fillHexagon(int x, int y, Color c){
-//        Boolean correctDown = false;
-//        Boolean correctUp = false;
-//        int tmp = y;
-//        while (tmp != image.getHeight()){
-//            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
-//                correctDown = true;
-//                break;
-//            }
-//            tmp++;
-//        }
-//        tmp = y;
-//        while (tmp != 0){
-//            if(image.getRGB(x,tmp) == Color.BLACK.getRGB()){
-//                correctUp = true;
-//                break;
-//            }
-//            tmp--;
-//        }
-//        if(!correctDown || !correctUp){return image;}
-
         Boolean lockUp;
         Boolean lockDown;
         Stack<Span> stack = new Stack<>();
