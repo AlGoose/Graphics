@@ -1,118 +1,205 @@
-import javax.swing.*;
+import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Parser {
-    private Integer width;
-    private Integer height;
-    private Integer radius;
-    private Integer fat;
-    private ArrayList<Integer> xArr;
-    private ArrayList<Integer> yArr;
-    private HashMap<ArrayList<Integer>, ArrayList<Integer>> map;
-    Scanner scanner;
+    private static final int NEED_LOAD = -1;
+    private Integer WIDTH;
+    private Integer HEIGHT;
+    private Integer RADIUS;
+    private Integer FAT;
+    private ArrayList<Point> MASSIVE;
+    private File file;
 
-    public Parser(File file) throws FileNotFoundException {
-        map = new HashMap<>();
-        xArr = new ArrayList<>();
-        yArr = new ArrayList<>();
-        scanner = new Scanner(file);
+    public Parser(File file){
+        MASSIVE = new ArrayList<>();
+        this.file = file;
     }
 
     public void readFile(){
-        int fromIndex = 0;
-        int index;
-        String number;
-        try {
-            String str = scanner.nextLine();
-            for (int i = 0; i < 2; i++) {
-                index = str.indexOf(" ", fromIndex);
-                if (index == -1) {
-                    number = str.substring(fromIndex);
-                    height = Integer.parseInt(number);
-//                    System.out.println(height);
+        ArrayList<Point> arrayList = new ArrayList<>();
+        int width = -1;
+        int height = -1;
+        int radius = -1;
+        int widthLine = -1;
+        int sizeList = -1;
+        try (FileReader reader = new FileReader(file);
+             Scanner scanner = new Scanner(reader)) {
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                if (width == NEED_LOAD) {
+                    Point size = parseTwo(line);
+                    if(size != null) {
+                        height = size.y;
+                        width = size.x;
+                    }
                 } else {
-                    if(i == 1){
-                        number = str.substring(fromIndex, index);
-                        height = Integer.parseInt(number);
-                    }
-                    number = str.substring(fromIndex, index);
-                    width = Integer.parseInt(number);
-//                    System.out.println(width);
-                    fromIndex = index + 1;
-                }
-            }
-
-            number = nextNumber();
-            fat = Integer.parseInt(number);
-//            System.out.println(fat);
-
-            number = nextNumber();
-            radius = Integer.parseInt(number);
-//            System.out.println(radius);
-
-            number = nextNumber();
-            int count = Integer.parseInt(number);
-//            System.out.println(count);
-
-            for (int i = 0; i < count; i++) {
-                fromIndex = 0;
-                int x, y;
-                str = scanner.nextLine();
-//                System.out.println(">>>" + str);
-                for (int j = 0; j < 2; j++) {
-                    index = str.indexOf(" ", fromIndex);
-                    if (index == -1) {
-                        number = str.substring(fromIndex);
-                        y = Integer.parseInt(number);
-                        yArr.add(y);
-//                        System.out.println(y);
-                    } else {
-                        if(j == 1){
-                            number = str.substring(fromIndex, index);
-                            y = Integer.parseInt(number);
-                            yArr.add(y);
-//                            System.out.println(y);
+                    if (widthLine == NEED_LOAD) {
+                        widthLine = parseOne(line);
+                    } else{
+                        if(radius == NEED_LOAD){
+                            radius = parseOne(line);
+                        } else{
+                            if(sizeList == NEED_LOAD) {
+                                sizeList = parseOne(line);
+                            } else{
+                                Point point = parseTwo(line);
+                                if(point != null) {
+                                    arrayList.add(point);
+                                }
+                            }
                         }
-                        number = str.substring(fromIndex, index);
-                        x = Integer.parseInt(number);
-                        xArr.add(x);
-//                        System.out.println(x);
-                        fromIndex = index + 1;
                     }
                 }
             }
-            map.put(xArr, yArr);
-        } catch (NumberFormatException nfe){
-            JOptionPane.showMessageDialog(null, "Wrong file data!");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        if(width < 1 || height < 1 || widthLine < 1 || radius < 1){
+            System.out.println("EXCEPTION");
+            System.exit(0);
+        }
+
+        for(Point point: arrayList){
+            if(point.x >= width || point.y >= height){
+                System.out.println("EXCEPTION");
+                System.exit(0);
+            }
+        }
+
+        WIDTH = width;
+        HEIGHT = height;
+        FAT = widthLine;
+        RADIUS = radius;
+        MASSIVE = arrayList;
     }
 
-    private String nextNumber(){
-        String str = scanner.nextLine();
-        int fromIndex = 0;
-        int index;
-        String number;
-
-        index = str.indexOf(" ", fromIndex);
-        if(index == -1){
-            number = str.substring(fromIndex);
+    private Point parseTwo(String line){
+        int index = line.indexOf("//");
+        int len;
+        if (index != -1) {
+            len = index;
         } else {
-            number = str.substring(fromIndex,index);
+            len = line.length();
         }
-        return number;
+        boolean wasChar = false;
+        StringBuilder stringBuilder = new StringBuilder();
+        Point point = new Point();
+        point.x = NEED_LOAD;
+        point.y = NEED_LOAD;
+        for (int i = 0; i < len; ++i) {
+            if (Character.isDigit(line.charAt(i))) {
+                stringBuilder.append(line.charAt(i));
+            } else {
+                if (line.charAt(i) != ' ') {
+                    System.out.println("EXCEPTION");
+                    System.exit(0);
+                }
+
+                if (stringBuilder.length() != 0) {
+                    wasChar = true;
+                    if (point.x == NEED_LOAD) {
+                        point.x = Integer.parseInt(stringBuilder.toString());
+                        if (point.x < 0) {
+                            System.out.println("EXCEPTION");
+                            System.exit(0);
+                        }
+                    } else {
+                        if (point.y == NEED_LOAD) {
+                            point.y = Integer.parseInt(stringBuilder.toString());
+                            if (point.y < 0) {
+                                System.out.println("EXCEPTION");
+                                System.exit(0);
+                            }
+                        } else {
+                            System.out.println("EXCEPTION");
+                            System.exit(0);
+                        }
+                    }
+                    stringBuilder = new StringBuilder();
+                }
+            }
+        }
+
+        if(point.y == NEED_LOAD && stringBuilder.length() != 0){
+            point.y = Integer.parseInt(stringBuilder.toString());
+            if (point.y < 0) {
+                System.out.println("EXCEPTION");
+                System.exit(0);
+            }
+        }
+        if ((point.x == NEED_LOAD || point.y == NEED_LOAD) && wasChar) {
+            System.out.println("EXCEPTION");
+            System.exit(0);
+            return null;
+        } else {
+            if (!wasChar){
+                return null;
+            } else{
+                return point;
+            }
+        }
     }
 
-    public int getWidth(){ return width; }
+    private int parseOne(String line){
+        int index = line.indexOf("//");
+        int len;
+        if (index != -1) {
+            len = index;
+        } else {
+            len = line.length();
+        }
+        boolean wasChar = false;
+        int result = NEED_LOAD;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < len; ++i) {
+            if (Character.isDigit(line.charAt(i))) {
+                stringBuilder.append(line.charAt(i));
+            } else {
+                if (line.charAt(i) != ' '){
+                    System.out.println("EXCEPTION");
+                    System.exit(0);
+                }
+                if (stringBuilder.length() != 0) {
+                    wasChar = true;
+                    result = Integer.parseInt(stringBuilder.toString());
+                    if (result < 0){
+                        System.out.println("EXCEPTION");
+                        System.exit(0);
+                    }
+                }
+            }
+        }
 
-    public int getHeight(){ return height; }
+        if(result == NEED_LOAD && stringBuilder.length() != 0){
+            result = Integer.parseInt(stringBuilder.toString());
+            if (result < 0) {
+                System.out.println("EXCEPTION");
+                System.exit(0);
+                return -1;
+            }
+        }
 
-    public int getRadius(){ return radius; }
+        if (result == NEED_LOAD && wasChar) {
+            System.out.println("EXCEPTION");
+            System.exit(0);
+            return -1;
+        } else{
+            return result;
+        }
+    }
 
-    public int getFat(){ return fat; }
+    public int getWidth(){ return WIDTH; }
 
-    public HashMap<ArrayList<Integer>, ArrayList<Integer>> getField(){ return map; }
+    public int getHeight(){ return HEIGHT; }
+
+    public int getRadius(){ return RADIUS; }
+
+    public int getFat(){ return FAT; }
+
+    public ArrayList<Point> getField(){ return MASSIVE; }
 }

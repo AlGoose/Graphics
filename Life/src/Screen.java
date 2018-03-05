@@ -4,12 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TimerTask;
 
 public class Screen extends JFrame {
@@ -336,7 +333,7 @@ public class Screen extends JFrame {
             int res = fileChooser.showSaveDialog(jFrame);
             if (res == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
-                System.out.println(file.toString());
+//                System.out.println(file.toString());
                 String filePath;
                 if (file.toString().contains(".txt")) {
                     filePath = file.toString();
@@ -350,7 +347,7 @@ public class Screen extends JFrame {
                     writer.write(radius.toString() + "\r\n");
 
                     Integer number = logic.liveNumber();
-                    System.out.println(number);
+//                    System.out.println(number);
                     writer.write(number.toString() + "\r\n");
 
                     for (int i = 0; i < height; i++) {
@@ -369,7 +366,7 @@ public class Screen extends JFrame {
     }
 
     private void justSave(){
-        System.out.println(file.toString());
+//        System.out.println(file.toString());
         String filePath;
         if (file.toString().contains(".txt")) {
             filePath = file.toString();
@@ -383,7 +380,7 @@ public class Screen extends JFrame {
             writer.write(radius.toString() + "\r\n");
 
             Integer number = logic.liveNumber();
-            System.out.println(number);
+//            System.out.println(number);
             writer.write(number.toString() + "\r\n");
 
             for (int i = 0; i < height; i++) {
@@ -567,30 +564,22 @@ public class Screen extends JFrame {
             int res = fileChooser.showDialog(jPanel,"File Open");
             if (res == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
-                try {
-                    Parser parser = new Parser(file);
-                    parser.readFile();
+                Parser parser = new Parser(file);
+                parser.readFile();
 
-                    height = parser.getHeight();
-                    width = parser.getWidth();
-                    radius = parser.getRadius();
-                    fat = parser.getFat();
-                    updateImage();
-                    clearField();
+                height = parser.getHeight();
+                width = parser.getWidth();
+                radius = parser.getRadius();
+                fat = parser.getFat();
+                updateImage();
+                clearField();
 
-                    HashMap<ArrayList<Integer>, ArrayList<Integer>> map = parser.getField();
-                    for (Map.Entry<ArrayList<Integer>, ArrayList<Integer>> entry : map.entrySet()){
-                        ArrayList<Integer> x = entry.getKey();
-                        ArrayList<Integer> y = entry.getValue();
-                        for(int i=0; i<x.size(); i++){
-                            Point point = logic.getCentre(x.get(i),y.get(i));
-                            paint.fillHexagon(point.x, point.y, Color.RED);
-                            logic.setAlive(x.get(i),y.get(i),true);
-                            logic.countImpacts();
-                        }
-                    }
-                } catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
+                ArrayList<Point> massive = parser.getField();
+                for(int i=0; i<massive.size(); i++){
+                    Point point = logic.getCentre(massive.get(i).x,massive.get(i).y);
+                    paint.fillHexagon(point.x, point.y, Color.RED);
+                    logic.setAlive(massive.get(i).x,massive.get(i).y,true);
+                    logic.countImpacts();
                 }
             }
         });
@@ -935,14 +924,9 @@ public class Screen extends JFrame {
                         logic.setAlive(point.x, point.y, false);
                     }
                     if(impactMode){
-//                        closeImpacts();
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
-                        System.out.println("1");
                         countImpacts();
-                        System.out.println("2");
-//                        drawImpacts(point.x, point.y);
-//                        showImpacts();
                     } else {
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
@@ -964,7 +948,7 @@ public class Screen extends JFrame {
                 Color tmp = new Color(image.getRGB(x,y));
                 if(tmp.getRGB() == Color.RED.getRGB() || tmp.getRGB() == Color.WHITE.getRGB()){
                     point = logic.whatHex(x,y);
-                    System.out.println(point.toString());
+//                    System.out.println(point.toString());
                     if(currentPixel.x == point.x && currentPixel.y == point.y) {
                         color = new Color(image.getRGB(x,y));
                     } else {
@@ -1154,7 +1138,7 @@ public class Screen extends JFrame {
         jFrame.repaint();
     }
 
-    public void countImpacts(){
+    private void countImpacts(){
         ttmp = width;
 
         for(int i=0; i<height; i++){
@@ -1168,7 +1152,6 @@ public class Screen extends JFrame {
 
             for(int j=0; j<ttmp; j++){
                 countFirstImpact(i,j);
-//                countSecondImpact(i,j);
             }
         }
     }
