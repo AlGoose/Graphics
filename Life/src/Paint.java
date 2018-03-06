@@ -85,11 +85,11 @@ public class Paint{
         int yArr[] = new int[6];
 
         xArr[0] = x;
-        xArr[1] = x + (int) Math.round(Math.sqrt(3) * radius / 2);
-        xArr[2] = x + (int) Math.round(Math.sqrt(3) * radius / 2);
+        xArr[1] = x + (int) Math.ceil(Math.sqrt(3) * radius / 2);
+        xArr[2] = x + (int) Math.ceil(Math.sqrt(3) * radius / 2);
         xArr[3] = x;
-        xArr[4] = x - (int) Math.round(Math.sqrt(3) * radius / 2);
-        xArr[5] = x - (int) Math.round(Math.sqrt(3) * radius / 2);
+        xArr[4] = x - (int) Math.ceil(Math.sqrt(3) * radius / 2);
+        xArr[5] = x - (int) Math.ceil(Math.sqrt(3) * radius / 2);
 
         yArr[0] = y - radius;
         yArr[1] = y - radius/2;
@@ -106,27 +106,40 @@ public class Paint{
     }
 
     public BufferedImage drawField(int width, int height, int radius, int fat){
-        radius+=fat/2;
-        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-        int deltaX2 = deltaX / 2;
+//        radius+=fat/2;
+//        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+//        int deltaX2 = deltaX / 2;
+//
+//        while(deltaX != deltaX2*2){
+//            radius++;
+//            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+//            deltaX2 = deltaX/2;
+//        }
+//
+//        int centrX = radius + 15;
+//        int centrXX = centrX;
+//        int centrY = radius + 15;
+//        int centrYY = centrY;
+//        int deltaY = (int)Math.ceil(3*radius/2);
+////        int centrY = radius + deltaY;
 
-        while(deltaX != deltaX2*2){
-            radius++;
-            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-            deltaX2 = deltaX/2;
-        }
+        double temp =  fat == 1 ? radius : radius + fat;
+        int deltaY = fat == 1 ? radius * 3 / 2 : (int)Math.ceil(radius * 3 / 2 + fat * 3 / 2);
+        int deltaX2 = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) : (int)Math.ceil(temp * Math.sqrt(3) / 2) + (fat + 1) % 2 - (radius % 2);
+        int deltaX = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 : (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 - (radius % 2);
+        int radius2 = fat == 1 ? radius : (int)Math.ceil(temp);
 
-        int centrX = radius + fat + 15;
+        deltaX = deltaX2 * 2 == deltaX ? deltaX : deltaX-1;
+        int centrX = deltaX2 + 15;
+        int centrY = deltaY;
         int centrXX = centrX;
-        int centrY = radius + fat + 20;
         int centrYY = centrY;
-        int deltaY = (int)Math.ceil(3*radius/2);
 
         for (int i=0;i<height;i++){
             int mc = i%2 == 0 ? width : width-1;
 
             for(int j=0;j<mc;j++){
-                drawHexagon2(centrX,centrY,radius,fat);
+                drawHexagon2(centrX,centrY,radius2,fat);
                 centrX += deltaX;
             }
             centrY = centrYY + deltaY;

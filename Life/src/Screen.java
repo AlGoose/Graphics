@@ -569,6 +569,9 @@ public class Screen extends JFrame {
                     openFile();
                 }
             }
+            if(impactMode){
+                showImpacts();
+            }
         });
         jButtonSave.addActionListener(e -> {
             if(file == null){
@@ -880,8 +883,9 @@ public class Screen extends JFrame {
         jFrame.repaint();
 
         Point point = getDelta(radius,fat);
-        int pixelWidth = width * point.x + point.x/2 + fat + 15;
-        int pixelHeight = (height+1)*point.y + fat + 20;
+
+        int pixelWidth = width * point.x + 30;
+        int pixelHeight = (height+1)*point.y;
         image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_ARGB);
         image = colorBackground(Color.WHITE, image);
 
@@ -933,17 +937,23 @@ public class Screen extends JFrame {
     }
 
     private Point getDelta(int radius, int fat){
-        radius+=fat/2;
-        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-        int deltaX2 = deltaX / 2;
+//        radius+=fat/2;
+//        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+//        int deltaX2 = deltaX / 2;
+//
+//        while(deltaX != deltaX2*2){
+//            radius++;
+//            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+//            deltaX2 = deltaX/2;
+//        }
+//
+//        int deltaY = (int)Math.ceil(3*radius/2);
 
-        while(deltaX != deltaX2*2){
-            radius++;
-            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-            deltaX2 = deltaX/2;
-        }
-
-        int deltaY = (int)Math.ceil(3*radius/2);
+        double temp =  fat == 1 ? radius : radius + fat;
+        int deltaY = fat == 1 ? radius * 3 / 2 : (int)Math.ceil(radius * 3 / 2 + fat * 3 / 2);
+        int deltaX2 = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) : (int)Math.ceil(temp * Math.sqrt(3) / 2) + (fat + 1) % 2 - (radius % 2);
+        int deltaX = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 : (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 - (radius % 2);
+        deltaX = deltaX2 * 2 == deltaX ? deltaX : deltaX-1;
         return new Point(deltaX,deltaY);
     }
 
@@ -992,7 +1002,6 @@ public class Screen extends JFrame {
                 Color tmp = new Color(image.getRGB(x,y));
                 if(tmp.getRGB() == Color.RED.getRGB() || tmp.getRGB() == Color.WHITE.getRGB()){
                     point = logic.whatHex(x,y);
-//                    System.out.println(point.toString());
                     if(currentPixel.x == point.x && currentPixel.y == point.y) {
                         color = new Color(image.getRGB(x,y));
                     } else {
@@ -1017,6 +1026,7 @@ public class Screen extends JFrame {
                         countImpacts(point.x, point.y);
                     } else {
                         image = paint.fillHexagon(x, y, color);
+                        logic.countImpacts();
                         jFrame.repaint();
                     }
                 }
@@ -1125,25 +1135,25 @@ public class Screen extends JFrame {
     private void showImpacts(){
         Graphics2D g2 = image.createGraphics();
         g2.setColor(Color.GREEN);
-        Font font = new Font("TimesRoman", Font.PLAIN, radius/2);
-        g2.setFont(font);
-        FontMetrics fontMetrics = g2.getFontMetrics(font);
+        g2.setFont(new Font("TimesRoman", Font.PLAIN, radius/2));
+        FontMetrics metrics = g2.getFontMetrics(new Font("TimesRoman", Font.PLAIN, radius/2));
 
         for(int i=0; i<height; i++){
             int mc = i%2==0 ? width : width-1;
             for(int j=0; j<mc; j++){
                 double imp = logic.getImpact(i,j);
+                Point p = logic.getCentre(i,j);
                 String formattedDouble;
                 if(imp - (int)imp > 0){
                     formattedDouble = String.format("%.1f", imp);
-                    int razmer = fontMetrics.stringWidth(formattedDouble);
-                    int razmer2 = fontMetrics.getHeight();
-                    Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x - (int)Math.ceil(razmer/2), p.y);
+                    int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
+                    int dy = metrics.getHeight() / 4;
+                    g2.drawString(formattedDouble, p.x - dx, p.y + dy);
                 } else {
                     formattedDouble = String.format("%.0f", imp);
-                    Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/6);
+                    int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
+                    int dy = metrics.getHeight() / 4;
+                    g2.drawString(formattedDouble, p.x - dx, p.y + dy);
                 }
             }
         }
@@ -1154,17 +1164,21 @@ public class Screen extends JFrame {
         Graphics2D g2 = image.createGraphics();
         g2.setColor(Color.GREEN);
         g2.setFont(new Font("TimesRoman", Font.PLAIN, radius/2));
+        FontMetrics metrics = g2.getFontMetrics(new Font("TimesRoman", Font.PLAIN, radius/2));
 
         double imp = logic.getImpact(i,j);
+        Point p = logic.getCentre(i,j);
         String formattedDouble;
         if(imp - (int)imp > 0){
             formattedDouble = String.format("%.1f", imp);
-            Point p = logic.getCentre(i,j);
-            g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/6);
+            int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
+            int dy = metrics.getHeight() / 4;
+            g2.drawString(formattedDouble, p.x - dx, p.y + dy);
         } else {
             formattedDouble = String.format("%.0f", imp);
-            Point p = logic.getCentre(i,j);
-            g2.drawString(formattedDouble, p.x - radius/8, p.y + radius/6);
+            int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
+            int dy = metrics.getHeight() / 4;
+            g2.drawString(formattedDouble, p.x - dx, p.y + dy);
         }
         jFrame.repaint();
     }
