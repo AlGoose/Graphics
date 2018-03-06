@@ -25,21 +25,19 @@ public class Screen extends JFrame {
     private Boolean impactMode = false;
     private Point currentPixel = new Point(-5,-5);
     private boolean isPlay;
-    java.util.Timer timer = new java.util.Timer();
-    Schedule timerTask = new Schedule();
-
-    private Double LIVE_BEGIN = 2.0;
-    private Double BIRTH_BEGIN = 2.3;
-    private Double BIRTH_END = 2.9;
-    private Double LIVE_END = 3.3;
-    private Double FST_IMPACT = 1.0;
-    private Double SND_IMPACT = 0.3;
-    private Integer SPEED = 1000;
-
+    private java.util.Timer timer = new java.util.Timer();
+    private Schedule timerTask = new Schedule();
+    private double LIVE_BEGIN = 2.0;
+    private double BIRTH_BEGIN = 2.3;
+    private double BIRTH_END = 2.9;
+    private double LIVE_END = 3.3;
+    private double FST_IMPACT = 1.0;
+    private double SND_IMPACT = 0.3;
+    private int SPEED = 1000;
     private boolean parity;
     private int ttmp;
 
-    public Screen() {
+    private Screen() {
 //        super("LIFE");
         jFrame = new JFrame("LIFE");
         jFrame.setLayout(new BorderLayout());
@@ -149,7 +147,6 @@ public class Screen extends JFrame {
         menuBar.add(infoMenu);
         /*-------------------------------------------------------------*/
         exitItem.addActionListener(e -> {
-            System.out.println("windowClosing()");
             if(logic != null) {
                 int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
@@ -333,7 +330,6 @@ public class Screen extends JFrame {
             int res = fileChooser.showSaveDialog(jFrame);
             if (res == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
-//                System.out.println(file.toString());
                 String filePath;
                 if (file.toString().contains(".txt")) {
                     filePath = file.toString();
@@ -347,7 +343,6 @@ public class Screen extends JFrame {
                     writer.write(radius.toString() + "\r\n");
 
                     Integer number = logic.liveNumber();
-//                    System.out.println(number);
                     writer.write(number.toString() + "\r\n");
 
                     for (int i = 0; i < height; i++) {
@@ -468,7 +463,6 @@ public class Screen extends JFrame {
         jToolBar.add(jButtonExit);
         /*-------------------------------------------------------------*/
         jButtonExit.addActionListener(e -> {
-            System.out.println("windowClosing()");
             if(logic != null) {
                 int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
@@ -558,28 +552,21 @@ public class Screen extends JFrame {
             }
         });
         jButtonOpen.addActionListener(e -> {
-            JFileChooser fileChooser = new JFileChooser("FIT_15203_Gusev_Alexandr_Life_Data");
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
-            fileChooser.setFileFilter(filter);
-            int res = fileChooser.showDialog(jPanel,"File Open");
-            if (res == JFileChooser.APPROVE_OPTION) {
-                file = fileChooser.getSelectedFile();
-                Parser parser = new Parser(file);
-                parser.readFile();
+            if(logic == null){
+                openFile();
+            } else {
+                int choice = JOptionPane.showOptionDialog(jFrame,
+                        "Do you want to save?",
+                        "Save?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, null, null);
 
-                height = parser.getHeight();
-                width = parser.getWidth();
-                radius = parser.getRadius();
-                fat = parser.getFat();
-                updateImage();
-                clearField();
-
-                ArrayList<Point> massive = parser.getField();
-                for(int i=0; i<massive.size(); i++){
-                    Point point = logic.getCentre(massive.get(i).x,massive.get(i).y);
-                    paint.fillHexagon(point.x, point.y, Color.RED);
-                    logic.setAlive(massive.get(i).x,massive.get(i).y,true);
-                    logic.countImpacts();
+                if (choice == JOptionPane.YES_OPTION) {
+                    saveDialog();
+                    openFile();
+                } else {
+                    openFile();
                 }
             }
         });
@@ -770,49 +757,79 @@ public class Screen extends JFrame {
         /*-------------------------------------------------------------*/
         JLabel labelOne = new JLabel("LIVE_BEGIN", SwingConstants.CENTER);
         JTextField liveBeginField = new JTextField();
-        if(LIVE_BEGIN != null){
-            liveBeginField.setText(LIVE_BEGIN.toString());
+
+        if(LIVE_BEGIN - (int)LIVE_BEGIN > 0){
+            liveBeginField.setText(Double.toString(LIVE_BEGIN));
+        } else {
+            String formattedDouble = String.format("%.0f", LIVE_BEGIN);
+            liveBeginField.setText(formattedDouble);
         }
+
         panelOne.add(labelOne);
         panelTwo.add(liveBeginField);
         /*-------------------------------------------------------------*/
         JLabel labelTwo = new JLabel("BIRTH_BEGIN", SwingConstants.CENTER);
         JTextField birthBeginField = new JTextField();
-        if(BIRTH_BEGIN != null){
-            birthBeginField.setText(BIRTH_BEGIN.toString());
+
+        if(BIRTH_BEGIN - (int)BIRTH_BEGIN > 0){
+            birthBeginField.setText(Double.toString(BIRTH_BEGIN));
+        } else {
+            String formattedDouble = String.format("%.0f", BIRTH_BEGIN);
+            birthBeginField.setText(formattedDouble);
         }
+
         panelOne.add(labelTwo);
         panelTwo.add(birthBeginField);
         /*-------------------------------------------------------------*/
         JLabel labelThree = new JLabel("BIRTH_END", SwingConstants.CENTER);
         JTextField birthEndField = new JTextField();
-        if(LIVE_END != null){
-            birthEndField.setText(BIRTH_END.toString());
+
+        if(BIRTH_END - (int)BIRTH_END > 0){
+            birthEndField.setText(Double.toString(BIRTH_END));
+        } else {
+            String formattedDouble = String.format("%.0f", BIRTH_END);
+            birthEndField.setText(formattedDouble);
         }
+
         panelOne.add(labelThree);
         panelTwo.add(birthEndField);
         /*-------------------------------------------------------------*/
         JLabel labelFour = new JLabel("LIVE_END", SwingConstants.CENTER);
         JTextField liveEndField = new JTextField();
-        if(LIVE_END != null){
-            liveEndField.setText(LIVE_END.toString());
+
+        if(LIVE_END - (int)LIVE_END > 0){
+            liveEndField.setText(Double.toString(LIVE_END));
+        } else {
+            String formattedDouble = String.format("%.0f", LIVE_END);
+            liveEndField.setText(formattedDouble);
         }
+
         panelOne.add(labelFour);
         panelTwo.add(liveEndField);
         /*-------------------------------------------------------------*/
         JLabel labelFive = new JLabel("FIRST_IMPACT", SwingConstants.CENTER);
         JTextField firstImpactField = new JTextField();
-        if(FST_IMPACT != null){
-            firstImpactField.setText(FST_IMPACT.toString());
+
+        if(FST_IMPACT - (int)FST_IMPACT > 0){
+            firstImpactField.setText(Double.toString(FST_IMPACT));
+        } else {
+            String formattedDouble = String.format("%.0f", FST_IMPACT);
+            firstImpactField.setText(formattedDouble);
         }
+
         panelOne.add(labelFive);
         panelTwo.add(firstImpactField);
         /*-------------------------------------------------------------*/
         JLabel labelSix = new JLabel("SECOND_IMPACT", SwingConstants.CENTER);
         JTextField secondImpactField = new JTextField();
-        if(SND_IMPACT != null){
-            secondImpactField.setText(SND_IMPACT.toString());
+
+        if(SND_IMPACT - (int)SND_IMPACT > 0){
+            secondImpactField.setText(Double.toString(SND_IMPACT));
+        } else {
+            String formattedDouble = String.format("%.0f", SND_IMPACT);
+            secondImpactField.setText(formattedDouble);
         }
+
         panelOne.add(labelSix);
         panelTwo.add(secondImpactField);
         /*-------------------------------------------------------------*/
@@ -888,6 +905,33 @@ public class Screen extends JFrame {
         revalidate();
     }
 
+    private void openFile(){
+        JFileChooser fileChooser = new JFileChooser("FIT_15203_Gusev_Alexandr_Life_Data");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Txt file(.txt)", "txt");
+        fileChooser.setFileFilter(filter);
+        int res = fileChooser.showDialog(jFrame,"File Open");
+        if (res == JFileChooser.APPROVE_OPTION) {
+            file = fileChooser.getSelectedFile();
+            Parser parser = new Parser(file);
+            parser.readFile();
+
+            height = parser.getHeight();
+            width = parser.getWidth();
+            radius = parser.getRadius();
+            fat = parser.getFat();
+            updateImage();
+            clearField();
+
+            ArrayList<Point> massive = parser.getField();
+            for(int i=0; i<massive.size(); i++){
+                Point point = logic.getCentre(massive.get(i).x,massive.get(i).y);
+                paint.fillHexagon(point.x, point.y, Color.RED);
+                logic.setAlive(massive.get(i).x,massive.get(i).y,true);
+                logic.countImpacts();
+            }
+        }
+    }
+
     private Point getDelta(int radius, int fat){
         radius+=fat/2;
         int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
@@ -926,7 +970,7 @@ public class Screen extends JFrame {
                     if(impactMode){
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
-                        countImpacts();
+                        countImpacts(point.x, point.y);
                     } else {
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
@@ -970,7 +1014,7 @@ public class Screen extends JFrame {
                     if(impactMode){
                         image =  paint.fillHexagon(x,y,color);
                         logic.countImpacts();
-                        countImpacts();
+                        countImpacts(point.x, point.y);
                     } else {
                         image = paint.fillHexagon(x, y, color);
                         jFrame.repaint();
@@ -995,7 +1039,6 @@ public class Screen extends JFrame {
         public void windowClosed(WindowEvent e) {}
 
         public void windowClosing(WindowEvent e) {
-            System.out.println("windowClosing()");
             if(logic != null) {
                 int choice = JOptionPane.showOptionDialog(jFrame,
                         "Do you want to save?",
@@ -1082,7 +1125,9 @@ public class Screen extends JFrame {
     private void showImpacts(){
         Graphics2D g2 = image.createGraphics();
         g2.setColor(Color.GREEN);
-        g2.setFont(new Font("TimesRoman", Font.PLAIN, radius/2));
+        Font font = new Font("TimesRoman", Font.PLAIN, radius/2);
+        g2.setFont(font);
+        FontMetrics fontMetrics = g2.getFontMetrics(font);
 
         for(int i=0; i<height; i++){
             int mc = i%2==0 ? width : width-1;
@@ -1091,8 +1136,10 @@ public class Screen extends JFrame {
                 String formattedDouble;
                 if(imp - (int)imp > 0){
                     formattedDouble = String.format("%.1f", imp);
+                    int razmer = fontMetrics.stringWidth(formattedDouble);
+                    int razmer2 = fontMetrics.getHeight();
                     Point p = logic.getCentre(i,j);
-                    g2.drawString(formattedDouble, p.x - radius/3, p.y + radius/6);
+                    g2.drawString(formattedDouble, p.x - (int)Math.ceil(razmer/2), p.y);
                 } else {
                     formattedDouble = String.format("%.0f", imp);
                     Point p = logic.getCentre(i,j);
@@ -1138,22 +1185,13 @@ public class Screen extends JFrame {
         jFrame.repaint();
     }
 
-    private void countImpacts(){
+    private void countImpacts(int i, int j){
         ttmp = width;
-
-        for(int i=0; i<height; i++){
-            if(i%2 == 0){
-                ttmp = width;
-                parity = true;
-            } else {
-                ttmp = width-1;
-                parity = false;
-            }
-
-            for(int j=0; j<ttmp; j++){
-                countFirstImpact(i,j);
-            }
-        }
+        drawImpacts(i,j);
+        ttmp = i%2==0 ? width : width-1;
+        parity = i % 2 == 0;
+        countFirstImpact(i,j);
+        countSecondImpact(i,j);
     }
 
     private void countFirstImpact(int i, int j){
@@ -1270,6 +1308,124 @@ public class Screen extends JFrame {
             }
         }
         jFrame.repaint();
+    }
+
+    private void countSecondImpact(int i, int j){
+        boolean top = i > 1;
+        boolean down = i < height - 2;
+        boolean lineUp = i > 0;
+        boolean lineDown = i < height - 1;
+
+        if (parity) {
+            boolean left = j > 1;
+            boolean right = j < ttmp - 2;
+
+            if (lineUp) {
+                if (left) {
+                    Point point = logic.getCentre(i-1,j-2);
+                    if(logic.getAlive(i-1,j-2)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j-2);
+                }
+                if (right) {
+                    Point point = logic.getCentre(i-1,j+1);
+                    if(logic.getAlive(i-1,j+1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j+1);
+                }
+            }
+
+            if (lineDown) {
+                if (left) {
+                    Point point = logic.getCentre(i+1,j-2);
+                    if(logic.getAlive(i+1,j-2)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j-2);
+                }
+                if (right) {
+                    Point point = logic.getCentre(i+1,j+1);
+                    if(logic.getAlive(i+1,j+1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j+1);
+                }
+            }
+        } else {
+            boolean left = j > 0;
+            boolean right = j < ttmp - 1;
+
+            if (lineUp) {
+                if (left) {
+                    Point point = logic.getCentre(i-1,j-1);
+                    if(logic.getAlive(i-1,j-1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j-1);
+                }
+                if (right) {
+                    Point point = logic.getCentre(i-1,j+2);
+                    if(logic.getAlive(i-1,j+2)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i-1,j+2);
+                }
+            }
+
+            if (lineDown) {
+                if (left) {
+                    Point point = logic.getCentre(i+1,j-1);
+                    if(logic.getAlive(i+1,j-1)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j-1);
+                }
+                if (right) {
+                    Point point = logic.getCentre(i+1,j+2);
+                    if(logic.getAlive(i+1,j+2)){
+                        image = paint.fillHexagon(point.x, point.y, Color.RED);
+                    } else {
+                        image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+                    }
+                    drawImpacts(i+1,j+2);
+                }
+            }
+        }
+
+        if (down) {
+            Point point = logic.getCentre(i+2,j);
+            if(logic.getAlive(i+2,j)){
+                image = paint.fillHexagon(point.x, point.y, Color.RED);
+            } else {
+                image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+            }
+            drawImpacts(i+2,j);
+        }
+        if (top) {
+            Point point = logic.getCentre(i-2,j);
+            if(logic.getAlive(i-2,j)){
+                image = paint.fillHexagon(point.x, point.y, Color.RED);
+            } else {
+                image = paint.fillHexagon(point.x, point.y, Color.WHITE);
+            }
+            drawImpacts(i-2,j);
+        }
     }
 
     public static void main(String[] args) {
