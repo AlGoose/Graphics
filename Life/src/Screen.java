@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
@@ -36,6 +38,7 @@ public class Screen extends JFrame {
     private int SPEED = 1000;
     private boolean parity;
     private int ttmp;
+    private int newRadius;
 
     private Screen() {
 //        super("LIFE");
@@ -885,7 +888,13 @@ public class Screen extends JFrame {
         Point point = getDelta(radius,fat);
 
         int pixelWidth = width * point.x + 30;
-        int pixelHeight = (height+1)*point.y;
+        int pixelHeight;
+        if(height % 2 == 0){
+//            pixelHeight = (height+1)*point.y;
+            pixelHeight = (3*height + 1) * (newRadius/2) + 30 + newRadius/2;
+        } else {
+            pixelHeight = ((3*height + 1)/2)*newRadius + 30;
+        }
         image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_ARGB);
         image = colorBackground(Color.WHITE, image);
 
@@ -937,23 +946,18 @@ public class Screen extends JFrame {
     }
 
     private Point getDelta(int radius, int fat){
-//        radius+=fat/2;
-//        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-//        int deltaX2 = deltaX / 2;
-//
-//        while(deltaX != deltaX2*2){
-//            radius++;
-//            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-//            deltaX2 = deltaX/2;
-//        }
-//
-//        int deltaY = (int)Math.ceil(3*radius/2);
+        radius+=fat/2;
+        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+        int deltaX2 = deltaX / 2;
 
-        double temp =  fat == 1 ? radius : radius + fat;
-        int deltaY = fat == 1 ? radius * 3 / 2 : (int)Math.ceil(radius * 3 / 2 + fat * 3 / 2);
-        int deltaX2 = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) : (int)Math.ceil(temp * Math.sqrt(3) / 2) + (fat + 1) % 2 - (radius % 2);
-        int deltaX = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 : (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 - (radius % 2);
-        deltaX = deltaX2 * 2 == deltaX ? deltaX : deltaX-1;
+        while(deltaX != deltaX2*2){
+            radius++;
+            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+            deltaX2 = deltaX/2;
+        }
+
+        newRadius = radius;
+        int deltaY = (int)Math.ceil(3*radius/2);
         return new Point(deltaX,deltaY);
     }
 
@@ -1146,18 +1150,26 @@ public class Screen extends JFrame {
                 String formattedDouble;
                 if(imp - (int)imp > 0){
                     formattedDouble = String.format("%.1f", imp);
-                    int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
-                    int dy = metrics.getHeight() / 4;
-                    g2.drawString(formattedDouble, p.x - dx, p.y + dy);
+                    Rectangle bounds = getStringBounds(g2, formattedDouble, p.x, p.y);
+                    int a = bounds.width;
+                    int b = bounds.height;
+                    g2.drawString(formattedDouble, p.x - (a+1)/2, p.y + (b-4)/2);
                 } else {
                     formattedDouble = String.format("%.0f", imp);
-                    int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
-                    int dy = metrics.getHeight() / 4;
-                    g2.drawString(formattedDouble, p.x - dx, p.y + dy);
+                    Rectangle bounds = getStringBounds(g2, formattedDouble, p.x, p.y);
+                    int a = bounds.width;
+                    int b = bounds.height;
+                    g2.drawString(formattedDouble, p.x - (a+1)/2, p.y + b/2);
                 }
             }
         }
         jFrame.repaint();
+    }
+
+    private Rectangle getStringBounds(Graphics2D g2, String str, float x, float y){
+        FontRenderContext frc = g2.getFontRenderContext();
+        GlyphVector gv = g2.getFont().createGlyphVector(frc, str);
+        return gv.getPixelBounds(null, x, y);
     }
 
     private void drawImpacts(int i, int j){
@@ -1171,14 +1183,16 @@ public class Screen extends JFrame {
         String formattedDouble;
         if(imp - (int)imp > 0){
             formattedDouble = String.format("%.1f", imp);
-            int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
-            int dy = metrics.getHeight() / 4;
-            g2.drawString(formattedDouble, p.x - dx, p.y + dy);
+            Rectangle bounds = getStringBounds(g2, formattedDouble, p.x, p.y);
+            int a = bounds.width;
+            int b = bounds.height;
+            g2.drawString(formattedDouble, p.x - (a+1)/2, p.y + (b-4)/2);
         } else {
             formattedDouble = String.format("%.0f", imp);
-            int dx = metrics.stringWidth(formattedDouble) / 2 - 1;
-            int dy = metrics.getHeight() / 4;
-            g2.drawString(formattedDouble, p.x - dx, p.y + dy);
+            Rectangle bounds = getStringBounds(g2, formattedDouble, p.x, p.y);
+            int a = bounds.width;
+            int b = bounds.height;
+            g2.drawString(formattedDouble, p.x - (a+1)/2, p.y + b/2);
         }
         jFrame.repaint();
     }

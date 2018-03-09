@@ -60,32 +60,21 @@ public class Logic {
     }
 
     private Hex[][] createField(Hex[][] hex){
-//        radius+=fat/2;
-//        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-//        int deltaX2 = deltaX / 2;
-//
-//        while(deltaX != deltaX2*2){
-//            radius++;
-//            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
-//            deltaX2 = deltaX/2;
-//        }
-//
-//        int centrX = radius + fat/2;
-//        int centrXX = centrX;
-//        int centrY = radius + fat/2;
-//        int centrYY = centrY;
-//        int deltaY = (int)Math.ceil(3*radius/2);
+        radius+=fat/2;
+        int deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+        int deltaX2 = deltaX / 2;
 
-        double temp =  fat == 1 ? radius : radius + fat;
-        int deltaY = fat == 1 ? radius * 3 / 2 : (int)Math.ceil(radius * 3 / 2 + fat * 3 / 2);
-        int deltaX2 = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) : (int)Math.ceil(temp * Math.sqrt(3) / 2) + (fat + 1) % 2 - (radius % 2);
-        int deltaX = fat == 1 ? (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 : (int)Math.ceil(temp * Math.sqrt(3) / 2) * 2 - (radius % 2);
+        while(deltaX != deltaX2*2){
+            radius++;
+            deltaX = (int)Math.ceil(Math.sqrt(3)*radius);
+            deltaX2 = deltaX/2;
+        }
 
-        deltaX = deltaX2 * 2 == deltaX ? deltaX : deltaX-1;
-        int centrX = deltaX2 + 15;
-        int centrY = deltaY;
+        int centrX = radius + 15;
         int centrXX = centrX;
+        int centrY = radius + 15;
         int centrYY = centrY;
+        int deltaY = (int)Math.ceil(3*radius/2);
 
         for (int i=0;i<height;i++){
             int mc = i%2 == 0 ? width : width-1;
