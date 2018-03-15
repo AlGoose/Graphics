@@ -10,9 +10,6 @@ public class Interface {
     private JPanel zoneA;
     private JPanel zoneB;
     private JPanel zoneC;
-    private BufferedImage imageA;
-    private BufferedImage imageB;
-    private BufferedImage imageC;
 
 
     public Interface(){}
@@ -20,7 +17,7 @@ public class Interface {
     public JFrame getMain(){
         mainFrame = new JFrame("Filter");
         mainFrame.setLayout(new BorderLayout());
-        mainFrame.setMinimumSize(new Dimension(1200,440));
+        mainFrame.setMinimumSize(new Dimension(1100,440));
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainFrame.setResizable(false);
         return  mainFrame;
@@ -43,32 +40,23 @@ public class Interface {
             JFileChooser fileChooser = new JFileChooser("src/icons");
             FileNameExtensionFilter pngFilter = new FileNameExtensionFilter("PNG(.png)", "png");
             FileNameExtensionFilter jpgFilter = new FileNameExtensionFilter("JPG(.jpg)", "jpg");
-            FileNameExtensionFilter jpegFilter = new FileNameExtensionFilter("JPEG(.jpeg)", "jpeg");
             fileChooser.setFileFilter(pngFilter);
             fileChooser.setFileFilter(jpgFilter);
-            fileChooser.setFileFilter(jpegFilter);
 
             int res = fileChooser.showDialog(mainFrame,"Open");
             if (res == JFileChooser.APPROVE_OPTION) {
                 zoneA.removeAll();
                 File file = fileChooser.getSelectedFile();
-                Image krot = new ImageIcon(file.getAbsolutePath()).getImage();
-                if(krot.getWidth(null) > 350 || krot.getHeight(null) > 350){
-                    krot = new ImageIcon(krot.getScaledInstance(348,348, BufferedImage.SCALE_DEFAULT)).getImage();
+                Image image = new ImageIcon(file.getAbsolutePath()).getImage();
+
+                if(image.getWidth(null) > 350 || image.getHeight(null) > 350){
+                    image = new ImageIcon(image.getScaledInstance(348,348, BufferedImage.SCALE_DEFAULT)).getImage();
                 }
 
-                float dash1[] = {10.0f};
-                BasicStroke basicStroke = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
-
-                imageA = new BufferedImage(350,350, BufferedImage.TYPE_INT_ARGB);
-                Graphics2D g2 = imageA.createGraphics();
-                g2.setColor(Color.WHITE);
-                g2.setStroke(basicStroke);
-                g2.drawRect(0,0,349,349);
-                zoneA.add(new JLabel(new ImageIcon(imageA)));
-                g2.drawImage(krot,1,1,null);
-                g2.dispose();
-                zoneA.revalidate();
+                JLabel tmp = new JLabel(new ImageIcon(image));
+                tmp.setBounds(1,1,image.getWidth(null), image.getHeight(null));
+                zoneA.add(tmp);
+                zoneA.repaint();
             }
         });
         /*-------------------------------------------------------------*/
@@ -76,41 +64,28 @@ public class Interface {
     }
 
     public JPanel mainJPanel(){
-        mainPanel = new JPanel(new GridLayout());
-
-        float dash1[] = {10.0f};
-        BasicStroke basicStroke = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
+        mainPanel = new JPanel();
+        Container pane = new Container();
+        pane.setLayout(new BoxLayout(pane, BoxLayout.X_AXIS));
 
         zoneA = new JPanel();
-        zoneA.setBackground(Color.BLACK);
-        imageA = new BufferedImage(350,350, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = imageA.createGraphics();
-        g2.setColor(Color.WHITE);
-        g2.setStroke(basicStroke);
-        g2.drawRect(0,0,349,349);
-        zoneA.add(new JLabel(new ImageIcon(imageA)));
+        zoneA.setLayout(null);
+        zoneA.setPreferredSize(new Dimension(350,350));
+        zoneA.setBorder(BorderFactory.createDashedBorder(Color.BLACK,1,6,3,true));
 
         zoneB = new JPanel();
-        zoneB.setBackground(Color.YELLOW);
-        imageB = new BufferedImage(350,350, BufferedImage.TYPE_INT_ARGB);
-        g2 = imageB.createGraphics();
-        g2.setColor(Color.BLACK);
-        g2.setStroke(basicStroke);
-        g2.drawRect(0,0,349,349);
-        zoneB.add(new JLabel(new ImageIcon(imageB)));
+        zoneB.setLayout(null);
+        zoneB.setPreferredSize(new Dimension(350,350));
+        zoneB.setBorder(BorderFactory.createDashedBorder(Color.BLACK,1,6,3,true));
 
         zoneC = new JPanel();
-        zoneC.setBackground(Color.RED);
-        imageC = new BufferedImage(350,350, BufferedImage.TYPE_INT_ARGB);
-        g2 = imageC.createGraphics();
-        g2.setColor(Color.YELLOW);
-        g2.setStroke(basicStroke);
-        g2.drawRect(0,0,349,349);
-        zoneC.add(new JLabel(new ImageIcon(imageC)));
+        zoneC.setLayout(null);
+        zoneC.setPreferredSize(new Dimension(350,350));
+        zoneC.setBorder(BorderFactory.createDashedBorder(Color.BLACK,1,6,3,true));
 
-        mainPanel.add(zoneA);
-        mainPanel.add(zoneB);
-        mainPanel.add(zoneC);
+        mainPanel.add(zoneA,pane);
+        mainPanel.add(zoneB,pane);
+        mainPanel.add(zoneC,pane);
 
         return mainPanel;
     }
