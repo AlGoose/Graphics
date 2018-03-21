@@ -4,8 +4,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Negative{
-    public BufferedImage makeNegative(BufferedImage image) {
-        BufferedImage filteredImage = image;
+    public BufferedImage makeNegative(BufferedImage image){
+        BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+        Graphics g = filteredImage.createGraphics();
+        g.drawImage(image,0,0,null);
+        g.dispose();
 
         for (int i = 0; i < filteredImage.getHeight(); i++) {
             for (int j = 0; j < filteredImage.getWidth(); j++) {

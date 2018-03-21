@@ -5,7 +5,10 @@ import java.awt.image.BufferedImage;
 
 public class GreyShades {
     public BufferedImage makeGreyShades(BufferedImage image){
-        BufferedImage filteredImage = image;
+        BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+        Graphics graphics = filteredImage.createGraphics();
+        graphics.drawImage(image,0,0,null);
+        graphics.dispose();
 
         for (int i = 0; i < filteredImage.getHeight(); i++){
             for (int j = 0; j < filteredImage.getWidth(); j++){

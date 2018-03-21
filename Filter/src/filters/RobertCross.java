@@ -5,7 +5,10 @@ import java.awt.image.BufferedImage;
 
 public class RobertCross {
     public BufferedImage makeRobertCross(BufferedImage image){
-        BufferedImage filteredImage = image;
+        BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+        Graphics graphics = filteredImage.createGraphics();
+        graphics.drawImage(image,0,0,null);
+        graphics.dispose();
         GreyShades grey = new GreyShades();
         image = grey.makeGreyShades(image);
 

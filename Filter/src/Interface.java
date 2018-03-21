@@ -1,7 +1,4 @@
-import filters.GaussBlur;
-import filters.GreyShades;
-import filters.Negative;
-import filters.RobertCross;
+import filters.*;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -16,6 +13,9 @@ class Interface {
     private final int GAUSSBLUR = 2;
     private final int GREYSHADES = 3;
     private final int ROBERTCROSS = 4;
+    private final int DOUBLESIZE = 5;
+    private final int SHARPNESS = 6;
+    private final int GAMMA = 7;
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JLayeredPane zoneA;
@@ -73,6 +73,15 @@ class Interface {
         JButton jButtonRobertCross = new JButton(new ImageIcon("src/icons/robertCross32.png"));
         jButtonRobertCross.setToolTipText("Robert Cross");
         /*-------------------------------------------------------------*/
+        JButton jButtonDoubleSize = new JButton(new ImageIcon("src/icons/doubleSize32.png"));
+        jButtonDoubleSize.setToolTipText("Double Size");
+        /*-------------------------------------------------------------*/
+        JButton jButtonSharpness = new JButton(new ImageIcon("src/icons/sharpness32.png"));
+        jButtonSharpness.setToolTipText("Sharpness");
+        /*-------------------------------------------------------------*/
+        JButton jButtonGamma = new JButton(new ImageIcon("src/icons/gamma32.png"));
+        jButtonGamma.setToolTipText("Gamma");
+        /*-------------------------------------------------------------*/
         JToolBar.Separator separator = new JToolBar.Separator(new Dimension(14, 14));
         jToolBar.add(jButtonNew);
         jToolBar.add(jButtonClear);
@@ -83,6 +92,9 @@ class Interface {
         jToolBar.add(jButtonGaussBlur);
         jToolBar.add(jButtonGreyShades);
         jToolBar.add(jButtonRobertCross);
+        jToolBar.add(jButtonDoubleSize);
+        jToolBar.add(jButtonSharpness);
+        jToolBar.add(jButtonGamma);
         /*-------------------------------------------------------------*/
         jButtonNew.addActionListener(e -> loadImage());
         jButtonClear.addActionListener(e ->{
@@ -129,6 +141,9 @@ class Interface {
         jButtonGaussBlur.addActionListener(e -> makeEffect(GAUSSBLUR));
         jButtonGreyShades.addActionListener(e -> makeEffect(GREYSHADES));
         jButtonRobertCross.addActionListener(e -> makeEffect(ROBERTCROSS));
+        jButtonDoubleSize.addActionListener(e -> makeEffect(DOUBLESIZE));
+        jButtonSharpness.addActionListener(e -> makeEffect(SHARPNESS));
+        jButtonGamma.addActionListener(e -> makeEffect(GAMMA));
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -321,6 +336,21 @@ class Interface {
                 case ROBERTCROSS:
                     RobertCross robertCross = new RobertCross();
                     effectImage = robertCross.makeRobertCross(selectImage);
+                    break;
+
+                case DOUBLESIZE:
+                    DoubleSize doubleSize = new DoubleSize();
+                    effectImage = doubleSize.makeDoubleSize(selectImage);
+                    break;
+
+                case SHARPNESS:
+                    Sharpness sharpness = new Sharpness();
+                    effectImage = sharpness.makeSharpness(selectImage);
+                    break;
+
+                case GAMMA:
+                    Gamma gamma = new Gamma();
+                    effectImage = gamma.makeGamma(selectImage);
                     break;
             }
 

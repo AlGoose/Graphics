@@ -3,20 +3,19 @@ package filters;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GaussBlur{
-    public BufferedImage makeGaussBlur(BufferedImage image){
+public class Sharpness {
+    public BufferedImage makeSharpness(BufferedImage image){
         BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
         Graphics graphics = filteredImage.createGraphics();
         graphics.drawImage(image,0,0,null);
         graphics.dispose();
 
-        double[][] core = {{0.5 / 6, 0.75 / 6, 0.5 / 6},
-                {0.75 / 6, 1.0 / 6, 0.75 / 6},
-                {0.5 / 6, 0.75 / 6, 0.5 / 6}};
+        double[][] core = {{-1, -1, -1},
+                {-1, 9, -1},
+                {-1, -1, -1}};
 
         for (int i = 1; i < filteredImage.getHeight() - 1; i++){
             for (int j = 1; j < filteredImage.getWidth() - 1; j++){
-
                 Color color1 = new Color(image.getRGB(j-1,i-1));
                 Color color2 = new Color(image.getRGB(j,i-1));
                 Color color3 = new Color(image.getRGB(j+1,i-1));
@@ -67,7 +66,7 @@ public class GaussBlur{
                         core[2][0] * red7 +
                         core[2][1] * red8 +
                         core[2][2] * red9
-                        );
+                );
 
                 int green = (int)(
                         core[0][0] * green1 +
@@ -93,6 +92,19 @@ public class GaussBlur{
                         core[2][2] * blue9
                 );
 
+                if (red > 255)
+                    red = 255;
+                if (green > 255)
+                    green = 255;
+                if (blue > 255)
+                    blue = 255;
+
+                if (red < 0)
+                    red = 0;
+                if (green < 0)
+                    green = 0;
+                if (blue < 0)
+                    blue = 0;
 
                 Color color = new Color(red,green,blue);
                 filteredImage.setRGB(j,i,color.getRGB());
