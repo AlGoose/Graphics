@@ -92,38 +92,7 @@ public class GaussBlur{
 
 
                 Color color = new Color(red,green,blue);
-                image.setRGB(j,i,color.getRGB());
-//                filteredBitmap[i][j].red = (int) (
-//                        core[0][0] * bitmap[i - 1][j - 1].red +
-//                        core[0][1] * bitmap[i - 1][j].red +
-//                        core[0][2] * bitmap[i - 1][j + 1].red +
-//                        core[1][0] * bitmap[i][j - 1].red +
-//                        core[1][1] * bitmap[i][j].red +
-//                        core[1][2] * bitmap[i][j + 1].red +
-//                        core[2][0] * bitmap[i + 1][j - 1].red +
-//                        core[2][1] * bitmap[i + 1][j].red +
-//                        core[2][2] * bitmap[i + 1][j + 1].red
-//                );
-//
-//                filteredBitmap[i][j].green = (int) (core[0][0] * bitmap[i - 1][j - 1].green +
-//                        core[0][1] * bitmap[i - 1][j].green +
-//                        core[0][2] * bitmap[i - 1][j + 1].green +
-//                        core[1][0] * bitmap[i][j + 1].green +
-//                        core[1][1] * bitmap[i][j].green +
-//                        core[1][2] * bitmap[i][j + 1].green +
-//                        core[2][0] * bitmap[i + 1][j - 1].green +
-//                        core[2][1] * bitmap[i + 1][j].green +
-//                        core[2][2] * bitmap[i + 1][j + 1].green);
-//
-//                filteredBitmap[i][j].blue = (int) (core[0][0] * bitmap[i - 1][j - 1].blue +
-//                        core[0][1] * bitmap[i - 1][j].blue +
-//                        core[0][2] * bitmap[i - 1][j + 1].blue +
-//                        core[1][0] * bitmap[i][j + 1].blue +
-//                        core[1][1] * bitmap[i][j].blue +
-//                        core[1][2] * bitmap[i][j + 1].blue +
-//                        core[2][0] * bitmap[i + 1][j - 1].blue +
-//                        core[2][1] * bitmap[i + 1][j].blue +
-//                        core[2][2] * bitmap[i + 1][j + 1].blue);
+                filteredImage.setRGB(j,i,color.getRGB());
             }
         }
         return filteredImage;

@@ -14,7 +14,7 @@ public class Negative{
                 int green = 255 - color.getGreen();
                 int blue = 255 - color.getBlue();
                 color = new Color(red,green,blue);
-                image.setRGB(j,i,color.getRGB());
+                filteredImage.setRGB(j,i,color.getRGB());
             }
         }
         return filteredImage;

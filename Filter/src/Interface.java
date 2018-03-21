@@ -1,5 +1,7 @@
 import filters.GaussBlur;
+import filters.GreyShades;
 import filters.Negative;
+import filters.RobertCross;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -12,13 +14,15 @@ import java.io.File;
 class Interface {
     private final int NEGATIVE = 1;
     private final int GAUSSBLUR = 2;
+    private final int GREYSHADES = 3;
+    private final int ROBERTCROSS = 4;
     private JFrame mainFrame;
     private JPanel mainPanel;
-//    private JPanel zoneA;
     private JLayeredPane zoneA;
     private JPanel zoneB;
     private JPanel zoneC;
     private JPanel zoneASelect;
+    private Image damnImage;
     private BufferedImage bImage;
     private BufferedImage selectImage;
     private BufferedImage effectImage;
@@ -29,32 +33,33 @@ class Interface {
     private double selectYsize;
     private int totalSize = 100;
 
-    Interface(){}
-
-    JFrame getMain(){
-        mainFrame = new JFrame("Filter");
-        mainFrame.setLayout(new BorderLayout());
-        mainFrame.setMinimumSize(new Dimension(1100,440));
-        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainFrame.setResizable(false);
-        return  mainFrame;
+    Interface() {
     }
 
-    JToolBar addToolBar(){
+    JFrame getMain() {
+        mainFrame = new JFrame("Filter");
+        mainFrame.setLayout(new BorderLayout());
+        mainFrame.setMinimumSize(new Dimension(1100, 440));
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainFrame.setResizable(false);
+        return mainFrame;
+    }
+
+    JToolBar addToolBar() {
         JToolBar jToolBar = new JToolBar();
         jToolBar.setFloatable(false);
         /*-------------------------------------------------------------*/
         JButton jButtonNew = new JButton(new ImageIcon("src/icons/new32.png"));
         jButtonNew.setToolTipText("New Document");
         /*-------------------------------------------------------------*/
+        JButton jButtonClear = new JButton(new ImageIcon("src/icons/clear32.png"));
+        jButtonClear.setToolTipText("Clear");
+        /*-------------------------------------------------------------*/
         JButton jButtonSelect = new JButton(new ImageIcon("src/icons/select32.png"));
         jButtonSelect.setToolTipText("Select Zone");
         /*-------------------------------------------------------------*/
-        JButton jButtonShow = new JButton(new ImageIcon("src/icons/show32.png"));
-        jButtonShow.setToolTipText("Show");
-        /*-------------------------------------------------------------*/
-        JButton jButtonDraw = new JButton(new ImageIcon("src/icons/draw32.png"));
-        jButtonDraw.setToolTipText("Draw");
+        JButton jButtonCopy = new JButton(new ImageIcon("src/icons/copy32.png"));
+        jButtonCopy.setToolTipText("Copy C to B");
         /*-------------------------------------------------------------*/
         JButton jButtonNegative = new JButton(new ImageIcon("src/icons/negative32.png"));
         jButtonNegative.setToolTipText("Negative");
@@ -62,78 +67,86 @@ class Interface {
         JButton jButtonGaussBlur = new JButton(new ImageIcon("src/icons/gaussBlur32.png"));
         jButtonGaussBlur.setToolTipText("Gauss Blur");
         /*-------------------------------------------------------------*/
-        JToolBar.Separator separator = new JToolBar.Separator(new Dimension(14,14));
+        JButton jButtonGreyShades = new JButton(new ImageIcon("src/icons/greyShades32.png"));
+        jButtonGreyShades.setToolTipText("Grey");
+        /*-------------------------------------------------------------*/
+        JButton jButtonRobertCross = new JButton(new ImageIcon("src/icons/robertCross32.png"));
+        jButtonRobertCross.setToolTipText("Robert Cross");
+        /*-------------------------------------------------------------*/
+        JToolBar.Separator separator = new JToolBar.Separator(new Dimension(14, 14));
         jToolBar.add(jButtonNew);
+        jToolBar.add(jButtonClear);
         jToolBar.add(jButtonSelect);
-        jToolBar.add(jButtonShow);
-        jToolBar.add(jButtonDraw);
+        jToolBar.add(jButtonCopy);
         jToolBar.add(separator);
         jToolBar.add(jButtonNegative);
         jToolBar.add(jButtonGaussBlur);
+        jToolBar.add(jButtonGreyShades);
+        jToolBar.add(jButtonRobertCross);
         /*-------------------------------------------------------------*/
-        jButtonNew.addActionListener(e ->loadImage());
-        jButtonSelect.addActionListener(e ->{
-//            JPanel selectPanel = new JPanel();
-//            selectPanel.setBounds(50,50,50,50);
-//            selectPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-//            selectPanel.setOpaque(false);
-//            zoneA.add(selectPanel,JLayeredPane.DRAG_LAYER);
-//            zoneA.repaint();
-            if(bImage != null && !selectMode){
-                cursorX = 100;
-                cursorY = 100;
+        jButtonNew.addActionListener(e -> loadImage());
+        jButtonClear.addActionListener(e ->{
+            if(selectImage != null){
+                if(effectImage != null){
+                    zoneC.removeAll();
+                    zoneC.repaint();
+                }
+                zoneB.removeAll();
+                zoneB.repaint();
 
-                selectMode = true;
-                zoneASelect = new JPanel();
-                zoneASelect.setPreferredSize(new Dimension(zoneA.getWidth(),zoneA.getHeight()));
-                zoneASelect.setBounds(0,0,zoneA.getWidth(),zoneA.getHeight());
-                zoneASelect.setOpaque(false);
-//                zoneASelect.setBorder(BorderFactory.createLineBorder(Color.YELLOW,1));
-
-                BufferedImage testImage = new BufferedImage(zoneASelect.getWidth(),zoneASelect.getHeight(),BufferedImage.TYPE_INT_ARGB);
-                Graphics2D g2 = testImage.createGraphics();
-                g2.setColor(Color.RED);
-                g2.drawRect(50,50,100,100);
-                zoneASelect.add(new JLabel(new ImageIcon(testImage)));
-
-                zoneA.add(zoneASelect,JLayeredPane.DRAG_LAYER);
+                zoneA.remove(zoneASelect);
                 zoneA.repaint();
 
-                drawSelect();
-            }
-        });
-        jButtonShow.addActionListener(e ->{
-            if(selectMode){
-                zoneASelect.setVisible(false);
                 selectMode = false;
-                System.out.println("OFF");
-            } else {
-                zoneASelect.setVisible(true);
-                selectMode = true;
-                System.out.println("ON");
             }
         });
-        jButtonDraw.addActionListener(e -> drawSelect());
+        jButtonSelect.addActionListener(e -> {
+            if (bImage != null){
+                if(!selectMode){
+                    selectMode = true;
+                    zoneASelect = new JPanel(new BorderLayout());
+                    zoneASelect.setPreferredSize(new Dimension(zoneA.getWidth(), zoneA.getHeight()));
+                    zoneASelect.setBounds(0, 0, zoneA.getWidth(), zoneA.getHeight());
+                    zoneASelect.setOpaque(false);
+                    zoneA.add(zoneASelect, JLayeredPane.DRAG_LAYER);
+                } else {
+                    selectMode = false;
+                    zoneA.remove(zoneASelect);
+                    zoneA.repaint();
+                }
+            }
+        });
+        jButtonCopy.addActionListener(e -> {
+            if(effectImage != null){
+                zoneB.removeAll();
+                JLabel tmp = new JLabel(new ImageIcon(damnImage));
+                tmp.setBounds(1, 1, damnImage.getWidth(null), damnImage.getHeight(null));
+                zoneB.add(tmp);
+                zoneB.repaint();
+            }
+        });
         jButtonNegative.addActionListener(e -> makeEffect(NEGATIVE));
         jButtonGaussBlur.addActionListener(e -> makeEffect(GAUSSBLUR));
+        jButtonGreyShades.addActionListener(e -> makeEffect(GREYSHADES));
+        jButtonRobertCross.addActionListener(e -> makeEffect(ROBERTCROSS));
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
 
-    JPanel mainJPanel(){
+    JPanel mainJPanel() {
         mainPanel = new JPanel();
         Container pane = new Container();
         pane.setLayout(new BoxLayout(pane, BoxLayout.X_AXIS));
 
 //        zoneA = new JPanel();
         zoneA = new JLayeredPane();
-        zoneA.setPreferredSize(new Dimension(350,350));
-        zoneA.setBorder(BorderFactory.createDashedBorder(Color.BLACK,1,6,3,true));
+        zoneA.setPreferredSize(new Dimension(350, 350));
+        zoneA.setBorder(BorderFactory.createDashedBorder(Color.BLACK, 1, 6, 3, true));
 
         zoneB = new JPanel();
         zoneB.setLayout(null);
-        zoneB.setPreferredSize(new Dimension(350,350));
-        zoneB.setBorder(BorderFactory.createDashedBorder(Color.BLACK,1,6,3,true));
+        zoneB.setPreferredSize(new Dimension(350, 350));
+        zoneB.setBorder(BorderFactory.createDashedBorder(Color.BLACK, 1, 6, 3, true));
 
 //        Image image = new ImageIcon("src/icons/krot.png").getImage();
 //        image = new ImageIcon(image.getScaledInstance(348,348, BufferedImage.SCALE_DEFAULT)).getImage();
@@ -148,136 +161,148 @@ class Interface {
 
         zoneC = new JPanel();
         zoneC.setLayout(null);
-        zoneC.setPreferredSize(new Dimension(350,350));
-        zoneC.setBorder(BorderFactory.createDashedBorder(Color.BLACK,1,6,3,true));
+        zoneC.setPreferredSize(new Dimension(350, 350));
+        zoneC.setBorder(BorderFactory.createDashedBorder(Color.BLACK, 1, 6, 3, true));
 
         CustomMouseListener cms = new CustomMouseListener();
         zoneA.addMouseListener(cms);
         zoneA.addMouseMotionListener(cms);
 
-        mainPanel.add(zoneA,pane);
-        mainPanel.add(zoneB,pane);
-        mainPanel.add(zoneC,pane);
+        mainPanel.add(zoneA, pane);
+        mainPanel.add(zoneB, pane);
+        mainPanel.add(zoneC, pane);
 
         return mainPanel;
     }
 
-    private void loadImage(){
+    private void loadImage() {
+        selectMode = false;
         JFileChooser fileChooser = new JFileChooser("src/icons");
         FileNameExtensionFilter pngFilter = new FileNameExtensionFilter("PNG(.png)", "png");
         FileNameExtensionFilter jpgFilter = new FileNameExtensionFilter("JPG(.jpg)", "jpg");
         fileChooser.setFileFilter(pngFilter);
         fileChooser.setFileFilter(jpgFilter);
 
-        int res = fileChooser.showDialog(mainFrame,"Open");
+        int res = fileChooser.showDialog(mainFrame, "Open");
         if (res == JFileChooser.APPROVE_OPTION) {
             zoneA.removeAll();
             File file = fileChooser.getSelectedFile();
             Image image = new ImageIcon(file.getAbsolutePath()).getImage();
 
-            if(image.getWidth(null) > 350 || image.getHeight(null) > 350){
-                if(image.getWidth(null) > 350){
-                    selectXsize = image.getWidth(null)/350d;
+            if (image.getWidth(null) > 350 || image.getHeight(null) > 350) {
+                if (image.getWidth(null) > 350) {
+                    selectXsize = image.getWidth(null) / 350d;
                 }
-                if(image.getHeight(null) > 350){
-                    selectYsize = image.getHeight(null)/350d;
+                if (image.getHeight(null) > 350) {
+                    selectYsize = image.getHeight(null) / 350d;
                 }
-                if (image.getWidth(null) > image.getHeight(null)){
-                    int ySize = (int)(image.getHeight(null)/selectXsize) > 348 ? 348 : (int)(image.getHeight(null)/selectXsize);
-                    image = new ImageIcon(image.getScaledInstance(348,ySize, BufferedImage.SCALE_DEFAULT)).getImage();
+                if (image.getWidth(null) > image.getHeight(null)) {
+                    int ySize = (int) (image.getHeight(null) / selectXsize) > 348 ? 348 : (int) (image.getHeight(null) / selectXsize);
+                    image = new ImageIcon(image.getScaledInstance(348, ySize, BufferedImage.SCALE_DEFAULT)).getImage();
                 } else {
-                    int xSize = (int)(image.getWidth(null)/selectYsize) > 348 ? 348 : (int)(image.getWidth(null)/selectYsize);
-                    image = new ImageIcon(image.getScaledInstance(xSize,348, BufferedImage.SCALE_DEFAULT)).getImage();
+                    int xSize = (int) (image.getWidth(null) / selectYsize) > 348 ? 348 : (int) (image.getWidth(null) / selectYsize);
+                    image = new ImageIcon(image.getScaledInstance(xSize, 348, BufferedImage.SCALE_DEFAULT)).getImage();
                 }
             }
 
-            bImage = new BufferedImage(image.getWidth(null),image.getHeight(null),BufferedImage.TYPE_INT_ARGB);
+            bImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2 = bImage.createGraphics();
-            g2.drawImage(image,0,0,null);
+            g2.drawImage(image, 0, 0, null);
             g2.dispose();
 
-//                JLabel tmp = new JLabel(new ImageIcon(image));
             JLabel tmp = new JLabel(new ImageIcon(bImage));
-            tmp.setBounds(1,1,image.getWidth(null), image.getHeight(null));
-            zoneA.add(tmp,JLayeredPane.DEFAULT_LAYER);
+            tmp.setBounds(1, 1, image.getWidth(null), image.getHeight(null));
+            zoneA.add(tmp, JLayeredPane.DEFAULT_LAYER);
             zoneA.repaint();
         }
     }
 
-    private void drawSelect(MouseEvent e){
+    private void drawSelect(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-        System.out.println("X = " + x + " Y = " + y);
-        int xSize = (int)(350/selectXsize);
-        int ySize = (int)(350/selectYsize);
+        int xSize = (int) (350 / selectXsize);
+        int ySize = (int) (350 / selectYsize);
         totalSize = xSize > ySize ? xSize : ySize;
-        System.out.println("Total " + totalSize);
-        System.out.println(bImage.getHeight());
 
-        if(x > bImage.getWidth()-totalSize/2 - 2){
-            x = bImage.getWidth()-totalSize/2 - 2;
-        } else if(x < totalSize/2){
-            x = totalSize/2;
+        int x0 = x - totalSize/2;
+        int y0 = y - totalSize/2;
+        if(x0 < 0){
+            x0 = 1;
         }
-
-        if(y > bImage.getHeight()-totalSize/2){
-            y = bImage.getHeight()-totalSize/2;
-        } else if(y < totalSize/2){
-            y = totalSize/2 -5;
+        if(y0 < 0){
+            y0 = 1;
+        }
+        if(x0 + totalSize >= bImage.getWidth()){
+            x0 = bImage.getWidth() - totalSize;
+        }
+        if(y0 + totalSize >= bImage.getHeight()){
+            y0 = bImage.getHeight() - totalSize;
         }
 
         cursorX = x;
         cursorY = y;
-
-        if(selectMode){
+        if (selectMode) {
             zoneASelect.removeAll();
-            BufferedImage testImage = new BufferedImage(zoneASelect.getWidth(),zoneASelect.getHeight(),BufferedImage.TYPE_INT_ARGB);
+            BufferedImage testImage = new BufferedImage(zoneASelect.getWidth(), zoneASelect.getHeight(), BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2 = testImage.createGraphics();
             g2.setColor(Color.RED);
-            g2.drawRect(x-totalSize/2,y-totalSize/2,totalSize,totalSize);
+            g2.drawRect(x0,y0, totalSize, totalSize);
             zoneASelect.add(new JLabel(new ImageIcon(testImage)));
             zoneASelect.revalidate();
         }
     }
 
-    private void drawSelect(){
-        if(selectImage != null){
+    private void drawSelect() {
+        if (selectImage != null) {
             zoneB.removeAll();
         }
 
-        selectImage = new BufferedImage(totalSize,totalSize,BufferedImage.TYPE_INT_ARGB);
+        selectImage = new BufferedImage(totalSize, totalSize, BufferedImage.TYPE_INT_ARGB);
 
-        int xStart = cursorX - totalSize/2;
-        int yStart = cursorY - totalSize/2;
-        for(int y=0; y<selectImage.getHeight(); y++, yStart++){
-//            System.out.println("Y:" + y);
-            for(int x=0; x<selectImage.getWidth(); x++, xStart++){
-                int color = bImage.getRGB(xStart,yStart);
-                selectImage.setRGB(x,y,color);
-//                System.out.println("X:" + x);
+        int x0 = cursorX - totalSize / 2;
+        int y0 = cursorY - totalSize / 2;
+
+        if(x0 < 0){
+            x0 = 1;
+        }
+        if(y0 < 0){
+            y0 = 1;
+        }
+        if(x0 + totalSize >= bImage.getWidth()){
+            x0 = bImage.getWidth() - totalSize;
+        }
+        if(y0 + totalSize >= bImage.getHeight()){
+            y0 = bImage.getHeight() - totalSize;
+        }
+        int temp = x0;
+        for (int y = 0; y < selectImage.getHeight(); y++, y0++) {
+            for (int x = 0; x < selectImage.getWidth(); x++, x0++) {
+                int color = bImage.getRGB(x0,y0);
+                selectImage.setRGB(x, y, color);
             }
-            xStart = cursorX - totalSize/2;
+            x0 = temp;
         }
 
         Image image = new ImageIcon(selectImage).getImage();
-        image = new ImageIcon(image.getScaledInstance(348,348, BufferedImage.SCALE_DEFAULT)).getImage();
-        selectImage = new BufferedImage(image.getWidth(null),image.getHeight(null),BufferedImage.TYPE_INT_ARGB);
+        image = new ImageIcon(image.getScaledInstance(348, 348, BufferedImage.SCALE_DEFAULT)).getImage();
+        selectImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = selectImage.createGraphics();
-        g2.drawImage(image,0,0,null);
+        g2.drawImage(image, 0, 0, null);
         g2.dispose();
         JLabel tmp = new JLabel(new ImageIcon(selectImage));
-        tmp.setBounds(1,1,image.getWidth(null), image.getHeight(null));
+        tmp.setBounds(1, 1, image.getWidth(null), image.getHeight(null));
         zoneB.add(tmp);
         zoneB.repaint();
     }
 
-    private void makeEffect(int TYPE){
-        if(selectImage != null){
-            if(effectImage != null){
+    private void makeEffect(int TYPE) {
+        if (selectImage != null) {
+            if (effectImage != null) {
                 zoneC.removeAll();
+                zoneC.repaint();
             }
 
-            switch (TYPE){
+            switch (TYPE) {
                 case NEGATIVE:
                     Negative negative = new Negative();
                     effectImage = negative.makeNegative(selectImage);
@@ -287,35 +312,49 @@ class Interface {
                     GaussBlur gaussBlur = new GaussBlur();
                     effectImage = gaussBlur.makeGaussBlur(selectImage);
                     break;
+
+                case GREYSHADES:
+                    GreyShades greyShades = new GreyShades();
+                    effectImage = greyShades.makeGreyShades(selectImage);
+                    break;
+
+                case ROBERTCROSS:
+                    RobertCross robertCross = new RobertCross();
+                    effectImage = robertCross.makeRobertCross(selectImage);
+                    break;
             }
 
-            Image image = new ImageIcon(effectImage).getImage();
-            image = new ImageIcon(image.getScaledInstance(348,348, BufferedImage.SCALE_DEFAULT)).getImage();
-            effectImage = new BufferedImage(image.getWidth(null),image.getHeight(null),BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2 = effectImage.createGraphics();
-            g2.drawImage(image,0,0,null);
-            g2.dispose();
-            JLabel tmp = new JLabel(new ImageIcon(effectImage));
-            tmp.setBounds(1,1,image.getWidth(null), image.getHeight(null));
+            damnImage = new ImageIcon(effectImage).getImage();
+            damnImage = new ImageIcon(damnImage.getScaledInstance(348, 348, BufferedImage.SCALE_DEFAULT)).getImage();
+//            effectImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D g2 = effectImage.createGraphics();
+//            g2.drawImage(image, 0, 0, null);
+//            g2.dispose();
+            JLabel tmp = new JLabel(new ImageIcon(damnImage));
+            tmp.setBounds(1, 1, damnImage.getWidth(null), damnImage.getHeight(null));
             zoneC.add(tmp);
             zoneC.repaint();
         }
     }
 
-    class CustomMouseListener extends MouseAdapter{
+    class CustomMouseListener extends MouseAdapter {
         @Override
-        public void mouseClicked(MouseEvent e){
-            drawSelect(e);
-            if(selectMode){
-                drawSelect();
+        public void mouseClicked(MouseEvent e) {
+            if(bImage != null){
+                drawSelect(e);
+                if (selectMode){
+                    drawSelect();
+                }
             }
         }
 
         @Override
-        public void mouseDragged(MouseEvent e){
-            drawSelect(e);
-            if(selectMode){
-                drawSelect();
+        public void mouseDragged(MouseEvent e) {
+            if(bImage != null){
+                drawSelect(e);
+                if (selectMode){
+                    drawSelect();
+                }
             }
         }
     }
