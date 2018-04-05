@@ -58,9 +58,9 @@ public class MainFunction {
 
         double[] values = new double[gridWidth * gridHeight];
 
-        for (int y = 0; y < gridHeight; ++y){
-            for (int x = 0; x < gridWidth; ++x){
-                values[y * gridWidth + x] = findValue(0. + x * deltaX, 0. + y * deltaY);
+        for (int y = 0; y < gridHeight; y++){
+            for (int x = 0; x < gridWidth; x++){
+                values[y * gridWidth + x] = findValue(a + x * deltaX, c + y * deltaY);
             }
         }
         Arrays.sort(values);

@@ -27,12 +27,14 @@ class Constants {
         double max = function.getMax();
         int delta = (int)((max - min) / number);
         double res = min;
+
         int legendRes = 0;
+        int deltaLegend = 600 / number;
 
         segment[0] = (int)res;
         legendSegment[0] = 0;
         for(int i = 1; i<number; i++){
-            legendRes = legendRes + 120;
+            legendRes = legendRes + deltaLegend;
             res = res + delta;
             segment[i] = (int)res;
             legendSegment[i] = legendRes;
@@ -50,18 +52,21 @@ class Constants {
         if (res == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
 
-            Scanner scanner = null;
+            Scanner scanner;
             try {
                 scanner = new Scanner(file);
                 int k = scanner.nextInt();
                 gridWidth = k;
 //                System.out.println(k);
+
                 int m = scanner.nextInt();
                 gridHeight = m;
 //                System.out.println(m);
+
                 int n = scanner.nextInt();
                 number = n;
 //                System.out.println(n);
+
                 colors = new Color[n];
                 for(int i=0; i<n; i++){
                     int red = scanner.nextInt();

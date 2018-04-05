@@ -5,6 +5,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 class Toolbar {
     static Boolean netMode = false;
+    static Boolean isolineMode = false;
 
     static JToolBar Toolbar(){
         JToolBar jToolBar = new JToolBar();
@@ -49,7 +50,20 @@ class Toolbar {
                 Panels.showGrid(true);
             }
         });
+        jButtonIsoline.addActionListener(e -> {
+            if(isolineMode){
+                isolineMode = false;
+                Panels.showIsolines(false);
+            } else {
+                isolineMode = true;
+                Panels.showIsolines(true);
+            }
+        });
         jButtonSetting.addActionListener(e -> settingsDialog());
+        jButtonNew.addActionListener(e -> {
+            Constants.readFile();
+            Panels.newFunction();
+        });
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -112,7 +126,6 @@ class Toolbar {
             try{
                 Integer width = Integer.parseInt(widthField.getText());
                 Integer height = Integer.parseInt(heightField.getText());
-                Panels.createGrid(width, height);
                 Constants.gridWidth = width;
                 Constants.gridHeight = height;
 
