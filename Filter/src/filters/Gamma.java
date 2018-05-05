@@ -4,12 +4,18 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Gamma {
+    private double gamma;
+
+    public Gamma(double gamma){
+        this.gamma = gamma;
+    }
+
     public BufferedImage makeGamma(BufferedImage image){
         BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
         Graphics graphics = filteredImage.createGraphics();
         graphics.drawImage(image,0,0,null);
         graphics.dispose();
-        double gamma = 0.1;
+//        double gamma = 0.01;
 
         for (int i = 0; i < filteredImage.getHeight(); i++){
             for (int j = 0; j < filteredImage.getWidth(); j++){
@@ -19,7 +25,7 @@ public class Gamma {
                 int blue = color.getBlue();
 
                 red = (int)(255 * (Math.pow((double)red / (double)255, gamma)));
-                green = (int)(255 * (Math.pow((double)green / (double)256, gamma)));
+                green = (int)(255 * (Math.pow((double)green / (double)255, gamma)));
                 blue  = (int)(255 * (Math.pow((double)blue / (double)255, gamma)));
 
                 if (red > 255)

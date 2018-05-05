@@ -18,8 +18,8 @@ public class GreyShades {
                 int blue = color.getBlue();
 
                 int y = (int)(((0.333) * red +
-                        (0.333) * green +
-                        (0.333) * blue) / (0.999));
+                        (0.587) * green +
+                        (0.114) * blue));
 
                 if (y < 0)
                     y = 0;
