@@ -21,23 +21,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Interface.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Interface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="337" column="5" lean-forward="true" selection-start-line="337" selection-start-column="5" selection-end-line="337" selection-end-column="5" />
+            <state relative-caret-position="440">
+              <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
               <folding>
                 <element signature="method#Interface#0;class#Interface#0" expanded="false" />
                 <element signature="method#getMain#0;class#Interface#0" expanded="false" />
                 <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-                <element signature="e#5969#6352#0" expanded="false" />
-                <element signature="e#6395#7070#0" expanded="false" />
-                <element signature="e#7111#7965#0" expanded="false" />
-                <element signature="e#8445#8578#0" expanded="false" />
-                <element signature="e#8746#8879#0" expanded="false" />
+                <element signature="e#6286#6669#0" expanded="false" />
+                <element signature="e#7428#8282#0" expanded="false" />
+                <element signature="e#8762#8895#0" expanded="false" />
+                <element signature="e#9063#9196#0" expanded="false" />
+                <element signature="e#9303#9402#0" expanded="false" />
                 <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
                 <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
                 <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+                <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
                 <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
                 <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
                 <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -51,23 +52,19 @@
       <file leaf-file-name="OrderDithering.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/filters/OrderDithering.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-380">
-              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1120">
+              <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FloydSteinberg.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FloydSteinberg.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/filters/FloydSteinberg.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1940">
-              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-940">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,7 +85,14 @@
       <find>system.out</find>
       <find>system</find>
       <find>effectImage</find>
+      <find>to</find>
+      <find>result</find>
+      <find>zoneASelect</find>
+      <find>BAYER</find>
     </findStrings>
+    <replaceStrings>
+      <replace>MATRIX</replace>
+    </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -111,8 +115,10 @@
         <option value="$PROJECT_DIR$/src/filters/Gamma.java" />
         <option value="$PROJECT_DIR$/src/filters/GreyShades.java" />
         <option value="$PROJECT_DIR$/src/filters/FloydSteinberg.java" />
-        <option value="$PROJECT_DIR$/src/filters/OrderDithering.java" />
+        <option value="$PROJECT_DIR$/src/filters/Rotate.java" />
+        <option value="$PROJECT_DIR$/src/XorBorder.java" />
         <option value="$PROJECT_DIR$/src/Interface.java" />
+        <option value="$PROJECT_DIR$/src/filters/OrderDithering.java" />
       </list>
     </option>
   </component>
@@ -137,7 +143,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -184,8 +191,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -460,8 +466,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23150106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23150106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -471,8 +477,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19765624" sideWeight="0.50484264" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -489,7 +495,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="19" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -498,28 +504,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/filters/Sharpness.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/filters/DoubleSize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/filters/Gamma.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="e#153#154#0" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -528,7 +516,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -541,14 +529,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -583,10 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="e#153#154#0" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -616,7 +601,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -636,14 +621,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -658,7 +644,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -699,14 +685,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -721,7 +708,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -734,14 +721,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -756,7 +744,7 @@
         <state relative-caret-position="240">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -769,14 +757,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -791,7 +780,7 @@
         <state relative-caret-position="240">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -804,14 +793,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -826,7 +816,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -839,14 +829,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -861,7 +852,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -874,14 +865,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -896,7 +888,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -909,14 +901,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -931,7 +924,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -944,14 +937,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -966,7 +960,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -979,14 +973,15 @@
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
@@ -1025,13 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/filters/Median.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/filters/GaussBlur.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1920">
@@ -1044,15 +1032,8 @@
         <state relative-caret-position="240">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/filters/Metal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1060,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,27 +1048,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#153#154#0" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/filters/FloydSteinberg.java">
+    <entry file="file://$PROJECT_DIR$/src/filters/Rotate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1940">
-          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="800">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/filters/OrderDithering.java">
+    <entry file="file://$PROJECT_DIR$/src/filters/Metal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        <state relative-caret-position="120">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/XorBorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1097,26 +1079,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="337" column="5" lean-forward="true" selection-start-line="337" selection-start-column="5" selection-end-line="337" selection-end-column="5" />
+        <state relative-caret-position="440">
+          <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
           <folding>
             <element signature="method#Interface#0;class#Interface#0" expanded="false" />
             <element signature="method#getMain#0;class#Interface#0" expanded="false" />
             <element signature="method#addToolBar#0;class#Interface#0" expanded="false" />
-            <element signature="e#5969#6352#0" expanded="false" />
-            <element signature="e#6395#7070#0" expanded="false" />
-            <element signature="e#7111#7965#0" expanded="false" />
-            <element signature="e#8445#8578#0" expanded="false" />
-            <element signature="e#8746#8879#0" expanded="false" />
+            <element signature="e#6286#6669#0" expanded="false" />
+            <element signature="e#7428#8282#0" expanded="false" />
+            <element signature="e#8762#8895#0" expanded="false" />
+            <element signature="e#9063#9196#0" expanded="false" />
+            <element signature="e#9303#9402#0" expanded="false" />
             <element signature="method#mainJPanel#0;class#Interface#0" expanded="false" />
             <element signature="method#gammaDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#floydDialog#0;class#Interface#0" expanded="false" />
+            <element signature="method#rotateDialog#0;class#Interface#0" expanded="false" />
             <element signature="method#loadImage#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#0;class#Interface#0" expanded="false" />
             <element signature="method#drawSelect#1;class#Interface#0" expanded="false" />
             <element signature="method#makeEffect#0;class#Interface#0" expanded="false" />
             <element signature="class#CustomMouseListener#0;class#Interface#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filters/Median.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filters/OrderDithering.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filters/FloydSteinberg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-940">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

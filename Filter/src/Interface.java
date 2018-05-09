@@ -22,6 +22,7 @@ class Interface {
     private final int METAL = 9;
     private final int FLOYD = 10;
     private final int ORDER = 11;
+    private final int ROTATE = 12;
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JLayeredPane zoneA;
@@ -43,6 +44,7 @@ class Interface {
     private int redParameter = 2;
     private int greenParameter = 2;
     private int blueParameter = 2;
+    private int rotateParameter = 0;
 
     Interface() {
     }
@@ -105,6 +107,9 @@ class Interface {
         JButton jButtonOrder = new JButton(new ImageIcon("src/icons/order32.png"));
         jButtonOrder.setToolTipText("Order Dithering");
         /*-------------------------------------------------------------*/
+        JButton jButtonRotate = new JButton(new ImageIcon("src/icons/rotate32.png"));
+        jButtonRotate.setToolTipText("Rotate");
+        /*-------------------------------------------------------------*/
         JToolBar.Separator separator = new JToolBar.Separator(new Dimension(14, 14));
         jToolBar.add(jButtonNew);
         jToolBar.add(jButtonClear);
@@ -116,6 +121,7 @@ class Interface {
         jToolBar.add(jButtonGreyShades);
         jToolBar.add(jButtonRobertCross);
         jToolBar.add(jButtonDoubleSize);
+        jToolBar.add(jButtonRotate);
         jToolBar.add(jButtonSharpness);
         jToolBar.add(jButtonGamma);
         jToolBar.add(jButtonAqua);
@@ -195,6 +201,11 @@ class Interface {
             }
         });
         jButtonOrder.addActionListener(e -> makeEffect(ORDER));
+        jButtonRotate.addActionListener(e -> {
+            if(selectImage != null){
+                rotateDialog();
+            }
+        });
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -337,6 +348,47 @@ class Interface {
         dialog.setVisible(true);
     }
 
+    private void rotateDialog(){
+        JDialog dialog = new JDialog(mainFrame,"Rotate",true);
+        dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog.setSize(300,100);
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(mainFrame);
+        /*-------------------------------------------------------------*/
+        JPanel mainPanel = new JPanel(new GridLayout(1,2));
+        JPanel panelOne = new JPanel(new GridLayout(2,1));
+        JPanel panelTwo = new JPanel(new GridLayout(2,1));
+        /*-------------------------------------------------------------*/
+        JLabel rotateField = new JLabel(Integer.toString(rotateParameter),SwingConstants.CENTER);
+        JSlider jSliderRotate = new JSlider(JSlider.HORIZONTAL,-180,180,rotateParameter);
+
+        panelOne.add(rotateField);
+        panelTwo.add(jSliderRotate);
+        /*-------------------------------------------------------------*/
+        JButton applyButton = new JButton("Apply");
+        JButton cancelButton = new JButton("Cancel");
+        panelOne.add(applyButton);
+        panelTwo.add(cancelButton);
+        /*-------------------------------------------------------------*/
+        jSliderRotate.addChangeListener(e -> {
+            rotateField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+            rotateParameter = Integer.parseInt(rotateField.getText());
+            makeEffect(ROTATE);
+        });
+        /*-------------------------------------------------------------*/
+        applyButton.addActionListener(e -> dialog.dispose());
+        cancelButton.addActionListener(e -> {
+            rotateParameter = 0;
+            makeEffect(GAMMA);
+            dialog.dispose();
+        });
+        /*-------------------------------------------------------------*/
+        mainPanel.add(panelOne);
+        mainPanel.add(panelTwo);
+        dialog.add(mainPanel);
+        dialog.setVisible(true);
+    }
+
     private void loadImage() {
         selectMode = false;
         JFileChooser fileChooser = new JFileChooser("src/icons");
@@ -406,11 +458,15 @@ class Interface {
         cursorY = y;
         if (selectMode) {
             zoneASelect.removeAll();
-            BufferedImage testImage = new BufferedImage(zoneASelect.getWidth(), zoneASelect.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2 = testImage.createGraphics();
-            g2.setColor(Color.RED);
-            g2.drawRect(x0,y0, totalSize, totalSize);
-            zoneASelect.add(new JLabel(new ImageIcon(testImage)));
+            zoneASelect.setSize(totalSize+2,totalSize+2);
+            BufferedImage testImage = new BufferedImage(bImage.getWidth(), bImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            zoneASelect.setBorder(new XorBorder(x0,y0,bImage));
+            zoneASelect.setLocation(x0,y0);
+//            BufferedImage testImage = new BufferedImage(zoneASelect.getWidth(), zoneASelect.getHeight(), BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D g2 = testImage.createGraphics();
+//            g2.setColor(Color.RED);
+//            g2.drawRect(x0,y0, totalSize, totalSize);
+//            zoneASelect.add(new JLabel(new ImageIcon(testImage)));
             zoneASelect.revalidate();
         }
     }
@@ -537,6 +593,11 @@ class Interface {
                 case ORDER:
                     OrderDithering orderDithering = new OrderDithering();
                     effectImage = orderDithering.makeOrderDither(selectImage);
+                    break;
+
+                case ROTATE:
+                    Rotate rotate = new Rotate(rotateParameter);
+                    effectImage = rotate.makeRotate(selectImage);
                     break;
             }
 
