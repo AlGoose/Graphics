@@ -1,5 +1,6 @@
 import filters.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -7,6 +8,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
@@ -23,6 +26,7 @@ class Interface {
     private final int FLOYD = 10;
     private final int ORDER = 11;
     private final int ROTATE = 12;
+    private final int SOBEL = 13;
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JLayeredPane zoneA;
@@ -45,6 +49,8 @@ class Interface {
     private int greenParameter = 2;
     private int blueParameter = 2;
     private int rotateParameter = 0;
+    private int crossParameter = 10;
+    private int sobelParameter = 10;
 
     Interface() {
     }
@@ -74,6 +80,9 @@ class Interface {
         JButton jButtonCopy = new JButton(new ImageIcon("src/icons/copy32.png"));
         jButtonCopy.setToolTipText("Copy C to B");
         /*-------------------------------------------------------------*/
+        JButton jButtonSave = new JButton(new ImageIcon("src/icons/save32.png"));
+        jButtonSave.setToolTipText("Save");
+        /*-------------------------------------------------------------*/
         JButton jButtonNegative = new JButton(new ImageIcon("src/icons/negative32.png"));
         jButtonNegative.setToolTipText("Negative");
         /*-------------------------------------------------------------*/
@@ -85,6 +94,9 @@ class Interface {
         /*-------------------------------------------------------------*/
         JButton jButtonRobertCross = new JButton(new ImageIcon("src/icons/robertCross32.png"));
         jButtonRobertCross.setToolTipText("Robert Cross");
+        /*-------------------------------------------------------------*/
+        JButton jButtonSobel = new JButton(new ImageIcon("src/icons/sobel32.png"));
+        jButtonSobel.setToolTipText("Sobel");
         /*-------------------------------------------------------------*/
         JButton jButtonDoubleSize = new JButton(new ImageIcon("src/icons/doubleSize32.png"));
         jButtonDoubleSize.setToolTipText("Double Size");
@@ -115,11 +127,13 @@ class Interface {
         jToolBar.add(jButtonClear);
         jToolBar.add(jButtonSelect);
         jToolBar.add(jButtonCopy);
+        jToolBar.add(jButtonSave);
         jToolBar.add(separator);
         jToolBar.add(jButtonNegative);
         jToolBar.add(jButtonGaussBlur);
         jToolBar.add(jButtonGreyShades);
         jToolBar.add(jButtonRobertCross);
+        jToolBar.add(jButtonSobel);
         jToolBar.add(jButtonDoubleSize);
         jToolBar.add(jButtonRotate);
         jToolBar.add(jButtonSharpness);
@@ -183,7 +197,8 @@ class Interface {
         jButtonNegative.addActionListener(e -> makeEffect(NEGATIVE));
         jButtonGaussBlur.addActionListener(e -> makeEffect(GAUSSBLUR));
         jButtonGreyShades.addActionListener(e -> makeEffect(GREYSHADES));
-        jButtonRobertCross.addActionListener(e -> makeEffect(ROBERTCROSS));
+        jButtonRobertCross.addActionListener(e -> crossDialog());
+        jButtonSobel.addActionListener(e -> sobelDialog());
         jButtonDoubleSize.addActionListener(e -> makeEffect(DOUBLESIZE));
         jButtonSharpness.addActionListener(e -> makeEffect(SHARPNESS));
         jButtonGamma.addActionListener(e -> {
@@ -203,9 +218,11 @@ class Interface {
         jButtonOrder.addActionListener(e -> makeEffect(ORDER));
         jButtonRotate.addActionListener(e -> {
             if(selectImage != null){
+                makeEffect(ROTATE);
                 rotateDialog();
             }
         });
+        jButtonSave.addActionListener(e -> saveDialog());
         /*-------------------------------------------------------------*/
         return jToolBar;
     }
@@ -360,7 +377,7 @@ class Interface {
         JPanel panelTwo = new JPanel(new GridLayout(2,1));
         /*-------------------------------------------------------------*/
         JLabel rotateField = new JLabel(Integer.toString(rotateParameter),SwingConstants.CENTER);
-        JSlider jSliderRotate = new JSlider(JSlider.HORIZONTAL,-180,180,rotateParameter);
+        JSlider jSliderRotate = new JSlider(JSlider.HORIZONTAL,0,360,rotateParameter);
 
         panelOne.add(rotateField);
         panelTwo.add(jSliderRotate);
@@ -387,6 +404,104 @@ class Interface {
         mainPanel.add(panelTwo);
         dialog.add(mainPanel);
         dialog.setVisible(true);
+    }
+
+    private void crossDialog(){
+        JDialog dialog = new JDialog(mainFrame,"Cross Parameter",true);
+        dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog.setSize(300,100);
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(mainFrame);
+        /*-------------------------------------------------------------*/
+        JPanel mainPanel = new JPanel(new GridLayout(1,2));
+        JPanel panelOne = new JPanel(new GridLayout(2,1));
+        JPanel panelTwo = new JPanel(new GridLayout(2,1));
+        /*-------------------------------------------------------------*/
+        JLabel crossField = new JLabel(Integer.toString(crossParameter),SwingConstants.CENTER);
+        JSlider jSliderCross = new JSlider(JSlider.HORIZONTAL,10,100,(int)crossParameter);
+
+        panelOne.add(crossField);
+        panelTwo.add(jSliderCross);
+        /*-------------------------------------------------------------*/
+        JButton applyButton = new JButton("Apply");
+        JButton cancelButton = new JButton("Cancel");
+        panelOne.add(applyButton);
+        panelTwo.add(cancelButton);
+        /*-------------------------------------------------------------*/
+        jSliderCross.addChangeListener(e -> {
+            crossField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+            crossParameter = Integer.parseInt(crossField.getText());
+            makeEffect(ROBERTCROSS);
+        });
+        /*-------------------------------------------------------------*/
+        applyButton.addActionListener(e -> dialog.dispose());
+        cancelButton.addActionListener(e -> {
+            crossParameter = 10;
+            makeEffect(ROBERTCROSS);
+            dialog.dispose();
+        });
+        /*-------------------------------------------------------------*/
+        mainPanel.add(panelOne);
+        mainPanel.add(panelTwo);
+        dialog.add(mainPanel);
+        dialog.setVisible(true);
+    }
+
+    private void sobelDialog(){
+        JDialog dialog = new JDialog(mainFrame,"Sobel Parameter",true);
+        dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog.setSize(300,100);
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(mainFrame);
+        /*-------------------------------------------------------------*/
+        JPanel mainPanel = new JPanel(new GridLayout(1,2));
+        JPanel panelOne = new JPanel(new GridLayout(2,1));
+        JPanel panelTwo = new JPanel(new GridLayout(2,1));
+        /*-------------------------------------------------------------*/
+        JLabel sobelField = new JLabel(Integer.toString(sobelParameter),SwingConstants.CENTER);
+        JSlider jSliderSobel = new JSlider(JSlider.HORIZONTAL,10,100,(int)sobelParameter);
+
+        panelOne.add(sobelField);
+        panelTwo.add(jSliderSobel);
+        /*-------------------------------------------------------------*/
+        JButton applyButton = new JButton("Apply");
+        JButton cancelButton = new JButton("Cancel");
+        panelOne.add(applyButton);
+        panelTwo.add(cancelButton);
+        /*-------------------------------------------------------------*/
+        jSliderSobel.addChangeListener(e -> {
+            sobelField.setText(((Integer)((JSlider)e.getSource()).getValue()).toString());
+            sobelParameter = Integer.parseInt(sobelField.getText());
+            makeEffect(SOBEL);
+        });
+        /*-------------------------------------------------------------*/
+        applyButton.addActionListener(e -> dialog.dispose());
+        cancelButton.addActionListener(e -> {
+            sobelParameter = 10;
+            makeEffect(SOBEL);
+            dialog.dispose();
+        });
+        /*-------------------------------------------------------------*/
+        mainPanel.add(panelOne);
+        mainPanel.add(panelTwo);
+        dialog.add(mainPanel);
+        dialog.setVisible(true);
+    }
+
+    private void saveDialog(){
+        if(effectImage != null) {
+            JFileChooser fileChooser = new JFileChooser("src/data");
+            int res = fileChooser.showSaveDialog(mainFrame);
+            if (res == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                File newFile = new File(file.toString() + ".png");
+                try {
+                    ImageIO.write(effectImage,"png", newFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     private void loadImage() {
@@ -555,7 +670,7 @@ class Interface {
 
                 case ROBERTCROSS:
                     RobertCross robertCross = new RobertCross();
-                    effectImage = robertCross.makeRobertCross(selectImage);
+                    effectImage = robertCross.makeRobertCross(selectImage, crossParameter);
                     break;
 
                 case DOUBLESIZE:
@@ -598,6 +713,11 @@ class Interface {
                 case ROTATE:
                     Rotate rotate = new Rotate(rotateParameter);
                     effectImage = rotate.makeRotate(selectImage);
+                    break;
+
+                case SOBEL:
+                    Sobel sobel = new Sobel();
+                    effectImage = sobel.makeSobel(selectImage, sobelParameter);
                     break;
             }
 

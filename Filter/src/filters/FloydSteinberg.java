@@ -23,6 +23,11 @@ public class FloydSteinberg{
 
     public BufferedImage makeFloydSteinberg(BufferedImage image){
         BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+        for(int i = 0; i < filteredImage.getHeight(); i++){
+            for(int j = 0; j < filteredImage.getWidth(); j++){
+                filteredImage.setRGB(j,i,image.getRGB(j,i));
+            }
+        }
 
         for (int i = 0; i < countRed; ++i) {
             redPalette[i] = (256 / (countRed - 1)) * i;
@@ -41,7 +46,8 @@ public class FloydSteinberg{
 
         for (int i = 0; i < filteredImage.getHeight(); i++){
             for (int j = 0; j < filteredImage.getWidth(); j++){
-                Color color0 = new Color(image.getRGB(j,i));
+//                Color color0 = new Color(image.getRGB(j,i));
+                Color color0 = new Color(filteredImage.getRGB(j,i));
                 int red0 = color0.getRed();
                 int green0 = color0.getGreen();
                 int blue0 = color0.getBlue();
@@ -53,13 +59,15 @@ public class FloydSteinberg{
 
                 Color color = new Color(newRed,newGreen,newBlue);
                 filteredImage.setRGB(j,i,color.getRGB());
+//                image.setRGB(j,i,color.getRGB());
 
                 int errRed = red0 - newRed;
                 int errGreen = green0 - newGreen;
                 int errBlue = blue0 - newBlue;
 
                 if (j + 1 < filteredImage.getWidth()) {
-                    Color color1 = new Color(image.getRGB(j+1,i));
+//                    Color color1 = new Color(image.getRGB(j+1,i));
+                    Color color1 = new Color(filteredImage.getRGB(j+1,i));
                     int red1 = color1.getRed();
                     int green1 = color1.getGreen();
                     int blue1 = color1.getBlue();
@@ -77,10 +85,12 @@ public class FloydSteinberg{
 
                     color = new Color(red1,green1,blue1);
                     filteredImage.setRGB(j+1,i,color.getRGB());
+//                    image.setRGB(j+1,i,color.getRGB());
                 }
 
                 if (i + 1 < filteredImage.getHeight() && j - 1 > 0) {
-                    Color color2 = new Color(image.getRGB(j-1,i+1));
+//                    Color color2 = new Color(image.getRGB(j-1,i+1));
+                    Color color2 = new Color(filteredImage.getRGB(j-1,i+1));
                     int red2 = color2.getRed();
                     int green2 = color2.getGreen();
                     int blue2 = color2.getBlue();
@@ -98,10 +108,12 @@ public class FloydSteinberg{
 
                     color = new Color(red2,green2,blue2);
                     filteredImage.setRGB(j-1,i+1,color.getRGB());
+//                    image.setRGB(j-1,i+1,color.getRGB());
                 }
 
                 if (i + 1 < filteredImage.getHeight()) {
-                    Color color3 = new Color(image.getRGB(j,i+1));
+//                    Color color3 = new Color(image.getRGB(j,i+1));
+                    Color color3 = new Color(filteredImage.getRGB(j,i+1));
                     int red3 = color3.getRed();
                     int green3 = color3.getGreen();
                     int blue3 = color3.getBlue();
@@ -119,10 +131,12 @@ public class FloydSteinberg{
 
                     color = new Color(red3,green3,blue3);
                     filteredImage.setRGB(j,i+1,color.getRGB());
+//                    image.setRGB(j,i+1,color.getRGB());
                 }
 
                 if (i + 1 < filteredImage.getHeight() && j + 1 < filteredImage.getWidth()) {
-                    Color color4 = new Color(image.getRGB(j+1,i+1));
+//                    Color color4 = new Color(image.getRGB(j+1,i+1));
+                    Color color4 = new Color(filteredImage.getRGB(j+1,i+1));
                     int red4 = color4.getRed();
                     int green4 = color4.getGreen();
                     int blue4 = color4.getBlue();
@@ -140,10 +154,12 @@ public class FloydSteinberg{
 
                     color = new Color(red4,green4,blue4);
                     filteredImage.setRGB(j+1,i+1,color.getRGB());
+//                    image.setRGB(j+1,i+1,color.getRGB());
                 }
             }
         }
         return filteredImage;
+//        return image;
     }
 
     private Color findDef(int red, int green, int blue) {

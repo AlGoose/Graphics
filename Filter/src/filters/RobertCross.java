@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class RobertCross {
-    public BufferedImage makeRobertCross(BufferedImage image){
+    public BufferedImage makeRobertCross(BufferedImage image, int KOF){
         BufferedImage filteredImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
         Graphics graphics = filteredImage.createGraphics();
         graphics.drawImage(image,0,0,null);
@@ -23,10 +23,11 @@ public class RobertCross {
                 int r2 = color3.getRed() - color4.getRed();
                 int r = (int)Math.sqrt(r2 * r2 + r1 * r1);
 
-                if (r < 0)
-                    r = 0;
-                if (r > 255)
+                if(r > KOF){
                     r = 255;
+                } else {
+                    r = 0;
+                }
 
                 Color color = new Color(r,r,r);
                 filteredImage.setRGB(j,i,color.getRGB());
