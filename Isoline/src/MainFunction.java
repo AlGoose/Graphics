@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class MainFunction {
+public class MainFunction implements Function{
     private double a;
     private double b;
     private double c;

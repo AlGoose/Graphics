@@ -1,8 +1,18 @@
 import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
 class Paint {
+    private Constants constants;
+    private MainFunction mainFunction;
+    private BufferedImage image;
+
+    Paint(Constants constants){
+        this.constants = constants;
+    }
+
     BufferedImage drawMap(MainFunction function, BufferedImage map){
         int width = map.getWidth();
         int height = map.getHeight();
@@ -11,15 +21,14 @@ class Paint {
         double deltaY = (function.getD() - function.getC())/height;
         double startX;
         double startY = function.getC();
-        Constants.Constants(function);
 
         for (int y = 0; y < map.getHeight(); y++){
             startX = function.getA();
             for(int x = 0; x < map.getWidth(); x++){
                 double z = function.findValue(startX,startY);
-                for(int i=0; i<Constants.number; i++){
-                    if(Constants.segment[i] <= z && z <= Constants.segment[i+1]){
-                        map.setRGB(x,y,Constants.colors[i].getRGB());
+                for(int i=0; i<constants.number; i++){
+                    if(constants.segment[i] <= z && z <= constants.segment[i+1]){
+                        map.setRGB(x,y,constants.colors[i].getRGB());
                     }
                 }
                 startX += deltaX;
@@ -29,15 +38,15 @@ class Paint {
         return  map;
     }
 
-    BufferedImage drawGrid(int width, int height, BufferedImage image){
+    BufferedImage drawGrid(BufferedImage image){
         Graphics g = image.getGraphics();
         g.setColor(Color.BLACK);
 
         int imageWidth = image.getWidth();
         int imageHeight = image.getHeight();
 
-        int gridWidth = width;
-        int gridHeight = height;
+        int gridWidth = constants.gridWidth;
+        int gridHeight = constants.gridHeight;
 
         double deltaX = imageWidth / (gridWidth);
         double deltaY = imageHeight / (gridHeight);
@@ -61,42 +70,173 @@ class Paint {
         return image;
     }
 
-    BufferedImage drawLegend(BufferedImage image){
-        for (int y = 0; y < image.getHeight(); y++){
-            for(int x = 0; x < image.getWidth(); x++){
-                for(int i=0; i<Constants.number; i++){
-                    if(Constants.legendSegment[i] <= y && y <= Constants.legendSegment[i+1]){
-                        image.setRGB(x,y,Constants.colors[(Constants.number - 1) - i].getRGB());
+    BufferedImage drawLegend(LegendFunction function, BufferedImage legend){
+        int height = legend.getHeight();
+
+        double deltaY = (function.getD() - function.getC())/height;
+        double startY = function.getC();
+
+        for (int y = 0; y < legend.getHeight(); y++){
+            for(int x = 0; x < legend.getWidth(); x++){
+                double z = function.findValue(0,startY);
+                for(int i=0; i<constants.number; i++){
+                    if(constants.legendSegment[i] <= z && z <= constants.legendSegment[i+1]){
+                        legend.setRGB(x,y,constants.colors[i].getRGB());
                     }
                 }
             }
+            startY += deltaY;
         }
-        return  image;
+        return legend;
     }
 
-    BufferedImage paintIsolines(MainFunction function, BufferedImage image){
-        for (int k = 1; k < Constants.segment.length - 1; k++) {
-            paintIsoline(Constants.segment[k], function, image);
-            System.out.println(Constants.segment[k]);
+    BufferedImage drawValue(BufferedImage image){
+        Graphics2D g = image.createGraphics();
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("TimesRoman", Font.PLAIN,20));
+        int deltaValue = image.getHeight() / constants.number;
+
+        for(int i=1, y = deltaValue - 5; i<constants.number; i++, y+= deltaValue){
+            String value = String.valueOf(constants.segment[constants.number - i]);
+            Rectangle bounds = getStringBounds(g, value, 0, 0);
+            int a = bounds.width;
+            int b = bounds.height;
+            g.drawString(value,image.getWidth()/2 - (a+1)/2,y + b);
         }
         return image;
     }
 
-    private BufferedImage paintIsoline(double levelValue, MainFunction function, BufferedImage image){
-//        BufferedImage image = image2;
+    private Rectangle getStringBounds(Graphics2D g2, String str, float x, float y){
+        FontRenderContext frc = g2.getFontRenderContext();
+        GlyphVector gv = g2.getFont().createGlyphVector(frc, str);
+        return gv.getPixelBounds(null, x, y);
+    }
+
+    BufferedImage makeInterpolationMap(MainFunction function, BufferedImage image){
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        double deltaX = (function.getB() - function.getA())/width;
+        double deltaY = (function.getD() - function.getC())/height;
+        double startX;
+        double startY = function.getC();
+
+        int index = 0;
+
+        for (int y = 0; y < image.getHeight(); y++){
+            startX = function.getA();
+            for(int x = 0; x < image.getWidth(); x++){
+                double value = function.findValue(startX,startY);
+
+                if (value > constants.segment[constants.segment.length - 1]) {
+                    index = constants.segment.length - 1;
+                }
+                else {
+                    for (int i = 1; i < constants.segment.length; i++) {
+                        if (value < constants.segment[i]) {
+                            index = i;
+                            break;
+                        }
+                    }
+                }
+
+                Color colorPrev = (index != 0) ? (constants.colors[index - 1]) : (constants.colors[constants.colors.length - 1]);
+                Color colorNext = (index != constants.segment.length - 1) ? (constants.colors[index]) : (constants.colors[index - 1]);
+
+                double valuePrev = (index != 0) ? (constants.segment[index - 1]) : (constants.segment[constants.segment.length - 1]);
+                double valueNext = constants.segment[index];
+
+                int red = (int)(colorPrev.getRed() * (valueNext - value)/(valueNext - valuePrev) + colorNext.getRed() * (value - valuePrev)/(valueNext - valuePrev));
+                int green = (int)(colorPrev.getGreen() * (valueNext - value)/(valueNext - valuePrev) + colorNext.getGreen() * (value - valuePrev)/(valueNext - valuePrev));
+                int blue = (int)(colorPrev.getBlue() * (valueNext - value)/(valueNext - valuePrev) + colorNext.getBlue() * (value - valuePrev)/(valueNext - valuePrev));
+
+                image.setRGB(x,y, new Color(red,green,blue).getRGB());
+
+                startX += deltaX;
+            }
+            startY += deltaY;
+        }
+        return image;
+    }
+
+    BufferedImage makeInterpolationLegend(LegendFunction function, BufferedImage image){
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        double deltaX = (function.getB() - function.getA())/width;
+        double deltaY = (function.getD() - function.getC())/height;
+        double startX;
+        double startY = function.getC();
+
+        int index = 0;
+
+        for (int y = 0; y < image.getHeight(); y++){
+            startX = function.getA();
+            for(int x = 0; x < image.getWidth(); x++){
+                double value = function.findValue(startX,startY);
+
+                if (value > constants.legendSegment[constants.legendSegment.length - 1]) {
+                    index = constants.legendSegment.length - 1;
+                }
+                else {
+                    for (int i = 1; i < constants.legendSegment.length; i++) {
+                        if (value < constants.legendSegment[i]) {
+                            index = i;
+                            break;
+                        }
+                    }
+                }
+
+                Color colorPrev = (index != 0) ? (constants.colors[index - 1]) : (constants.colors[constants.colors.length - 1]);
+                Color colorNext = (index != constants.legendSegment.length - 1) ? (constants.colors[index]) : (constants.colors[index - 1]);
+
+                double valuePrev = (index != 0) ? (constants.legendSegment[index - 1]) : (constants.legendSegment[constants.legendSegment.length - 1]);
+                double valueNext = constants.legendSegment[index];
+
+                int red = (int)(colorPrev.getRed() * (valueNext - value)/(valueNext - valuePrev) + colorNext.getRed() * (value - valuePrev)/(valueNext - valuePrev));
+                int green = (int)(colorPrev.getGreen() * (valueNext - value)/(valueNext - valuePrev) + colorNext.getGreen() * (value - valuePrev)/(valueNext - valuePrev));
+                int blue = (int)(colorPrev.getBlue() * (valueNext - value)/(valueNext - valuePrev) + colorNext.getBlue() * (value - valuePrev)/(valueNext - valuePrev));
+
+                image.setRGB(x,y, new Color(red,green,blue).getRGB());
+
+                startX += deltaX;
+            }
+            startY += deltaY;
+        }
+        return image;
+    }
+
+    BufferedImage drawIsoline(MainFunction function, BufferedImage image){
+        this.mainFunction = function;
+        this.image = image;
+
+        for (int k = 1; k < constants.segment.length - 1; k++) {
+            paintIsoline(constants.segment[k]);
+        }
+        return this.image;
+    }
+
+    private void paintIsoline(double levelValue){
+//        BufferedImage image = fileSystem.getMainImage();
+//        Function function = fileSystem.getMainFunction();
+
         Graphics g = image.getGraphics();
-        Color isolineColor = Color.BLACK;
+//        Color isolineColor = fileSystem.getIsolineColor();
+        Color isolineColor = Color.black;
         g.setColor(isolineColor);
 
         int imageWidth = image.getWidth();
         int imageHeight = image.getHeight();
 
-        int gridWidth = Constants.gridWidth - 1;
-        int gridHeight = Constants.gridHeight - 1;
+//        int gridWidth = fileSystem.getGridWidth() - 1;
+//        int gridHeight = fileSystem.getGridHeight() - 1;
+        int gridWidth = constants.gridWidth - 1;
+        int gridHeight = constants.gridHeight - 1;
 
         double deltaX = imageWidth / gridWidth;
         double deltaY = imageHeight / gridHeight;
 
+        // 0 - up, 1 - down, 2 - left, 3 - right
         boolean [] isCrossedBorder = new boolean[4];
         int [] crossingPoints = new int[4];
         int count;
@@ -111,11 +251,12 @@ class Paint {
                     break;
                 }
 
-                count = countCrossedBorders(function, image, isCrossedBorder, crossingPoints, levelValue, x, y);
+                count = countCrossedBorders(isCrossedBorder, crossingPoints, levelValue, x, y);
 
                 switch (count) {
                     case 0:
                         break;
+
                     case 2:
                         int[] pointsX = new int[2];
                         int[] pointsY = new int[2];
@@ -175,7 +316,7 @@ class Paint {
                         int[] epsPoints = new int[4];
                         double eps = 0.002;
 
-                        countCrossedBorders(function, image, epsBorder, epsPoints, levelValue - eps, x, y);
+                        countCrossedBorders(epsBorder, epsPoints, levelValue - eps, x, y);
 
                         pointsX = new int[3];
                         pointsY = new int[3];
@@ -233,7 +374,8 @@ class Paint {
                         g.drawLine(pointsX[2], pointsY[2], pointsX[1], pointsY[1]);
 
                     case 4:
-                        boolean isCenterBigger = (function.findValue(x + deltaX / 2,y + deltaY / 2) > levelValue);
+                        boolean isCenterBigger = (mainFunction.findValue(x + deltaX / 2,
+                                y + deltaY / 2) > levelValue);
 
                         if (isCenterBigger) {
                             g.drawLine(crossingPoints[0], y, (int) Math.round(x + deltaX), crossingPoints[3]);
@@ -242,30 +384,35 @@ class Paint {
                             g.drawLine(crossingPoints[0], y, x, crossingPoints[2]);
                             g.drawLine(crossingPoints[1], (int) Math.round(y + deltaY), (int) Math.round(x + deltaX), crossingPoints[3]);
                         }
+
                         break;
+
                     default:
                         break;
                 }
-
             }
         }
-        return image;
     }
 
-    private int countCrossedBorders(MainFunction function, BufferedImage image, boolean [] isCrossedBorder, int[] crossingPoints, double levelValue, int x, int y){
+    private int countCrossedBorders(boolean [] isCrossedBorder, int[] crossingPoints, double levelValue, int x, int y){
+//        BufferedImage image = fileSystem.getMainImage();
+//        Function function = fileSystem.getMainFunction();
+
         int imageWidth = image.getWidth();
         int imageHeight = image.getHeight();
 
-        int gridWidth = Constants.gridWidth - 1;
-        int gridHeight = Constants.gridHeight - 1;
+//        int gridWidth = fileSystem.getGridWidth() - 1;
+//        int gridHeight = fileSystem.getGridHeight() - 1;
+        int gridWidth = constants.gridWidth - 1;
+        int gridHeight = constants.gridHeight - 1;
 
         double deltaX = imageWidth / gridWidth;
         double deltaY = imageHeight / gridHeight;
 
         int count = 0;
 
-        double domainX = (function.getB() - function.getA()) / (imageWidth);
-        double domainY = (function.getD() - function.getC()) / (imageHeight);
+        double domainX = (mainFunction.getB() - mainFunction.getA()) / (imageWidth);
+        double domainY = (mainFunction.getD() - mainFunction.getC()) / (imageHeight);
 
         double valueNW;
         double valueNE;
@@ -275,10 +422,11 @@ class Paint {
         Arrays.fill(isCrossedBorder, true);
         Arrays.fill(crossingPoints, -1);
 
-        valueNW = function.findValue(x * domainX, y * domainY);
-        valueNE = function.findValue((x + deltaX) * domainX, y * domainY);
-        valueSW = function.findValue(x * domainX, (y + deltaY) * domainY);
-        valueSE = function.findValue((x + deltaX) * domainX, (y + deltaY) * domainY);
+        valueNW = mainFunction.findValue(x * domainX, y * domainY);
+        valueNE = mainFunction.findValue((x + deltaX) * domainX, y * domainY);
+        valueSW = mainFunction.findValue(x * domainX, (y + deltaY) * domainY);
+        valueSE = mainFunction.findValue((x + deltaX) * domainX, (y + deltaY) * domainY);
+
 
         if ((levelValue < valueNW && levelValue < valueNE) || (levelValue > valueNW && levelValue > valueNE)) {
             isCrossedBorder[0] = false;
@@ -305,6 +453,7 @@ class Paint {
 
             crossingPoints[2] = (int) (y + deltaY - deltaY * domain1 / domain2);
         }
+
         if ((levelValue < valueNE && levelValue < valueSE) || (levelValue > valueNE && levelValue > valueSE)) {
             isCrossedBorder[3] = false;
         } else {

@@ -1,4 +1,4 @@
-public class LegendFunction {
+public class LegendFunction implements Function{
     private double a;
     private double b;
     private double c;
@@ -8,15 +8,15 @@ public class LegendFunction {
     private double min;
 
     public LegendFunction() {
-        a = 0;
-        b = 0;
-        c = 0;
-        d = 10;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 10;
 
         findExtrema();
     }
 
-    public double findValue(double y) {
+    public double findValue(double x, double y) {
         return -y;
     }
 
@@ -45,7 +45,7 @@ public class LegendFunction {
     }
 
     private void findExtrema() {
-        max = 0;
-        min = -d;
+        this.max = 0;
+        this.min = -d;
     }
 }
