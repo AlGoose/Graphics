@@ -7,7 +7,8 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 class Constants {
-    public int segment[];
+//    public int segment[];
+    public double segment[];
     public double legendSegment[];
     public Color[] colors;
     public int number;
@@ -17,28 +18,35 @@ class Constants {
     public double B = 10.;
     public double C = 0.;
     public double D = 10.;
+    public double xCoeff;
+    public double yCoeff;
 
     public Constants(){}
 
     public void makeSegments(MainFunction mainFunction, LegendFunction legendFunction){
-        segment = new int[number + 1];
+//        segment = new int[number + 1];
+        segment = new double[number + 1];
         legendSegment = new double[number + 1];
 
-        int deltaMain = (int)((mainFunction.getMax() - mainFunction.getMin()) / number);
+//        int deltaMain = (int)((mainFunction.getMax() - mainFunction.getMin()) / number);
+        double deltaMain = (mainFunction.getMax() - mainFunction.getMin()) / number;
         double deltaLegend = legendFunction.getMax() - legendFunction.getMin() / number;
 
         double mainRes = mainFunction.getMin();
         double legendRes = legendFunction.getMin();
 
-        segment[0] = (int)mainRes;
+//        segment[0] = (int)mainRes;
+        segment[0] = mainRes;
         legendSegment[0] = legendRes;
         for(int i = 1; i<number; i++){
             legendRes = legendRes + deltaLegend;
             mainRes = mainRes + deltaMain;
-            segment[i] = (int)mainRes;
+//            segment[i] = (int)mainRes;
+            segment[i] = mainRes;
             legendSegment[i] = legendRes;
         }
-        segment[number] = (int)mainFunction.getMax();
+//        segment[number] = (int)mainFunction.getMax();
+        segment[number] = mainFunction.getMax();
         legendSegment[number] = legendFunction.getMax();
     }
 

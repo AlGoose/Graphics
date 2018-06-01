@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class MainFunction implements Function{
+public class MainFunction{
     private double a;
     private double b;
     private double c;
@@ -24,9 +24,8 @@ public class MainFunction implements Function{
         findExtreme();
     }
 
-    public double findValue(double x, double y) {
-        return (x*x - y*y);
-    }
+    public double findValue(double x, double y) { return (x*x - y*y); }
+//    public double findValue(double x, double y) { return (Math.sin(x) + Math.cos(y)); }
 
     public double getA() {
         return a;
@@ -53,8 +52,8 @@ public class MainFunction implements Function{
     }
 
     private void findExtreme() {
-        double deltaX = (b - a) / (gridWidth - 1);
-        double deltaY = (d - c) / (gridHeight - 1);
+        double deltaX = (b - a) / (gridWidth -1);
+        double deltaY = (d - c) / (gridHeight -1);
 
         double[] values = new double[gridWidth * gridHeight];
 

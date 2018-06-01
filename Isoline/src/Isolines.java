@@ -1,7 +1,12 @@
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -14,6 +19,7 @@ public class Isolines{
     private JPanel mainPanel;
     private BufferedImage map;
     private BufferedImage legend;
+    private JLabel statusBar;
 
     private MainFunction mainFunction;
     private LegendFunction legendFunction;
@@ -23,15 +29,24 @@ public class Isolines{
     private Boolean netMode = false;
     private Boolean interpolationMode = false;
     private Boolean isolineMode = false;
+    private Boolean clickMode = false;
+    private Boolean dynamicMode = false;
+    private Boolean jopa = true;
+    private Boolean circleMode = false;
+
+    private int startXSize;
+    private int startYSize;
 
     private void start(){
         mainFrame = new JFrame("Isolines");
         mainFrame.setLayout(new BorderLayout());
-        mainFrame.setSize(new Dimension(840,700));
-        mainFrame.setMinimumSize(new Dimension(840,700));
+        mainFrame.setSize(new Dimension(850,700));
+        mainFrame.setMinimumSize(new Dimension(850,700));
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainFrame.add(Toolbar(),BorderLayout.NORTH);
         mainFrame.add(Panel(),BorderLayout.CENTER);
+        mainFrame.add(StatusBar(),BorderLayout.SOUTH);
+
         mainFrame.setVisible(true);
     }
 
@@ -41,19 +56,23 @@ public class Isolines{
         /*-------------------------------------------------------------*/
         JButton jButtonNew = new JButton(new ImageIcon("src/icons/new24.png"));
         JButton jButtonSetting = new JButton(new ImageIcon("src/icons/settings24.png"));
-        JButton jButtonMap = new JButton(new ImageIcon("src/icons/map24.png"));
         JButton jButtonInterpolation = new JButton(new ImageIcon("src/icons/brush24.png"));
         JButton jButtonNet = new JButton(new ImageIcon("src/icons/net24.png"));
         JButton jButtonIsoline = new JButton(new ImageIcon("src/icons/lines24.png"));
+        JButton jButtonClick = new JButton(new ImageIcon("src/icons/click24.png"));
+        JButton jButtonDynamic = new JButton(new ImageIcon("src/icons/move24.png"));
+        JButton jButtonCircle = new JButton(new ImageIcon("src/icons/circle24.png"));
         /*-------------------------------------------------------------*/
         jToolBar.add(jButtonNew);
         jToolBar.add(jButtonSetting);
         jToolBar.add(new JToolBar.Separator());
-        jToolBar.add(jButtonMap);
         jToolBar.add(jButtonInterpolation);
         jToolBar.add(new JToolBar.Separator());
         jToolBar.add(jButtonNet);
         jToolBar.add(jButtonIsoline);
+        jToolBar.add(jButtonClick);
+        jToolBar.add(jButtonDynamic);
+        jToolBar.add(jButtonCircle);
         /*-------------------------------------------------------------*/
         jButtonNet.addActionListener(e -> {
             if(netMode){
@@ -76,6 +95,10 @@ public class Isolines{
             this.constants.makeSegments(mainFunction,legendFunction);
             this.paint = new Paint(this.constants);
 
+            this.startXSize = mapPanel.getWidth();
+            this.startYSize = mapPanel.getHeight();
+            System.out.println(startXSize + " | " + startYSize);
+
             drawMap();
             drawLegend();
             drawValue();
@@ -85,9 +108,17 @@ public class Isolines{
                 interpolationMode = false;
                 drawMap();
                 drawLegend();
+                jButtonInterpolation.setIcon(new ImageIcon("src/icons/brush24.png"));
+                if(netMode){
+                    drawGrid();
+                }
             } else {
                 interpolationMode = true;
                 makeInterpolation();
+                jButtonInterpolation.setIcon(new ImageIcon("src/icons/map24.png"));
+                if(netMode){
+                    drawGrid();
+                }
             }
         });
         jButtonIsoline.addActionListener(e -> {
@@ -98,8 +129,51 @@ public class Isolines{
                     drawGrid();
                 }
             } else {
+                if(jopa){
+                    drawIsoline();
+                    jopa = false;
+                }
                 isolineMode = true;
-                drawIsoline();
+
+                double xCoeff = (double)mapPanel.getWidth() / startXSize;
+                double yCoeff = (double)mapPanel.getHeight() / startYSize;
+
+                map = paint.drawBufferedIsolines(map,xCoeff,yCoeff);
+                mapPanel.repaint();
+
+                if(netMode){
+                    drawGrid();
+                }
+            }
+        });
+        jButtonClick.addActionListener(e -> {
+            if(clickMode){
+                clickMode = false;
+                jButtonClick.setIcon(new ImageIcon("src/icons/click24.png"));
+            } else {
+                clickMode = true;
+                jButtonClick.setIcon(new ImageIcon("src/icons/cross24.png"));
+            }
+        });
+        jButtonDynamic.addActionListener(e -> {
+            if(dynamicMode){
+                dynamicMode = false;
+                jButtonDynamic.setIcon(new ImageIcon("src/icons/move24.png"));
+            } else {
+                dynamicMode = true;
+                jButtonDynamic.setIcon(new ImageIcon("src/icons/cross24.png"));
+            }
+        });
+        jButtonCircle.addActionListener(e -> {
+            if(circleMode){
+                circleMode = false;
+                drawMap();
+                if(isolineMode){
+                    drawIsoline();
+                }
+            } else {
+                circleMode = true;
+                drawCircle();
             }
         });
         /*-------------------------------------------------------------*/
@@ -139,8 +213,84 @@ public class Isolines{
                         drawGrid();
                     }
                     if(isolineMode){
-                        drawIsoline();
+                        double xCoeff = (double)mapPanel.getWidth() / startXSize;
+                        double yCoeff = (double)mapPanel.getHeight() / startYSize;
+
+                        map = paint.drawBufferedIsolines(map,xCoeff,yCoeff);
+                        mapPanel.repaint();
+//                        drawIsoline();
                     }
+                }
+            }
+        });
+
+        mapPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(clickMode && map != null){
+                    Point point = e.getPoint();
+
+                    double deltaX = (mainFunction.getB() - mainFunction.getA())/map.getWidth();
+                    double deltaY = (mainFunction.getD() - mainFunction.getC())/map.getHeight();
+
+                    double valueX = deltaX * point.getX();
+                    double valueY = deltaY * point.getY();
+                    double res = mainFunction.findValue(valueX,valueY);
+
+                    constants.xCoeff = (double)mapPanel.getWidth() / startXSize;
+                    constants.yCoeff = (double)mapPanel.getHeight() / startYSize;
+                    map = paint.drawIso(mainFunction, map, res);
+                    mapPanel.repaint();
+                }
+            }
+        });
+
+        mapPanel.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                if(dynamicMode && map != null){
+                    Point point = e.getPoint();
+
+                    double deltaX = (mainFunction.getB() - mainFunction.getA())/map.getWidth();
+                    double deltaY = (mainFunction.getD() - mainFunction.getC())/map.getHeight();
+
+                    double valueX = deltaX * point.getX();
+                    double valueY = deltaY * point.getY();
+                    double res = mainFunction.findValue(valueX,valueY);
+
+                    map = paint.drawMap(mainFunction,map);
+//                    map = paint.drawD;
+                    constants.xCoeff = (double)mapPanel.getWidth() / startXSize;
+                    constants.yCoeff = (double)mapPanel.getHeight() / startYSize;
+                    map = paint.drawDynamicIsoline(mainFunction, map, res);
+
+                    if(isolineMode){
+                        double xCoeff = (double)mapPanel.getWidth() / startXSize;
+                        double yCoeff = (double)mapPanel.getHeight() / startYSize;
+
+                        map = paint.drawBufferedIsolines(map,xCoeff,yCoeff);
+                    }
+                    mapPanel.repaint();
+
+                }
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                if(map != null){
+                    Point point = e.getPoint();
+
+                    double deltaX = (mainFunction.getB() - mainFunction.getA())/map.getWidth();
+                    double deltaY = (mainFunction.getD() - mainFunction.getC())/map.getHeight();
+
+                    double valueX = deltaX * point.getX();
+                    String formattedX = String.format("%.2f", valueX);
+                    double valueY = deltaY * point.getY();
+                    String formattedY = String.format("%.2f", valueY);
+                    double res = mainFunction.findValue(valueX,valueY);
+                    String formattedRes = String.format("%.2f", res);
+
+                    statusBar.setText("X: " + formattedX + " | Y: " + formattedY + " | F: " + formattedRes);
                 }
             }
         });
@@ -149,6 +299,14 @@ public class Isolines{
         mainPanel.add(valuePanel);
         mainPanel.add(legendPanel);
         return mainPanel;
+    }
+
+    private JLabel StatusBar(){
+        statusBar = new JLabel("Ready");
+        statusBar.setPreferredSize(new Dimension(mainFrame.getWidth(), 20));
+        statusBar.setBorder(new CompoundBorder(new LineBorder(Color.DARK_GRAY),
+                new EmptyBorder(4, 4, 4, 4)));
+        return statusBar;
     }
 
     private void drawMap(){
@@ -197,6 +355,13 @@ public class Isolines{
 
     private void drawIsoline(){
         this.map = paint.drawIsoline(mainFunction, map);
+        this.mapPanel.repaint();
+    }
+
+    private void drawCircle(){
+        double xCoeff = (double)mapPanel.getWidth() / startXSize;
+        double yCoeff = (double)mapPanel.getHeight() / startYSize;
+        this.map = paint.drawCircles(map,xCoeff,yCoeff);
         this.mapPanel.repaint();
     }
 

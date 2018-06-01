@@ -1,4 +1,4 @@
-public class LegendFunction implements Function{
+public class LegendFunction{
     private double a;
     private double b;
     private double c;
